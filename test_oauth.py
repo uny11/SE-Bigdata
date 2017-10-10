@@ -7,8 +7,8 @@ from  doc.oauthhelper.oauthhelper import OAuthHelper
 # create a new helper object
 oauth_helper = OAuthHelper()
 
-user_key = 'nnch734d00sl2jdk'
-user_secret = 'pfkkdhi9sl3r4s00'
+user_key = 'XXX'
+user_secret = 'XXX'
 
 # 2) Access protected resources
 # Once a valid Access Token for a particular user is obtained, it is used for
