@@ -5,7 +5,6 @@ from contextlib import closing
 from urllib.request import urlopen
 from urllib.parse import parse_qsl
 from urllib.parse import urlencode
-import hidden
 
 #Vamos a definir una clase que contenga todas las constantes y funciones con sus variables inicializadas
 class CHPPhelp(object):
@@ -16,9 +15,8 @@ class CHPPhelp(object):
     check_token_path      = 'https://chpp.hattrick.org/oauth/check_token.ashx'
     invalidate_token_path = 'https://chpp.hattrick.org/oauth/invalidate_token.ashx'
     resources_path        = 'http://chpp.hattrick.org/chppxml.ashx'
-    mysecrets = hidden.keys_app()
-    chpp_key = mysecrets['consumer_key']
-    chpp_secret = mysecrets['consumer_secret']
+    chpp_key              = '1Pg9hSfo5mkli2zaT8Hprr'
+    chpp_secret           = 'ERhrDhuV2uIEHG75QtHnHXDrOOYMixXzBS1V9yy3EZ6'
 
     def __init__(self):
         self.consumer = oauth.Consumer(key=self.chpp_key,
