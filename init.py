@@ -3,15 +3,15 @@
 
 from  chpp import CHPPhelp
 import hidden
+import xml.etree.ElementTree as ET
 
-#Iniciamos claves para acceder a los recursos CHPP
+#Iniciamos claves para acceder a los recursos CHPP de la API de Hatrick
 helper = CHPPhelp()
 secrets = hidden.keys_app()
 user_key = secrets['token_key']
 user_secret = secrets['token_secret']
 
-#ya podemos acceder a los recursos CHPP
-# example: get the list of youth players
+#Example: get the list of youth players
 #xmldoc = helper.request_resource_with_key(      user_key,
 #                                                user_secret,
 #                                                'youthplayerlist',

@@ -95,7 +95,7 @@ class CHPPhelp(object):
         # sign it
         req.sign_request(self.signature_method, self.consumer, token)
         connection = urlopen(req.to_url())
-        data = connection.read()
+        data = connection.read().decode("utf-8")
 
         return data
 
