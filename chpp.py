@@ -4,6 +4,7 @@ import oauth2 as oauth
 from contextlib import closing
 from urllib.request import urlopen
 from urllib.parse import parse_qsl
+from urllib.parse import urlencode
 
 #Vamos a definir una clase que contenga todas las constantes y funciones con sus variables inicializadas
 class CHPPhelp(object):
@@ -14,8 +15,8 @@ class CHPPhelp(object):
     check_token_path      = 'https://chpp.hattrick.org/oauth/check_token.ashx'
     invalidate_token_path = 'https://chpp.hattrick.org/oauth/invalidate_token.ashx'
     resources_path        = 'http://chpp.hattrick.org/chppxml.ashx'
-    chpp_key              = '1Pg9h_____T8Hprr'
-    chpp_secret           = 'ERhrDhu______1V9yy3EZ6'
+    chpp_key              = '1Pg9hSfo5mkli2zaT8Hprr'
+    chpp_secret           = 'ERhrDhuV2uIEHG75QtHnHXDrOOYMixXzBS1V9yy3EZ6'
 
     def __init__(self):
         self.consumer = oauth.Consumer(key=self.chpp_key,
@@ -77,3 +78,28 @@ class CHPPhelp(object):
         token = oauth.Token(request_token['oauth_token'],
                             request_token['oauth_token_secret'])
         return token
+
+    def request_resource(self, token, filename, query=[]):
+        # build the request
+        url = "%s?file=%s&%s" % (self.resources_path, filename, urlencode(query))
+        req = oauth.Request(method='GET',
+                            url=url,
+                            parameters={
+                                        'oauth_nonce': oauth.generate_nonce(),
+                                        'oauth_timestamp': oauth.generate_timestamp(),
+                                        'oauth_version': '1.0',
+                                        },
+                            is_form_encoded=True # needed to avoid oauth_body_hash
+                            )
+
+        # sign it
+        req.sign_request(self.signature_method, self.consumer, token)
+        connection = urlopen(req.to_url())
+        data = connection.read()
+
+        return data
+
+    def request_resource_with_key(self, token, token_secret, filename, query=[]):
+        token = oauth.Token(token, token_secret)
+
+        return self.request_resource(token, filename, query)

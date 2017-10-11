@@ -1,9 +1,8 @@
 
 #Keep this file in secret!!
-#De momento ncluyo los token para hacer algun test con la API de Hatrick directamente
 
-def oauth():
-    return {"consumer_key": "XXXXX",
-            "consumer_secret" : "XXXXXX",
-            "token_key" : "XXXXXX",
-            "token_secret" : "XXXXXX"}
+def keys_app():
+    return {"consumer_key": "1Pg9hSfo5mkli2zaT8Hprr",
+            "consumer_secret" : "ERhrDhuV2uIEHG75QtHnHXDrOOYMixXzBS1V9yy3EZ6",
+            "token_key" : "sEItnpfTNEsvv29n",
+            "token_secret" : "ckTv7zTnq49VptTO"}
