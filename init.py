@@ -22,14 +22,19 @@ except:
 cur.close()
 
 
-# Example to get the list of youth players
-xmldoc = helper.request_resource_with_key(     user_key,
-                                               user_secret,
-                                               'youthplayerlist',
-                                               {
-                                                'actionType' : 'details',
-                                                'showScoutCall' : 'true',
-                                                'showLastMatch' : 'true'
-                                               }
-                                              )
-print(xmldoc)
+
+
+
+
+
+# # Example to get the list of youth players
+# xmldoc = helper.request_resource_with_key(     user_key,
+#                                                user_secret,
+#                                                'youthplayerlist',
+#                                                {
+#                                                 'actionType' : 'details',
+#                                                 'showScoutCall' : 'true',
+#                                                 'showLastMatch' : 'true'
+#                                                }
+#                                               )
+# print(xmldoc)
