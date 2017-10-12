@@ -1,11 +1,11 @@
-#Esta version de chpp.py va a buscar los chpp_key/chpp_secret en la base de datos de la App
+#Esta version de chpp.py va a buscar los chpp_key/chpp_secret en hidden.py
 
 import oauth2 as oauth
 from contextlib import closing
 from urllib.request import urlopen
 from urllib.parse import parse_qsl
 from urllib.parse import urlencode
-import sqlite3
+import hidden
 
 #Vamos a definir una clase que contenga todas las constantes y funciones con sus variables inicializadas
 class CHPPhelp(object):
@@ -16,13 +16,9 @@ class CHPPhelp(object):
     check_token_path      = 'https://chpp.hattrick.org/oauth/check_token.ashx'
     invalidate_token_path = 'https://chpp.hattrick.org/oauth/invalidate_token.ashx'
     resources_path        = 'http://chpp.hattrick.org/chppxml.ashx'
-    conn = sqlite3.connect('bigdata.sqlite')
-    cur = conn.cursor()
-    cur.execute('SELECT key FROM keys WHERE id = 1 LIMIT 1')
-    chpp_key = cur.fetchone()[0]
-    cur.execute('SELECT key FROM keys WHERE id = 2 LIMIT 1')
-    chpp_secret = cur.fetchone()[0]
-    cur.close()
+    mysecrets = hidden.keys_app()
+    chpp_key = mysecrets['consumer_key']
+    chpp_secret = mysecrets['consumer_secret']
 
     def __init__(self):
         self.consumer = oauth.Consumer(key=self.chpp_key,

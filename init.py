@@ -1,18 +1,20 @@
-#Este es el programa base de la App
-#Empezaremos con algunos test basicos con la API de hattrick (o CHPP)
 
 from  chpp import CHPPhelp
-import hidden
 import xml.etree.ElementTree as ET
+import sqlite3
 
-#Iniciamos claves para acceder a los recursos CHPP de la API de Hatrick
+# Iniciamos claves para acceder a los recursos CHPP de la API de Hatrick
 helper = CHPPhelp()
-secrets = hidden.keys_app()
-user_key = secrets['token_key']
-user_secret = secrets['token_secret']
+conn = sqlite3.connect('bigdata.sqlite')
+cur = conn.cursor()
+cur.execute('SELECT key FROM keys WHERE id = 3 LIMIT 1')
+user_key = cur.fetchone()[0]
+cur.execute('SELECT key FROM keys WHERE id = 4 LIMIT 1')
+user_secret = cur.fetchone()[0]
+cur.close()
 
-#Example: get the list of youth players
-#xmldoc = helper.request_resource_with_key(      user_key,
+# Example to get the list of youth players
+# xmldoc = helper.request_resource_with_key(      user_key,
 #                                                user_secret,
 #                                                'youthplayerlist',
 #                                                {
@@ -21,3 +23,15 @@ user_secret = secrets['token_secret']
 #                                                 'showLastMatch' : 'true'
 #                                                }
 #                                               )
+# print(xmldoc)
+
+# #Buscamos si la App ya conoce las claves para conectarse
+# conn = sqlite3.connect('bigdata.sqlite')
+# cur = conn.cursor()
+# try:
+#     cur.execute('SELECT key FROM keys WHERE id = 3')
+#     print('Las claves existen, GENIAL')
+# except:
+#     print('Las claves NO existen, hay que lanzar proceso de Auth')
+#
+# cur.close()

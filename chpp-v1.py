@@ -1,4 +1,4 @@
-##Este aricho contiene las contantes y funciones necesarias para interactuar con la API de Hattrick CHPP
+#Esta version del archivo chpp.py contiene los chpp_key/chpp_secret dentro de la clase CHPPhelp
 
 import oauth2 as oauth
 from contextlib import closing
