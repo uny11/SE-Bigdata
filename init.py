@@ -5,15 +5,20 @@ import sqlite3
 
 # Iniciamos claves para acceder a los recursos CHPP de la API de Hatrick
 helper = CHPPhelp()
+
+# Buscamos si la App ya esta autorizada por el usuario para conectarse
 conn = sqlite3.connect('bigdata.sqlite')
 cur = conn.cursor()
-cur.execute('SELECT key FROM keys WHERE id = 3 LIMIT 1')
-user_key = cur.fetchone()[0]
-cur.execute('SELECT key FROM keys WHERE id = 4 LIMIT 1')
-user_secret = cur.fetchone()[0]
+try:
+    cur.execute('SELECT key FROM keys WHERE id = 3')
+    test = cur.fetchone()[0]
+except:
+    # Si el test falla, lanzamos proceso de autorizacion
+    helper.get_auth()
 cur.close()
 
-# Example to get the list of youth players
+
+# # Example to get the list of youth players
 # xmldoc = helper.request_resource_with_key(      user_key,
 #                                                user_secret,
 #                                                'youthplayerlist',
@@ -24,14 +29,3 @@ cur.close()
 #                                                }
 #                                               )
 # print(xmldoc)
-
-# #Buscamos si la App ya conoce las claves para conectarse
-# conn = sqlite3.connect('bigdata.sqlite')
-# cur = conn.cursor()
-# try:
-#     cur.execute('SELECT key FROM keys WHERE id = 3')
-#     print('Las claves existen, GENIAL')
-# except:
-#     print('Las claves NO existen, hay que lanzar proceso de Auth')
-#
-# cur.close()
