@@ -8,7 +8,7 @@ Se lista la lista de tablas y la lista de los campos de cada una de ellas.
 - alineacion
 - sustituciones
 
-## Tabla "partidos"
+## Tabla "partidos" (match.xml para lista de partidos y matchdetails.xml para detalles)
 - [KEY] MatchID
 - MatchType
 - MatchDate
@@ -33,7 +33,7 @@ Se lista la lista de tablas y la lista de los campos de cada una de ellas.
 - RatingIndirectSetPiecesDefAway
 - RatingIndirectSetPiecesAttAway
 
-## Tabla "jugadores"
+## Tabla "jugadores" (playerdetails.xml)
 - [KEY] PlayerID
 - Agreeability
 - Aggressiveness
@@ -41,13 +41,13 @@ Se lista la lista de tablas y la lista de los campos de cada una de ellas.
 - Leadership
 - Specialty
 
-## Tabla "eventos"
+## Tabla "eventos" (matchdetails.xml)
 - [KEY] MatchID
 - [KEY] Index
 - Minute
 - EventTypeID
-- SubjectPlayerID
 - SubjectTeamID
+- SubjectPlayerID
 - ObjectPlayerID
 - SubPorteria
 - SubDefensa
@@ -70,7 +70,7 @@ Se lista la lista de tablas y la lista de los campos de cada una de ellas.
 - ObjForma
 - ObjResistencia
 
-## Tabla "alineacion"
+## Tabla "alineacion" (matchlineaup.xml)
 - [KEY] MatchID
 - TeamIDHome
 - TeamIDAway
@@ -107,7 +107,7 @@ Se lista la lista de tablas y la lista de los campos de cada una de ellas.
 - Capitan_Away #RoleID = 17
 - Bepero_Away #RoleID = 18
 
-## Tabla "Sustituciones"
+## Tabla "Sustituciones" (matchdetails.xml)
 - [KEY] MatchID
 - SubjectPlayerID_S1_Home #Sino hay Sustituciones toma el valor "0"
 - ObjectPlayerID_S1_Home

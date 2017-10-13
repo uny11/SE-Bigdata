@@ -1,6 +1,8 @@
 # App con interface de consola
 
 from  chpp import CHPPhelp
+from bbdd import BBDDhelp
+from datetime import datetime
 import xml.etree.ElementTree as ET
 import sqlite3
 
@@ -44,9 +46,9 @@ while True:
     opcion = input('>> ')
 
     if opcion == '1':
-        print('\n')
-        print('Perdón! Sigue en contrucción')
-        print('\n')
+        bbdd = BBDDhelp()
+        fechalimite = datetime.today() #+ 28
+        bbdd.lista_partidos(helper, user_key, user_secret, fechalimite)
     elif opcion == '2':
         print('\n')
         print('Perdón! Sigue en contrucción')
