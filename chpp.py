@@ -113,7 +113,7 @@ class CHPPhelp(object):
     def get_auth(self):        # Archivo auth.py
         # Generamos la url para obtener el pin de autorizacion CHPP
         registration_url = self.get_request_token_url()
-        print ('Abrir esta url en tu navegador para obtener el PIN: ',registration_url)
+        print ('Abre esta direccion en tu navegador para obtener el PIN: ',registration_url)
 
         # recuperamos el pin del usuario
         pin = input('Entrar PIN: ')
@@ -137,6 +137,7 @@ class CHPPhelp(object):
         conn.commit()
         cur.close()
 
+        print('\n')
         print('SE-Bigdata ha sido autorizado con éxito!')
         print('Disfruta de tus estadisticas!')
-        print('    by uny11')
+        print('\n')
