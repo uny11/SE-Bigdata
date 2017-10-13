@@ -1,357 +1,573 @@
+
+
 <?xml version="1.0" encoding="utf-8"?>
 <HattrickData>
   <FileName>matchdetails.xml</FileName>
   <Version>2.9</Version>
   <UserID>10150426</UserID>
-  <FetchedDate>2017-10-12 21:00:11</FetchedDate>
+  <FetchedDate>2017-10-13 12:01:41</FetchedDate>
   <UserSupporterTier>platinum</UserSupporterTier>
   <SourceSystem>Hattrick</SourceSystem>
   <Match>
-    <MatchID>52282171</MatchID>
-    <MatchType>1</MatchType>
-    <MatchContextId>80680</MatchContextId>
-    <CupLevel>0</CupLevel>
-    <CupLevelIndex>0</CupLevelIndex>
-    <MatchDate>2005-11-05 18:40:00</MatchDate>
-    <FinishedDate>2005-11-05 20:25:00</FinishedDate>
-    <AddedMinutes>0</AddedMinutes>
+    <MatchID>615085410</MatchID>
+    <MatchType>3</MatchType>
+    <MatchContextId>43</MatchContextId>
+    <CupLevel>1</CupLevel>
+    <CupLevelIndex>1</CupLevelIndex>
+    <MatchDate>2017-10-11 12:00:00</MatchDate>
+    <FinishedDate>2017-10-11 13:46:00</FinishedDate>
+    <AddedMinutes>1</AddedMinutes>
     <HomeTeam>
-      <HomeTeamID>826235</HomeTeamID>
-      <HomeTeamName>Vorwärts Billstedt</HomeTeamName>
+      <HomeTeamID>796332</HomeTeamID>
+      <HomeTeamName>Los Peques Campeones</HomeTeamName>
       <DressURI>//res.hattrick.org/kits/1/1/1/1/matchKitSmall.png</DressURI>
-      <Formation>3-5-2</Formation>
-      <HomeGoals>2</HomeGoals>
+      <Formation>2-5-3</Formation>
+      <HomeGoals>4</HomeGoals>
       <TacticType>0</TacticType>
       <TacticSkill>0</TacticSkill>
-      <RatingMidfield>8</RatingMidfield>
-      <RatingRightDef>21</RatingRightDef>
-      <RatingMidDef>20</RatingMidDef>
-      <RatingLeftDef>16</RatingLeftDef>
-      <RatingRightAtt>9</RatingRightAtt>
-      <RatingMidAtt>11</RatingMidAtt>
-      <RatingLeftAtt>11</RatingLeftAtt>
+      <RatingMidfield>47</RatingMidfield>
+      <RatingRightDef>47</RatingRightDef>
+      <RatingMidDef>37</RatingMidDef>
+      <RatingLeftDef>44</RatingLeftDef>
+      <RatingRightAtt>55</RatingRightAtt>
+      <RatingMidAtt>52</RatingMidAtt>
+      <RatingLeftAtt>53</RatingLeftAtt>
+      <RatingIndirectSetPiecesDef>43</RatingIndirectSetPiecesDef>
+      <RatingIndirectSetPiecesAtt>35</RatingIndirectSetPiecesAtt>
     </HomeTeam>
     <AwayTeam>
-      <AwayTeamID>648638</AwayTeamID>
-      <AwayTeamName>SV Heimbach AH</AwayTeamName>
-      <DressURI>//res.hattrick.org/kits/1/1/1/1/matchKitSmall.png</DressURI>
-      <Formation>5-3-2</Formation>
+      <AwayTeamID>120994</AwayTeamID>
+      <AwayTeamName>V@der SC</AwayTeamName>
+      <DressURI>//res.hattrick.org/kits/19/183/1823/1822475/matchKitSmall.png</DressURI>
+      <Formation>3-5-2</Formation>
       <AwayGoals>2</AwayGoals>
       <TacticType>0</TacticType>
       <TacticSkill>0</TacticSkill>
-      <RatingMidfield>10</RatingMidfield>
-      <RatingRightDef>15</RatingRightDef>
-      <RatingMidDef>17</RatingMidDef>
-      <RatingLeftDef>15</RatingLeftDef>
-      <RatingRightAtt>7</RatingRightAtt>
-      <RatingMidAtt>17</RatingMidAtt>
-      <RatingLeftAtt>7</RatingLeftAtt>
+      <RatingMidfield>51</RatingMidfield>
+      <RatingRightDef>50</RatingRightDef>
+      <RatingMidDef>48</RatingMidDef>
+      <RatingLeftDef>53</RatingLeftDef>
+      <RatingRightAtt>52</RatingRightAtt>
+      <RatingMidAtt>53</RatingMidAtt>
+      <RatingLeftAtt>53</RatingLeftAtt>
+      <TeamAttitude>0</TeamAttitude>
+      <RatingIndirectSetPiecesDef>43</RatingIndirectSetPiecesDef>
+      <RatingIndirectSetPiecesAtt>37</RatingIndirectSetPiecesAtt>
     </AwayTeam>
     <Arena>
-      <ArenaID>829673</ArenaID>
-      <ArenaName>Billy Billstedt Arena</ArenaName>
+      <ArenaID>799770</ArenaID>
+      <ArenaName>PEQUELANDIA HAUSE</ArenaName>
       <WeatherID>1</WeatherID>
-      <SoldTotal>10685</SoldTotal>
+      <SoldTotal>58717</SoldTotal>
     </Arena>
     <MatchOfficials>
       <Referee>
-        <RefereeId>291524944</RefereeId>
-        <RefereeName>Tony De Bruycker</RefereeName>
-        <RefereeCountryId>44</RefereeCountryId>
-        <RefereeCountryName>Belgium</RefereeCountryName>
-        <RefereeTeamId>514873</RefereeTeamId>
-        <RefereeTeamname>Transvaaliens</RefereeTeamname>
+        <RefereeId>379002253</RefereeId>
+        <RefereeName>Martin Condon</RefereeName>
+        <RefereeCountryId>2</RefereeCountryId>
+        <RefereeCountryName>England</RefereeCountryName>
+        <RefereeTeamId>57200</RefereeTeamId>
+        <RefereeTeamname>Mersey Toffees FC</RefereeTeamname>
       </Referee>
       <RefereeAssistant1>
-        <RefereeId>0</RefereeId>
-        <RefereeName> </RefereeName>
-        <RefereeCountryId>0</RefereeCountryId>
-        <RefereeCountryName />
-        <RefereeTeamId>0</RefereeTeamId>
-        <RefereeTeamname></RefereeTeamname>
+        <RefereeId>302303537</RefereeId>
+        <RefereeName>Aivars Stārķis</RefereeName>
+        <RefereeCountryId>53</RefereeCountryId>
+        <RefereeCountryName>Latvija</RefereeCountryName>
+        <RefereeTeamId>222299</RefereeTeamId>
+        <RefereeTeamname>Grafton FC</RefereeTeamname>
       </RefereeAssistant1>
       <RefereeAssistant2>
-        <RefereeId>0</RefereeId>
-        <RefereeName> </RefereeName>
-        <RefereeCountryId>0</RefereeCountryId>
-        <RefereeCountryName />
-        <RefereeTeamId>0</RefereeTeamId>
-        <RefereeTeamname></RefereeTeamname>
+        <RefereeId>77654651</RefereeId>
+        <RefereeName>Emengardo Lins Viana</RefereeName>
+        <RefereeCountryId>16</RefereeCountryId>
+        <RefereeCountryName>Brasil</RefereeCountryName>
+        <RefereeTeamId>425249</RefereeTeamId>
+        <RefereeTeamname>Palmeira RG</RefereeTeamname>
       </RefereeAssistant2>
     </MatchOfficials>
     <Scorers>
       <Goal Index="0">
-        <ScorerPlayerID>49077894</ScorerPlayerID>
-        <ScorerPlayerName>Dittmar Haueslmeier</ScorerPlayerName>
-        <ScorerTeamID>648638</ScorerTeamID>
-        <ScorerHomeGoals>0</ScorerHomeGoals>
-        <ScorerAwayGoals>1</ScorerAwayGoals>
-        <ScorerMinute>1</ScorerMinute>
+        <ScorerPlayerID>397481297</ScorerPlayerID>
+        <ScorerPlayerName>Mauro Elordui</ScorerPlayerName>
+        <ScorerTeamID>796332</ScorerTeamID>
+        <ScorerHomeGoals>1</ScorerHomeGoals>
+        <ScorerAwayGoals>0</ScorerAwayGoals>
+        <ScorerMinute>33</ScorerMinute>
         <MatchPart>1</MatchPart>
       </Goal>
       <Goal Index="1">
-        <ScorerPlayerID>20500345</ScorerPlayerID>
-        <ScorerPlayerName>Foppe van Gaal</ScorerPlayerName>
-        <ScorerTeamID>826235</ScorerTeamID>
-        <ScorerHomeGoals>1</ScorerHomeGoals>
-        <ScorerAwayGoals>1</ScorerAwayGoals>
-        <ScorerMinute>18</ScorerMinute>
+        <ScorerPlayerID>404600981</ScorerPlayerID>
+        <ScorerPlayerName>Paco Campana</ScorerPlayerName>
+        <ScorerTeamID>796332</ScorerTeamID>
+        <ScorerHomeGoals>2</ScorerHomeGoals>
+        <ScorerAwayGoals>0</ScorerAwayGoals>
+        <ScorerMinute>34</ScorerMinute>
         <MatchPart>1</MatchPart>
       </Goal>
       <Goal Index="2">
-        <ScorerPlayerID>71336784</ScorerPlayerID>
-        <ScorerPlayerName>Mario Walldürn</ScorerPlayerName>
-        <ScorerTeamID>648638</ScorerTeamID>
-        <ScorerHomeGoals>1</ScorerHomeGoals>
-        <ScorerAwayGoals>2</ScorerAwayGoals>
-        <ScorerMinute>40</ScorerMinute>
+        <ScorerPlayerID>387140058</ScorerPlayerID>
+        <ScorerPlayerName>Octavio Isaguirre</ScorerPlayerName>
+        <ScorerTeamID>796332</ScorerTeamID>
+        <ScorerHomeGoals>3</ScorerHomeGoals>
+        <ScorerAwayGoals>0</ScorerAwayGoals>
+        <ScorerMinute>39</ScorerMinute>
         <MatchPart>1</MatchPart>
       </Goal>
       <Goal Index="3">
-        <ScorerPlayerID>10495174</ScorerPlayerID>
-        <ScorerPlayerName>Mats-Erik Sandner</ScorerPlayerName>
-        <ScorerTeamID>826235</ScorerTeamID>
-        <ScorerHomeGoals>2</ScorerHomeGoals>
+        <ScorerPlayerID>391880826</ScorerPlayerID>
+        <ScorerPlayerName>Rasheed Da'na</ScorerPlayerName>
+        <ScorerTeamID>120994</ScorerTeamID>
+        <ScorerHomeGoals>3</ScorerHomeGoals>
+        <ScorerAwayGoals>1</ScorerAwayGoals>
+        <ScorerMinute>75</ScorerMinute>
+        <MatchPart>2</MatchPart>
+      </Goal>
+      <Goal Index="4">
+        <ScorerPlayerID>393701077</ScorerPlayerID>
+        <ScorerPlayerName>Alex Skidmore</ScorerPlayerName>
+        <ScorerTeamID>796332</ScorerTeamID>
+        <ScorerHomeGoals>4</ScorerHomeGoals>
+        <ScorerAwayGoals>1</ScorerAwayGoals>
+        <ScorerMinute>80</ScorerMinute>
+        <MatchPart>2</MatchPart>
+      </Goal>
+      <Goal Index="5">
+        <ScorerPlayerID>379629767</ScorerPlayerID>
+        <ScorerPlayerName>Csaba Mező</ScorerPlayerName>
+        <ScorerTeamID>120994</ScorerTeamID>
+        <ScorerHomeGoals>4</ScorerHomeGoals>
         <ScorerAwayGoals>2</ScorerAwayGoals>
-        <ScorerMinute>52</ScorerMinute>
+        <ScorerMinute>81</ScorerMinute>
         <MatchPart>2</MatchPart>
       </Goal>
     </Scorers>
-    <Bookings>
-      <Booking Index="0">
-        <BookingPlayerID>55048239</BookingPlayerID>
-        <BookingPlayerName>Giuseppe Santuccio</BookingPlayerName>
-        <BookingTeamID>826235</BookingTeamID>
-        <BookingType>1</BookingType>
-        <BookingMinute>60</BookingMinute>
-        <MatchPart>2</MatchPart>
-      </Booking>
-    </Bookings>
+    <Bookings />
     <Injuries />
-    <PossessionFirstHalfHome>45</PossessionFirstHalfHome>
-    <PossessionFirstHalfAway>55</PossessionFirstHalfAway>
-    <PossessionSecondHalfHome>45</PossessionSecondHalfHome>
-    <PossessionSecondHalfAway>55</PossessionSecondHalfAway>
+    <PossessionFirstHalfHome>48</PossessionFirstHalfHome>
+    <PossessionFirstHalfAway>52</PossessionFirstHalfAway>
+    <PossessionSecondHalfHome>46</PossessionSecondHalfHome>
+    <PossessionSecondHalfAway>54</PossessionSecondHalfAway>
     <EventList>
+      <Event Index="0">
+        <Minute>0</Minute>
+        <SubjectPlayerID>799770</SubjectPlayerID>
+        <SubjectTeamID>62925</SubjectTeamID>
+        <ObjectPlayerID>58717</ObjectPlayerID>
+        <MatchPart>1</MatchPart>
+        <EventTypeID>31</EventTypeID>
+        <EventVariation>2</EventVariation>
+        <EventText>58717 espectadors van anar a l'estadi &lt;a href="/Club/Arena/?ArenaID=799770"&gt;PEQUELANDIA HAUSE&lt;/a&gt; aquest dia ennuvolat. En &lt;a href="/Club/HallOfFame/Player.aspx?playerId=379002253"&gt;Martin Condon&lt;/a&gt; va ser l'àrbitre assignat amb l'ajuda dels assistents &lt;a href="/Club/HallOfFame/Player.aspx?playerId=302303537"&gt;Aivars Stārķis&lt;/a&gt; i &lt;a href="/Club/HallOfFame/Player.aspx?playerId=77654651"&gt;Emengardo Lins Viana&lt;/a&gt;.</EventText>
+      </Event>
       <Event Index="1">
         <Minute>0</Minute>
         <SubjectPlayerID>0</SubjectPlayerID>
         <SubjectTeamID>0</SubjectTeamID>
-        <ObjectPlayerID>10685</ObjectPlayerID>
+        <ObjectPlayerID>0</ObjectPlayerID>
         <MatchPart>1</MatchPart>
-        <EventTypeID>31</EventTypeID>
-        <EventVariation>2</EventVariation>
-        <EventText>10685 espectadors van anar a l'estadi &lt;a href="/Club/Arena/?ArenaID=829673"&gt;Billy Billstedt Arena&lt;/a&gt; aquest dia ennuvolat. En &lt;a href="/Club/HallOfFame/Player.aspx?playerId=291524944"&gt;Tony De Bruycker&lt;/a&gt; va ser l'àrbitre assignat amb l'ajuda dels assistents &lt;a href="/Club/HallOfFame/Player.aspx?playerId=13445416"&gt;&lt;/a&gt; i &lt;a href="/Club/HallOfFame/Player.aspx?playerId=195216292"&gt;&lt;/a&gt;.</EventText>
+        <EventTypeID>19</EventTypeID>
+        <EventVariation>1</EventVariation>
+        <EventText></EventText>
       </Event>
       <Event Index="2">
         <Minute>0</Minute>
         <SubjectPlayerID>0</SubjectPlayerID>
-        <SubjectTeamID>826235</SubjectTeamID>
-        <ObjectPlayerID>1030502</ObjectPlayerID>
+        <SubjectTeamID>796332</SubjectTeamID>
+        <ObjectPlayerID>0</ObjectPlayerID>
         <MatchPart>1</MatchPart>
-        <EventTypeID>20</EventTypeID>
+        <EventTypeID>21</EventTypeID>
         <EventVariation>3</EventVariation>
-        <EventText>Els aficionats cantaven cançons que rimaven amb &lt;span class="hometeam"&gt;Billstedt&lt;/span&gt;, mentre els jugadors saltaven al terreny de joc amb un 3-5-2 com a sistema tàctic.</EventText>
+        <EventText>L'alineació va ser: &lt;a href="/Club/Players/Player.aspx?playerId=369904536" title="Kakko" class="homeplayer"&gt;Kakko&lt;/a&gt; - &lt;a href="/Club/Players/Player.aspx?playerId=397481297" title="Elordui" class="homeplayer"&gt;Elordui&lt;/a&gt;, &lt;a href="/Club/Players/Player.aspx?playerId=401497151" title="Guezala" class="homeplayer"&gt;Guezala&lt;/a&gt; - &lt;a href="/Club/Players/Player.aspx?playerId=408935177" title="Jubitero" class="homeplayer"&gt;Jubitero&lt;/a&gt;, &lt;a href="/Club/Players/Player.aspx?playerId=391151370" title="Przybyło" class="homeplayer"&gt;Przybyło&lt;/a&gt;, &lt;a href="/Club/Players/Player.aspx?playerId=373158283" title="Rnić" class="homeplayer"&gt;Rnić&lt;/a&gt;, &lt;a href="/Club/Players/Player.aspx?playerId=404600981" title="Campana" class="homeplayer"&gt;Campana&lt;/a&gt;, &lt;a href="/Club/Players/Player.aspx?playerId=368930420" title="Skrzycki" class="homeplayer"&gt;Skrzycki&lt;/a&gt; - &lt;a href="/Club/Players/Player.aspx?playerId=393701077" title="Skidmore" class="homeplayer"&gt;Skidmore&lt;/a&gt;, &lt;a href="/Club/Players/Player.aspx?playerId=370395012" title="Lam" class="homeplayer"&gt;Lam&lt;/a&gt;, &lt;a href="/Club/Players/Player.aspx?playerId=387140058" title="Isaguirre" class="homeplayer"&gt;Isaguirre&lt;/a&gt;. Els onze jugadors van posar ràpidament per fer la foto de rigor.&lt;br /&gt;&lt;br /&gt;</EventText>
       </Event>
       <Event Index="3">
         <Minute>0</Minute>
         <SubjectPlayerID>0</SubjectPlayerID>
-        <SubjectTeamID>826235</SubjectTeamID>
+        <SubjectTeamID>120994</SubjectTeamID>
         <ObjectPlayerID>0</ObjectPlayerID>
         <MatchPart>1</MatchPart>
         <EventTypeID>21</EventTypeID>
-        <EventVariation>3</EventVariation>
-        <EventText>L'alineació va ser: &lt;a href="/Club/Players/Player.aspx?playerId=54988078" title="Fahir" class="homeplayer"&gt;Fahir&lt;/a&gt; - &lt;a href="/Club/Players/Player.aspx?playerId=61519711" title="Freihofer" class="homeplayer"&gt;Freihofer&lt;/a&gt;, &lt;a href="/Club/Players/Player.aspx?playerId=44126923" title="Belov" class="homeplayer"&gt;Belov&lt;/a&gt;, &lt;a href="/Club/Players/Player.aspx?playerId=50199851" title="Thorstensson" class="homeplayer"&gt;Thorstensson&lt;/a&gt; - &lt;a href="/Club/Players/Player.aspx?playerId=57507459" title="Rethen" class="homeplayer"&gt;Rethen&lt;/a&gt;, &lt;a href="/Club/Players/Player.aspx?playerId=44636134" title="Nussbau" class="homeplayer"&gt;Nussbau&lt;/a&gt;, &lt;a href="/Club/Players/Player.aspx?playerId=55048239" title="Santuccio" class="homeplayer"&gt;Santuccio&lt;/a&gt;, &lt;a href="/Club/Players/Player.aspx?playerId=20500345" title="van Gaal" class="homeplayer"&gt;van Gaal&lt;/a&gt;, &lt;a href="/Club/Players/Player.aspx?playerId=11580287" title="Nilsson" class="homeplayer"&gt;Nilsson&lt;/a&gt; - &lt;a href="/Club/Players/Player.aspx?playerId=68736353" title="Prendergast" class="homeplayer"&gt;Prendergast&lt;/a&gt;, &lt;a href="/Club/Players/Player.aspx?playerId=10495174" title="Sandner" class="homeplayer"&gt;Sandner&lt;/a&gt;. Els onze jugadors van posar ràpidament per fer la foto de rigor.&lt;br /&gt;&lt;br /&gt;</EventText>
+        <EventVariation>2</EventVariation>
+        <EventText>L'alineació inicial: &lt;a href="/Club/Players/Player.aspx?playerId=389005502" title="Sala" class="awayplayer"&gt;Sala&lt;/a&gt; - &lt;a href="/Club/Players/Player.aspx?playerId=379629767" title="Mező" class="awayplayer"&gt;Mező&lt;/a&gt;, &lt;a href="/Club/Players/Player.aspx?playerId=373882347" title="Altxakoa" class="awayplayer"&gt;Altxakoa&lt;/a&gt;, &lt;a href="/Club/Players/Player.aspx?playerId=384131341" title="Omarini" class="awayplayer"&gt;Omarini&lt;/a&gt; - &lt;a href="/Club/Players/Player.aspx?playerId=373182450" title="Thomas" class="awayplayer"&gt;Thomas&lt;/a&gt;, &lt;a href="/Club/Players/Player.aspx?playerId=388939943" title="Rezza" class="awayplayer"&gt;Rezza&lt;/a&gt;, &lt;a href="/Club/Players/Player.aspx?playerId=381679648" title="Whitaker" class="awayplayer"&gt;Whitaker&lt;/a&gt;, &lt;a href="/Club/Players/Player.aspx?playerId=386416781" title="Mochelato" class="awayplayer"&gt;Mochelato&lt;/a&gt;, &lt;a href="/Club/Players/Player.aspx?playerId=380939148" title="Chaabo" class="awayplayer"&gt;Chaabo&lt;/a&gt; - &lt;a href="/Club/Players/Player.aspx?playerId=391880826" title="Da'na" class="awayplayer"&gt;Da'na&lt;/a&gt;, &lt;a href="/Club/Players/Player.aspx?playerId=391954865" title="Pi&amp;#241;a" class="awayplayer"&gt;Piña&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;</EventText>
       </Event>
       <Event Index="4">
         <Minute>0</Minute>
-        <SubjectPlayerID>0</SubjectPlayerID>
-        <SubjectTeamID>648638</SubjectTeamID>
-        <ObjectPlayerID>1050302</ObjectPlayerID>
+        <SubjectPlayerID>1020503</SubjectPlayerID>
+        <SubjectTeamID>0</SubjectTeamID>
+        <ObjectPlayerID>1030502</ObjectPlayerID>
         <MatchPart>1</MatchPart>
-        <EventTypeID>20</EventTypeID>
-        <EventVariation>2</EventVariation>
-        <EventText>L'entrenador del &lt;span class="awayteam"&gt;Heimbach&lt;/span&gt; va escollir un 5-3-2 per començar el partit.</EventText>
+        <EventTypeID>24</EventTypeID>
+        <EventVariation>3</EventVariation>
+        <EventText>El &lt;span class="hometeam"&gt;Los Peques Campeones&lt;/span&gt; va entrar al camp i es va disposar en un 2-5-3. Els visitants, en canvi, van escollir un  3-5-2.</EventText>
       </Event>
       <Event Index="5">
         <Minute>0</Minute>
         <SubjectPlayerID>0</SubjectPlayerID>
-        <SubjectTeamID>648638</SubjectTeamID>
+        <SubjectTeamID>0</SubjectTeamID>
         <ObjectPlayerID>0</ObjectPlayerID>
         <MatchPart>1</MatchPart>
-        <EventTypeID>21</EventTypeID>
+        <EventTypeID>598</EventTypeID>
         <EventVariation>3</EventVariation>
-        <EventText>L'alineació va ser: &lt;a href="/Club/Players/Player.aspx?playerId=74864069" title="Giovannetti" class="awayplayer"&gt;Giovannetti&lt;/a&gt; - &lt;a href="/Club/Players/Player.aspx?playerId=49077895" title="Schlee" class="awayplayer"&gt;Schlee&lt;/a&gt;, &lt;a href="/Club/Players/Player.aspx?playerId=49077896" title="Niebelsch&amp;#252;tz" class="awayplayer"&gt;Niebelschütz&lt;/a&gt;, &lt;a href="/Club/Players/Player.aspx?playerId=49077894" title="Haueslmeier" class="awayplayer"&gt;Haueslmeier&lt;/a&gt;, &lt;a href="/Club/Players/Player.aspx?playerId=30896397" title="Vinterling" class="awayplayer"&gt;Vinterling&lt;/a&gt;, &lt;a href="/Club/Players/Player.aspx?playerId=49077886" title="Schrom" class="awayplayer"&gt;Schrom&lt;/a&gt; - &lt;a href="/Club/Players/Player.aspx?playerId=46756570" title="Nippala" class="awayplayer"&gt;Nippala&lt;/a&gt;, &lt;a href="/Club/Players/Player.aspx?playerId=38988364" title="Dourado" class="awayplayer"&gt;Dourado&lt;/a&gt;, &lt;a href="/Club/Players/Player.aspx?playerId=50361527" title="Bourrel" class="awayplayer"&gt;Bourrel&lt;/a&gt; - &lt;a href="/Club/Players/Player.aspx?playerId=55109075" title="P&amp;#252;tlich" class="awayplayer"&gt;Pütlich&lt;/a&gt;, &lt;a href="/Club/Players/Player.aspx?playerId=71336784" title="Walld&amp;#252;rn" class="awayplayer"&gt;Walldürn&lt;/a&gt;. Els onze jugadors van posar ràpidament per fer la foto de rigor.&lt;br /&gt;&lt;br /&gt;</EventText>
+        <EventText></EventText>
       </Event>
       <Event Index="6">
-        <Minute>1</Minute>
-        <SubjectPlayerID>49077894</SubjectPlayerID>
-        <SubjectTeamID>648638</SubjectTeamID>
-        <ObjectPlayerID>46756570</ObjectPlayerID>
+        <Minute>22</Minute>
+        <SubjectPlayerID>408935177</SubjectPlayerID>
+        <SubjectTeamID>796332</SubjectTeamID>
+        <ObjectPlayerID>389005502</ObjectPlayerID>
         <MatchPart>1</MatchPart>
-        <EventTypeID>119</EventTypeID>
-        <EventVariation>3</EventVariation>
-        <EventText>L'equip &lt;span class="awayteam"&gt;Heimbach&lt;/span&gt; va forçar un còrner a favor. L'entrenador va sortir corrent de la banqueta ordenant posar en pràctica la jugada que portaven temps assajant. Dit i fet, el córner es va treure en curt i, després d'un parell de driblades, van penjar la pilota al punt de penal, on &lt;a href="/Club/Players/Player.aspx?playerId=49077894" title="Dittmar Haueslmeier" class="awayplayer"&gt;Dittmar Haueslmeier&lt;/a&gt; va arribar entrant des de la segona línia, rematant de cap i enviant la pilota al fons de la xarxa. El marcador es posava 0 - 1.</EventText>
+        <EventTypeID>223</EventTypeID>
+        <EventVariation>2</EventVariation>
+        <EventText>&lt;span class="hometeam"&gt;Campeones&lt;/span&gt; va trenar una magnífica jugada per la dreta que va deixar &lt;a href="/Club/Players/Player.aspx?playerId=408935177" title="Eduardo Jubitero" class="homeplayer"&gt;Eduardo Jubitero&lt;/a&gt; en un 1 contra 1 amb el porter &lt;a href="/Club/Players/Player.aspx?playerId=389005502" title="Dami&amp;#225;n Sala" class="awayplayer"&gt;Damián Sala&lt;/a&gt;, que amb molta sang freda va aguantar-lo fins que li va robar la pilota.</EventText>
       </Event>
       <Event Index="7">
-        <Minute>18</Minute>
-        <SubjectPlayerID>20500345</SubjectPlayerID>
-        <SubjectTeamID>826235</SubjectTeamID>
-        <ObjectPlayerID>38988364</ObjectPlayerID>
+        <Minute>23</Minute>
+        <SubjectPlayerID>48</SubjectPlayerID>
+        <SubjectTeamID>120994</SubjectTeamID>
+        <ObjectPlayerID>0</ObjectPlayerID>
         <MatchPart>1</MatchPart>
-        <EventTypeID>136</EventTypeID>
+        <EventTypeID>471</EventTypeID>
         <EventVariation>3</EventVariation>
-        <EventText>A &lt;a href="/Club/Players/Player.aspx?playerId=38988364" title="Ant&amp;#243;nio Dourado" class="awayplayer"&gt;António Dourado&lt;/a&gt; encara li queda molt per aprendre, com per exemple no fer passades arriscades a les zones compromeses, com la que va permetre a &lt;a href="/Club/Players/Player.aspx?playerId=20500345" title="Foppe van Gaal" class="homeplayer"&gt;Foppe van Gaal&lt;/a&gt; anotar per a &lt;span class="hometeam"&gt;Billstedt&lt;/span&gt; el 1 - 1. Millor no veure'n la repetició.</EventText>
-      </Event>
-      <Event Index="8">
-        <Minute>27</Minute>
-        <SubjectPlayerID>44636134</SubjectPlayerID>
-        <SubjectTeamID>826235</SubjectTeamID>
-        <ObjectPlayerID>50361527</ObjectPlayerID>
-        <MatchPart>1</MatchPart>
-        <EventTypeID>236</EventTypeID>
-        <EventVariation>2</EventVariation>
-        <EventText>&lt;a href="/Club/Players/Player.aspx?playerId=50361527" title="Beno&amp;#238;t Bourrel" class="awayplayer"&gt;Benoît Bourrel&lt;/a&gt; va ser durament esbroncat pel seu entrenador en cometre un error per inexperiència que podria haver costat un gol al minut 27 de joc.</EventText>
+        <EventText></EventText>
       </Event>
       <Event Index="9">
-        <Minute>32</Minute>
-        <SubjectPlayerID>61519711</SubjectPlayerID>
-        <SubjectTeamID>826235</SubjectTeamID>
-        <ObjectPlayerID>74864069</ObjectPlayerID>
+        <Minute>33</Minute>
+        <SubjectPlayerID>397481297</SubjectPlayerID>
+        <SubjectTeamID>796332</SubjectTeamID>
+        <ObjectPlayerID>389005502</ObjectPlayerID>
         <MatchPart>1</MatchPart>
-        <EventTypeID>222</EventTypeID>
-        <EventVariation>3</EventVariation>
-        <EventText>&lt;span class="hometeam"&gt;Billstedt&lt;/span&gt; va tenir una magnífica oportunitat d'avançar-se al marcador quan &lt;a href="/Club/Players/Player.aspx?playerId=61519711" title="Guido Freihofer" class="homeplayer"&gt;Guido Freihofer&lt;/a&gt; va rematar des de l'esquerra, però el seu xut el va poder aturar el porter &lt;a href="/Club/Players/Player.aspx?playerId=74864069" title="Walter Giovannetti" class="awayplayer"&gt;Walter Giovannetti&lt;/a&gt;.</EventText>
+        <EventTypeID>122</EventTypeID>
+        <EventVariation>2</EventVariation>
+        <EventText>Una espectacular jugada per la banda esquerra va permetre a &lt;a href="/Club/Players/Player.aspx?playerId=397481297" title="Mauro Elordui" class="homeplayer"&gt;Mauro Elordui&lt;/a&gt; de &lt;span class="hometeam"&gt;Campeones&lt;/span&gt; aconseguir un gol al minut 33 que posava per davant els locals: 1 - 0.</EventText>
       </Event>
       <Event Index="10">
-        <Minute>40</Minute>
-        <SubjectPlayerID>71336784</SubjectPlayerID>
-        <SubjectTeamID>648638</SubjectTeamID>
-        <ObjectPlayerID>54988078</ObjectPlayerID>
+        <Minute>34</Minute>
+        <SubjectPlayerID>404600981</SubjectPlayerID>
+        <SubjectTeamID>796332</SubjectTeamID>
+        <ObjectPlayerID>387140058</ObjectPlayerID>
         <MatchPart>1</MatchPart>
-        <EventTypeID>141</EventTypeID>
-        <EventVariation>3</EventVariation>
-        <EventText>&lt;span class="awayteam"&gt;Heimbach&lt;/span&gt; sabia com jugar al contraatac, i al minut 40, &lt;a href="/Club/Players/Player.aspx?playerId=71336784" title="Mario Walld&amp;#252;rn" class="awayplayer"&gt;Mario Walldürn&lt;/a&gt; va aprofitar-ne un per entrar a l'àrea pel centre, encarar el porter i superar-lo amb una subtil vaselina, aconseguint així el 1 - 2.</EventText>
+        <EventTypeID>119</EventTypeID>
+        <EventVariation>1</EventVariation>
+        <EventText>&lt;a href="/Club/Players/Player.aspx?playerId=404600981" title="Paco Campana" class="homeplayer"&gt;Paco Campana&lt;/a&gt; va saltar per damunt dels seus rivals a la sortida d'un córner per posar el 2 - 0 al minut 34.</EventText>
       </Event>
       <Event Index="11">
+        <Minute>36</Minute>
+        <SubjectPlayerID>379629767</SubjectPlayerID>
+        <SubjectTeamID>120994</SubjectTeamID>
+        <ObjectPlayerID>369904536</ObjectPlayerID>
+        <MatchPart>1</MatchPart>
+        <EventTypeID>251</EventTypeID>
+        <EventVariation>3</EventVariation>
+        <EventText>&lt;a href="/Club/Players/Player.aspx?playerId=379629767" title="Csaba Mező" class="awayplayer"&gt;Csaba Mező&lt;/a&gt; va tenir un parell de bones oportunitats d'acostar al seu equip al marcador, però el porter &lt;a href="/Club/Players/Player.aspx?playerId=369904536" title="Riku Kakko" class="homeplayer"&gt;Riku Kakko&lt;/a&gt; no es va rendir i va fer unes grans aturades.</EventText>
+      </Event>
+      <Event Index="12">
+        <Minute>37</Minute>
+        <SubjectPlayerID>391954865</SubjectPlayerID>
+        <SubjectTeamID>120994</SubjectTeamID>
+        <ObjectPlayerID>391151370</ObjectPlayerID>
+        <MatchPart>1</MatchPart>
+        <EventTypeID>239</EventTypeID>
+        <EventVariation>2</EventVariation>
+        <EventText>La gran tècnica de què disposava en &lt;a href="/Club/Players/Player.aspx?playerId=391954865" title="Sa&amp;#250;l Pi&amp;#241;a" class="awayplayer"&gt;Saúl Piña&lt;/a&gt; marejava a en &lt;a href="/Club/Players/Player.aspx?playerId=391151370" title="Filip Przybyło" class="homeplayer"&gt;Filip Przybyło&lt;/a&gt;, que les va passar ben magres per poder robar-li la pilota just quan ja estava trepitjant l'àrea gran.</EventText>
+      </Event>
+      <Event Index="13">
+        <Minute>38</Minute>
+        <SubjectPlayerID>384131341</SubjectPlayerID>
+        <SubjectTeamID>120994</SubjectTeamID>
+        <ObjectPlayerID>369904536</ObjectPlayerID>
+        <MatchPart>1</MatchPart>
+        <EventTypeID>253</EventTypeID>
+        <EventVariation>3</EventVariation>
+        <EventText>&lt;span class="awayteam"&gt;V@der&lt;/span&gt; van seguir progressant per la banda dreta. &lt;a href="/Club/Players/Player.aspx?playerId=384131341" title="Mario Omarini" class="awayplayer"&gt;Mario Omarini&lt;/a&gt; va tenir la seva oportunitat al minut 38, però la defensa local estava ben organitzada i va poder aturar l'atac.</EventText>
+      </Event>
+      <Event Index="14">
+        <Minute>39</Minute>
+        <SubjectPlayerID>391954865</SubjectPlayerID>
+        <SubjectTeamID>120994</SubjectTeamID>
+        <ObjectPlayerID>369904536</ObjectPlayerID>
+        <MatchPart>1</MatchPart>
+        <EventTypeID>252</EventTypeID>
+        <EventVariation>3</EventVariation>
+        <EventText>Al minut 39 un espontani va saltar al terreny de joc vestit amb una barretina i va llançar a la cara de &lt;a href="/Club/Players/Player.aspx?playerId=391954865" title="Sa&amp;#250;l Pi&amp;#241;a" class="awayplayer"&gt;Saúl Piña&lt;/a&gt; la bandera del seu antic club abans de llançar-se com una exhalació contra la xarxa de la porteria on segons abans el jugador de &lt;span class="awayteam"&gt;V@der&lt;/span&gt; havia fallat una clara oportunitat, tot sol des de l'esquerra.</EventText>
+      </Event>
+      <Event Index="15">
+        <Minute>39</Minute>
+        <SubjectPlayerID>387140058</SubjectPlayerID>
+        <SubjectTeamID>796332</SubjectTeamID>
+        <ObjectPlayerID>389005502</ObjectPlayerID>
+        <MatchPart>1</MatchPart>
+        <EventTypeID>131</EventTypeID>
+        <EventVariation>1</EventVariation>
+        <EventText>El partit empitjorava per als visitants. &lt;a href="/Club/Players/Player.aspx?playerId=387140058" title="Octavio Isaguirre" class="homeplayer"&gt;Octavio Isaguirre&lt;/a&gt; es va introduir dins la defensa central al minut 39, i va aconseguir el 3 - 0 davant la cridòria del públic.</EventText>
+      </Event>
+      <Event Index="16">
         <Minute>45</Minute>
         <SubjectPlayerID>0</SubjectPlayerID>
         <SubjectTeamID>0</SubjectTeamID>
         <ObjectPlayerID>0</ObjectPlayerID>
         <MatchPart>1</MatchPart>
         <EventTypeID>45</EventTypeID>
-        <EventVariation>2</EventVariation>
-        <EventText>Els equips es van retirar als vestidors amb un 1 - 2 al marcador.</EventText>
-      </Event>
-      <Event Index="12">
-        <Minute>45</Minute>
-        <SubjectPlayerID>0</SubjectPlayerID>
-        <SubjectTeamID>648638</SubjectTeamID>
-        <ObjectPlayerID>55</ObjectPlayerID>
-        <MatchPart>1</MatchPart>
-        <EventTypeID>40</EventTypeID>
-        <EventVariation>3</EventVariation>
-        <EventText>&lt;span class="awayteam"&gt;Heimbach&lt;/span&gt;, amb una possessió del 55 per cent, va dominar aquests 45 minuts.&lt;br /&gt;&lt;br /&gt;</EventText>
-      </Event>
-      <Event Index="13">
-        <Minute>52</Minute>
-        <SubjectPlayerID>10495174</SubjectPlayerID>
-        <SubjectTeamID>826235</SubjectTeamID>
-        <ObjectPlayerID>11580287</ObjectPlayerID>
-        <MatchPart>2</MatchPart>
-        <EventTypeID>116</EventTypeID>
         <EventVariation>1</EventVariation>
-        <EventText>&lt;a href="/Club/Players/Player.aspx?playerId=11580287" title="Stellan Nilsson" class="homeplayer"&gt;Stellan Nilsson&lt;/a&gt; va demostrar la seva velocitat punta un altre cop i, després de deixar dos defenses enrere, va donar una assistència de gol a &lt;a href="/Club/Players/Player.aspx?playerId=10495174" title="Mats-Erik Sandner" class="homeplayer"&gt;Mats-Erik Sandner&lt;/a&gt;, que no va fallar i va marcar el 2 - 2.</EventText>
-      </Event>
-      <Event Index="14">
-        <Minute>55</Minute>
-        <SubjectPlayerID>49077896</SubjectPlayerID>
-        <SubjectTeamID>648638</SubjectTeamID>
-        <ObjectPlayerID>54988078</ObjectPlayerID>
-        <MatchPart>2</MatchPart>
-        <EventTypeID>273</EventTypeID>
-        <EventVariation>2</EventVariation>
-        <EventText>&lt;a href="/Club/Players/Player.aspx?playerId=49077896" title="Lars Niebelsch&amp;#252;tz" class="awayplayer"&gt;Lars Niebelschütz&lt;/a&gt; de &lt;span class="awayteam"&gt;Heimbach&lt;/span&gt;, va estar a punt de posar els visitants pel davant al minut 55, quan es va endur una pilota dividida a la punta dreta de l'atac, però &lt;a href="/Club/Players/Player.aspx?playerId=54988078" title="Kutay Fahir" class="homeplayer"&gt;Kutay Fahir&lt;/a&gt; va estar molt atent en la seva sortida i va allunyar el perill sense problemes.</EventText>
-      </Event>
-      <Event Index="15">
-        <Minute>60</Minute>
-        <SubjectPlayerID>55048239</SubjectPlayerID>
-        <SubjectTeamID>826235</SubjectTeamID>
-        <ObjectPlayerID>0</ObjectPlayerID>
-        <MatchPart>2</MatchPart>
-        <EventTypeID>511</EventTypeID>
-        <EventVariation>1</EventVariation>
-        <EventText>Després d'agafar un rival per la samarreta diverses vegades i simular una falta inexistent, &lt;a href="/Club/Players/Player.aspx?playerId=55048239" title="Giuseppe Santuccio" class="homeplayer"&gt;Giuseppe Santuccio&lt;/a&gt; de &lt;span class="hometeam"&gt;Billstedt&lt;/span&gt; es va guanyar la targeta groga merescudament.</EventText>
-      </Event>
-      <Event Index="16">
-        <Minute>69</Minute>
-        <SubjectPlayerID>55048239</SubjectPlayerID>
-        <SubjectTeamID>826235</SubjectTeamID>
-        <ObjectPlayerID>74864069</ObjectPlayerID>
-        <MatchPart>2</MatchPart>
-        <EventTypeID>220</EventTypeID>
-        <EventVariation>2</EventVariation>
-        <EventText>Al minut 69, un xut de falta directa va estar a punt de significar un gol per a l'equip local, però va sortir desviat a l'esquerra de la porteria visitant.</EventText>
+        <EventText>El marcador reflectia un 3 - 0 al final de la primera part.</EventText>
       </Event>
       <Event Index="17">
-        <Minute>90</Minute>
+        <Minute>45</Minute>
         <SubjectPlayerID>0</SubjectPlayerID>
-        <SubjectTeamID>648638</SubjectTeamID>
-        <ObjectPlayerID>55</ObjectPlayerID>
-        <MatchPart>2</MatchPart>
+        <SubjectTeamID>120994</SubjectTeamID>
+        <ObjectPlayerID>52</ObjectPlayerID>
+        <MatchPart>1</MatchPart>
         <EventTypeID>40</EventTypeID>
         <EventVariation>1</EventVariation>
-        <EventText>El domini dels 45 minuts va correspondre a &lt;span class="awayteam"&gt;Heimbach&lt;/span&gt; amb un 55 per cent de la possessió de l'esfèrica.&lt;br /&gt;&lt;br /&gt;</EventText>
+        <EventText>El domini dels 45 minuts va correspondre a &lt;span class="awayteam"&gt;V@der&lt;/span&gt; amb un 52 per cent de la possessió de l'esfèrica.&lt;br /&gt;&lt;br /&gt;</EventText>
       </Event>
       <Event Index="18">
-        <Minute>90</Minute>
-        <SubjectPlayerID>44126923</SubjectPlayerID>
-        <SubjectTeamID>826235</SubjectTeamID>
+        <Minute>46</Minute>
+        <SubjectPlayerID>0</SubjectPlayerID>
+        <SubjectTeamID>0</SubjectTeamID>
         <ObjectPlayerID>0</ObjectPlayerID>
         <MatchPart>2</MatchPart>
-        <EventTypeID>41</EventTypeID>
+        <EventTypeID>597</EventTypeID>
         <EventVariation>1</EventVariation>
-        <EventText>L'estrella de &lt;span class="hometeam"&gt;Billstedt&lt;/span&gt; en aquest partit va ser &lt;a href="/Club/Players/Player.aspx?playerId=44126923" title="Igor Belov" class="homeplayer"&gt;Igor Belov&lt;/a&gt;.</EventText>
+        <EventText></EventText>
       </Event>
       <Event Index="19">
-        <Minute>90</Minute>
-        <SubjectPlayerID>57507459</SubjectPlayerID>
-        <SubjectTeamID>826235</SubjectTeamID>
-        <ObjectPlayerID>0</ObjectPlayerID>
+        <Minute>50</Minute>
+        <SubjectPlayerID>0</SubjectPlayerID>
+        <SubjectTeamID>0</SubjectTeamID>
+        <ObjectPlayerID>58717</ObjectPlayerID>
         <MatchPart>2</MatchPart>
-        <EventTypeID>42</EventTypeID>
+        <EventTypeID>464</EventTypeID>
         <EventVariation>2</EventVariation>
-        <EventText>&lt;a href="/Club/Players/Player.aspx?playerId=57507459" title="Reinhard Rethen" class="homeplayer"&gt;Reinhard Rethen&lt;/a&gt;, en canvi, va destacar pel contrari, ja que va destorbar el joc dels companys amb els seus errors continuats.</EventText>
-      </Event>
-      <Event Index="20">
-        <Minute>90</Minute>
-        <SubjectPlayerID>49077894</SubjectPlayerID>
-        <SubjectTeamID>648638</SubjectTeamID>
-        <ObjectPlayerID>0</ObjectPlayerID>
-        <MatchPart>2</MatchPart>
-        <EventTypeID>41</EventTypeID>
-        <EventVariation>1</EventVariation>
-        <EventText>L'estrella de &lt;span class="awayteam"&gt;Heimbach&lt;/span&gt; en aquest partit va ser &lt;a href="/Club/Players/Player.aspx?playerId=49077894" title="Dittmar Haueslmeier" class="awayplayer"&gt;Dittmar Haueslmeier&lt;/a&gt;.</EventText>
+        <EventText></EventText>
       </Event>
       <Event Index="21">
-        <Minute>90</Minute>
-        <SubjectPlayerID>74864069</SubjectPlayerID>
-        <SubjectTeamID>648638</SubjectTeamID>
-        <ObjectPlayerID>0</ObjectPlayerID>
+        <Minute>59</Minute>
+        <SubjectPlayerID>392150407</SubjectPlayerID>
+        <SubjectTeamID>796332</SubjectTeamID>
+        <ObjectPlayerID>59</ObjectPlayerID>
         <MatchPart>2</MatchPart>
-        <EventTypeID>42</EventTypeID>
+        <EventTypeID>459</EventTypeID>
         <EventVariation>3</EventVariation>
-        <EventText>Tanmateix, &lt;a href="/Club/Players/Player.aspx?playerId=74864069" title="Walter Giovannetti" class="awayplayer"&gt;Walter Giovannetti&lt;/a&gt; va fer baixar el nivell de l'equip.</EventText>
+        <EventText></EventText>
       </Event>
       <Event Index="22">
-        <Minute>90</Minute>
+        <Minute>65</Minute>
+        <SubjectPlayerID>391014759</SubjectPlayerID>
+        <SubjectTeamID>120994</SubjectTeamID>
+        <ObjectPlayerID>65</ObjectPlayerID>
+        <MatchPart>2</MatchPart>
+        <EventTypeID>459</EventTypeID>
+        <EventVariation>2</EventVariation>
+        <EventText></EventText>
+      </Event>
+      <Event Index="23">
+        <Minute>69</Minute>
+        <SubjectPlayerID>373158283</SubjectPlayerID>
+        <SubjectTeamID>796332</SubjectTeamID>
+        <ObjectPlayerID>392150407</ObjectPlayerID>
+        <MatchPart>2</MatchPart>
+        <EventTypeID>351</EventTypeID>
+        <EventVariation>3</EventVariation>
+        <EventText>Amb el partit de cara, els jugadors suplents del &lt;span class="hometeam"&gt;Campeones&lt;/span&gt; tenien ganes d'entrar per rematar la feina. Al minut 69 l'entrenador va decidir donar entrada a en &lt;a href="/Club/Players/Player.aspx?playerId=392150407" title="Gonzalo Rendueles" class="homeplayer"&gt;Gonzalo Rendueles&lt;/a&gt; per en &lt;a href="/Club/Players/Player.aspx?playerId=373158283" title="Danilo Rnić" class="homeplayer"&gt;Danilo Rnić&lt;/a&gt;.</EventText>
+      </Event>
+      <Event Index="24">
+        <Minute>69</Minute>
+        <SubjectPlayerID>355458431</SubjectPlayerID>
+        <SubjectTeamID>796332</SubjectTeamID>
+        <ObjectPlayerID>65</ObjectPlayerID>
+        <MatchPart>2</MatchPart>
+        <EventTypeID>459</EventTypeID>
+        <EventVariation>4</EventVariation>
+        <EventText></EventText>
+      </Event>
+      <Event Index="25">
+        <Minute>69</Minute>
+        <SubjectPlayerID>389206860</SubjectPlayerID>
+        <SubjectTeamID>120994</SubjectTeamID>
+        <ObjectPlayerID>68</ObjectPlayerID>
+        <MatchPart>2</MatchPart>
+        <EventTypeID>459</EventTypeID>
+        <EventVariation>1</EventVariation>
+        <EventText></EventText>
+      </Event>
+      <Event Index="26">
+        <Minute>75</Minute>
+        <SubjectPlayerID>381679648</SubjectPlayerID>
+        <SubjectTeamID>120994</SubjectTeamID>
+        <ObjectPlayerID>391014759</ObjectPlayerID>
+        <MatchPart>2</MatchPart>
+        <EventTypeID>350</EventTypeID>
+        <EventVariation>3</EventVariation>
+        <EventText>La banqueta estava inquieta, i al minut 75 l'entrenador va decidir donar-li a &lt;a href="/Club/Players/Player.aspx?playerId=391014759" title="Adam Moss" class="awayplayer"&gt;Adam Moss&lt;/a&gt; l'oportunitat que feia temps que esperava. &lt;a href="/Club/Players/Player.aspx?playerId=381679648" title="Jorge Walter Whitaker" class="awayplayer"&gt;Jorge Walter Whitaker&lt;/a&gt; va sortir del camp renegant entre dents.</EventText>
+      </Event>
+      <Event Index="27">
+        <Minute>75</Minute>
+        <SubjectPlayerID>373882347</SubjectPlayerID>
+        <SubjectTeamID>120994</SubjectTeamID>
+        <ObjectPlayerID>0</ObjectPlayerID>
+        <MatchPart>2</MatchPart>
+        <EventTypeID>360</EventTypeID>
+        <EventVariation>2</EventVariation>
+        <EventText>Els jugadors de &lt;span class="awayteam"&gt;V@der&lt;/span&gt; van parar molta atenció mentre rebien noves instruccions tàctiques del seu entrenador.</EventText>
+      </Event>
+      <Event Index="28">
+        <Minute>75</Minute>
+        <SubjectPlayerID>368930420</SubjectPlayerID>
+        <SubjectTeamID>796332</SubjectTeamID>
+        <ObjectPlayerID>355458431</ObjectPlayerID>
+        <MatchPart>2</MatchPart>
+        <EventTypeID>351</EventTypeID>
+        <EventVariation>2</EventVariation>
+        <EventText>L'entrenador del &lt;span class="hometeam"&gt;Campeones&lt;/span&gt; estava content de com estava anant el partit. No obstant, va decidir canviar en &lt;a href="/Club/Players/Player.aspx?playerId=368930420" title="Paweł Skrzycki" class="homeplayer"&gt;Paweł Skrzycki&lt;/a&gt; per en &lt;a href="/Club/Players/Player.aspx?playerId=355458431" title="J&amp;#233;r&amp;#233;my Paquot" class="homeplayer"&gt;Jérémy Paquot&lt;/a&gt; per assegurar-se que tot continués així.</EventText>
+      </Event>
+      <Event Index="29">
+        <Minute>75</Minute>
+        <SubjectPlayerID>391880826</SubjectPlayerID>
+        <SubjectTeamID>120994</SubjectTeamID>
+        <ObjectPlayerID>369904536</ObjectPlayerID>
+        <MatchPart>2</MatchPart>
+        <EventTypeID>153</EventTypeID>
+        <EventVariation>1</EventVariation>
+        <EventText>&lt;span class="awayteam"&gt;V@der&lt;/span&gt; van aconseguir el 3 - 1 que retallava diferències al minut 75 quan &lt;a href="/Club/Players/Player.aspx?playerId=391880826" title="Rasheed Da'na" class="awayplayer"&gt;Rasheed Da'na&lt;/a&gt; sense dificultats va fer passar la pilota per sota el porter després d'una jugada per la dreta.</EventText>
+      </Event>
+      <Event Index="30">
+        <Minute>78</Minute>
+        <SubjectPlayerID>373182450</SubjectPlayerID>
+        <SubjectTeamID>120994</SubjectTeamID>
+        <ObjectPlayerID>389206860</ObjectPlayerID>
+        <MatchPart>2</MatchPart>
+        <EventTypeID>350</EventTypeID>
+        <EventVariation>2</EventVariation>
+        <EventText>L'entrenador va considerar que el culpable de la penosa imatge que estava donant l'equip era &lt;a href="/Club/Players/Player.aspx?playerId=373182450" title="Morgan Thomas" class="awayplayer"&gt;Morgan Thomas&lt;/a&gt; i el va enviar a la dutxa al minut 78. &lt;a href="/Club/Players/Player.aspx?playerId=389206860" title="Cezary Pauch" class="awayplayer"&gt;Cezary Pauch&lt;/a&gt;  va entrar al seu lloc per intentar girar la truita.</EventText>
+      </Event>
+      <Event Index="31">
+        <Minute>80</Minute>
+        <SubjectPlayerID>393701077</SubjectPlayerID>
+        <SubjectTeamID>796332</SubjectTeamID>
+        <ObjectPlayerID>389005502</ObjectPlayerID>
+        <MatchPart>2</MatchPart>
+        <EventTypeID>132</EventTypeID>
+        <EventVariation>3</EventVariation>
+        <EventText>Al minut 80, &lt;span class="hometeam"&gt;Campeones&lt;/span&gt; va aconseguir el 4 - 1 quan els defenses visitants van perdre la pilota davant de &lt;a href="/Club/Players/Player.aspx?playerId=393701077" title="Alex Skidmore" class="homeplayer"&gt;Alex Skidmore&lt;/a&gt;, que arribant per l'esquerra va driblar sense dificultats el porter i va empènyer la pilota al fons de la xarxa.</EventText>
+      </Event>
+      <Event Index="32">
+        <Minute>81</Minute>
+        <SubjectPlayerID>379629767</SubjectPlayerID>
+        <SubjectTeamID>120994</SubjectTeamID>
+        <ObjectPlayerID>369904536</ObjectPlayerID>
+        <MatchPart>2</MatchPart>
+        <EventTypeID>151</EventTypeID>
+        <EventVariation>2</EventVariation>
+        <EventText>Un mica després, &lt;a href="/Club/Players/Player.aspx?playerId=379629767" title="Csaba Mező" class="awayplayer"&gt;Csaba Mező&lt;/a&gt; de &lt;span class="awayteam"&gt;V@der&lt;/span&gt; va reduir fàcilment l'avantatge local a 4 - 2, passant entre la defensa rival amb certa facilitat i marcant d'un xut ras i col·locat que va fer inútil l'estirada del porter.</EventText>
+      </Event>
+      <Event Index="33">
+        <Minute>82</Minute>
+        <SubjectPlayerID>386416781</SubjectPlayerID>
+        <SubjectTeamID>120994</SubjectTeamID>
+        <ObjectPlayerID>369904536</ObjectPlayerID>
+        <MatchPart>2</MatchPart>
+        <EventTypeID>253</EventTypeID>
+        <EventVariation>1</EventVariation>
+        <EventText>En &lt;a href="/Club/Players/Player.aspx?playerId=369904536" title="Riku Kakko" class="homeplayer"&gt;Riku Kakko&lt;/a&gt; va fer una estirada espectacular al minut 82, desviant amb la mà canviada un obús disparat des de la dreta de l'atac per part d'en &lt;a href="/Club/Players/Player.aspx?playerId=386416781" title="Emilio Mochelato" class="awayplayer"&gt;Emilio Mochelato&lt;/a&gt;.</EventText>
+      </Event>
+      <Event Index="34">
+        <Minute>88</Minute>
+        <SubjectPlayerID>370395012</SubjectPlayerID>
+        <SubjectTeamID>796332</SubjectTeamID>
+        <ObjectPlayerID>391563224</ObjectPlayerID>
+        <MatchPart>2</MatchPart>
+        <EventTypeID>351</EventTypeID>
+        <EventVariation>5</EventVariation>
+        <EventText>&lt;span class="hometeam"&gt;Campeones&lt;/span&gt; estava guanyant, i el seu entrenador va fer un canvi per seguir per davant del marcador. Al minut 88, &lt;a href="/Club/Players/Player.aspx?playerId=391563224" title="Galdor Corvinos" class="homeplayer"&gt;Galdor Corvinos&lt;/a&gt; va entrar al terreny de joc, substituint &lt;a href="/Club/Players/Player.aspx?playerId=370395012" title="Etienne Lam" class="homeplayer"&gt;Etienne Lam&lt;/a&gt;.</EventText>
+      </Event>
+      <Event Index="35">
+        <Minute>89</Minute>
+        <SubjectPlayerID>0</SubjectPlayerID>
+        <SubjectTeamID>0</SubjectTeamID>
+        <ObjectPlayerID>0</ObjectPlayerID>
+        <MatchPart>2</MatchPart>
+        <EventTypeID>75</EventTypeID>
+        <EventVariation>3</EventVariation>
+        <EventText>Els jugadors estaven bastant cansats, però l'àrbitre va decidir afegir 1 minuts més de joc.</EventText>
+      </Event>
+      <Event Index="36">
+        <Minute>91</Minute>
         <SubjectPlayerID>0</SubjectPlayerID>
         <SubjectTeamID>0</SubjectTeamID>
         <ObjectPlayerID>0</ObjectPlayerID>
         <MatchPart>2</MatchPart>
         <EventTypeID>599</EventTypeID>
+        <EventVariation>1</EventVariation>
+        <EventText>Resultat final: 4 - 2.</EventText>
+      </Event>
+      <Event Index="37">
+        <Minute>91</Minute>
+        <SubjectPlayerID>0</SubjectPlayerID>
+        <SubjectTeamID>796332</SubjectTeamID>
+        <ObjectPlayerID>0</ObjectPlayerID>
+        <MatchPart>2</MatchPart>
+        <EventTypeID>601</EventTypeID>
         <EventVariation>2</EventVariation>
-        <EventText>El partit va acabar 2 - 2.</EventText>
+        <EventText></EventText>
+      </Event>
+      <Event Index="38">
+        <Minute>91</Minute>
+        <SubjectPlayerID>0</SubjectPlayerID>
+        <SubjectTeamID>796332</SubjectTeamID>
+        <ObjectPlayerID>0</ObjectPlayerID>
+        <MatchPart>2</MatchPart>
+        <EventTypeID>602</EventTypeID>
+        <EventVariation>3</EventVariation>
+        <EventText></EventText>
+      </Event>
+      <Event Index="39">
+        <Minute>91</Minute>
+        <SubjectPlayerID>0</SubjectPlayerID>
+        <SubjectTeamID>120994</SubjectTeamID>
+        <ObjectPlayerID>54</ObjectPlayerID>
+        <MatchPart>2</MatchPart>
+        <EventTypeID>40</EventTypeID>
+        <EventVariation>2</EventVariation>
+        <EventText>&lt;span class="awayteam"&gt;V@der&lt;/span&gt; va controlar la pilota, amb un 54% de possessió.&lt;br /&gt;&lt;br /&gt;</EventText>
+      </Event>
+      <Event Index="40">
+        <Minute>91</Minute>
+        <SubjectPlayerID>391151370</SubjectPlayerID>
+        <SubjectTeamID>796332</SubjectTeamID>
+        <ObjectPlayerID>0</ObjectPlayerID>
+        <MatchPart>2</MatchPart>
+        <EventTypeID>41</EventTypeID>
+        <EventVariation>3</EventVariation>
+        <EventText>El millor jugador de &lt;span class="hometeam"&gt;Campeones&lt;/span&gt; va ser &lt;a href="/Club/Players/Player.aspx?playerId=391151370" title="Filip Przybyło" class="homeplayer"&gt;Filip Przybyło&lt;/a&gt;. </EventText>
+      </Event>
+      <Event Index="41">
+        <Minute>91</Minute>
+        <SubjectPlayerID>401497151</SubjectPlayerID>
+        <SubjectTeamID>796332</SubjectTeamID>
+        <ObjectPlayerID>0</ObjectPlayerID>
+        <MatchPart>2</MatchPart>
+        <EventTypeID>42</EventTypeID>
+        <EventVariation>3</EventVariation>
+        <EventText>Tanmateix, &lt;a href="/Club/Players/Player.aspx?playerId=401497151" title="C&amp;#233;sar Guezala" class="homeplayer"&gt;César Guezala&lt;/a&gt; va fer baixar el nivell de l'equip.</EventText>
+      </Event>
+      <Event Index="42">
+        <Minute>91</Minute>
+        <SubjectPlayerID>391880826</SubjectPlayerID>
+        <SubjectTeamID>120994</SubjectTeamID>
+        <ObjectPlayerID>0</ObjectPlayerID>
+        <MatchPart>2</MatchPart>
+        <EventTypeID>41</EventTypeID>
+        <EventVariation>1</EventVariation>
+        <EventText>L'estrella de &lt;span class="awayteam"&gt;V@der&lt;/span&gt; en aquest partit va ser &lt;a href="/Club/Players/Player.aspx?playerId=391880826" title="Rasheed Da'na" class="awayplayer"&gt;Rasheed Da'na&lt;/a&gt;.</EventText>
+      </Event>
+      <Event Index="43">
+        <Minute>91</Minute>
+        <SubjectPlayerID>389206860</SubjectPlayerID>
+        <SubjectTeamID>120994</SubjectTeamID>
+        <ObjectPlayerID>0</ObjectPlayerID>
+        <MatchPart>2</MatchPart>
+        <EventTypeID>42</EventTypeID>
+        <EventVariation>4</EventVariation>
+        <EventText>En canvi, &lt;a href="/Club/Players/Player.aspx?playerId=389206860" title="Cezary Pauch" class="awayplayer"&gt;Cezary Pauch&lt;/a&gt; va fer el paper de la trista figura.</EventText>
       </Event>
     </EventList>
   </Match>
