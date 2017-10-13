@@ -6,7 +6,7 @@ import sqlite3
 
 # Bienvenida
 print('\n')
-print('BIENVENIDO a SE-Bigdata!')
+print('BIENVENIDO a SE-Bigdata! v0.0')
 print('\n')
 print('Gracias por participar en este estudio!')
 print('y no dudes en preguntar cualquier duda o reportar algun fallo (uny11)')
@@ -33,6 +33,37 @@ except:
     print('\n')
     helper.get_auth()
 cur.close()
+
+# Lanzamos MENU de la aplicacion
+while True:
+    print('Que quieres hacer? Elige una opción (por defecto "4.- Salir")')
+    print('     1.- Obtener datos de Hattrick')
+    print('     2.- Enviar datos al servidor para enriquecer el estudio')
+    print('     3.- Ver tus estadisticas')
+    print('     4.- Salir')
+    opcion = input('>> ')
+
+    if opcion == '1':
+        print('\n')
+        print('Perdón! Sigue en contrucción')
+        print('\n')
+    elif opcion == '2':
+        print('\n')
+        print('Perdón! Sigue en contrucción')
+        print('\n')
+    elif opcion == '3':
+        print('\n')
+        print('Perdón! Sigue en contrucción')
+        print('\n')
+    elif opcion == '4': break
+    elif len(opcion) < 1: break
+    else:
+        print('\n')
+        print('No has elegido una opcion valida! Prueba otra vez..')
+        print('\n')
+
+
+
 
 
 
