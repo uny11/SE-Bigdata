@@ -8,18 +8,18 @@ Se lista la lista de tablas y la lista de los campos de cada una de ellas.
 - alineacion
 - sustituciones
 
-## Tabla "partidos" (match.xml para lista de partidos y matchdetails.xml para detalles)
+## Tabla "partidos" (matchsarchive.xml para lista de partidos y matchdetails.xml para detalles)
 - [KEY] MatchID
 - MatchType
-- MatchDate
+- MatchDate (string con datetime.__str__())
 - HomeTeamID
 - HomeGoals
-- TacticType
-- TacticSkill
 - AwayTeamID
 - AwayGoals
-- TacticType
-- TacticSkill
+- TacticTypeHome
+- TacticSkillHome
+- TacticTypeAway
+- TacticSkillAway
 - tarjetas #valor '1'= si y valor '0'=no
 - lesiones #valor '1'= si y valor '0'=no
 - SUS_Home #valor '1'= si y valor '0'=no

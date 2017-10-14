@@ -1,8 +1,8 @@
 # App con interface de consola
 
-from  chpp import CHPPhelp
-from bbdd import BBDDhelp
-from datetime import datetime
+from chpp import CHPPhelp
+import bbdd
+from datetime import datetime, timedelta
 import xml.etree.ElementTree as ET
 import sqlite3
 
@@ -14,7 +14,7 @@ print('Gracias por participar en este estudio!')
 print('y no dudes en preguntar cualquier duda o reportar algun fallo (uny11)')
 print('\n')
 
-# Iniciamos claves para acceder a los recursos CHPP de la API de Hatrick
+# Iniciamos claves y funciones para acceder a los recursos CHPP de la API de Hatrick
 helper = CHPPhelp()
 
 # Buscamos si la App ya esta autorizada por el usuario para conectarse
@@ -38,7 +38,7 @@ cur.close()
 
 # Lanzamos MENU de la aplicacion
 while True:
-    print('Que quieres hacer? Elige una opción (por defecto "4.- Salir")')
+    print('Que quieres hacer? Elige una opción (por defecto 4): ')
     print('     1.- Obtener datos de Hattrick')
     print('     2.- Enviar datos al servidor para enriquecer el estudio')
     print('     3.- Ver tus estadisticas')
@@ -46,9 +46,11 @@ while True:
     opcion = input('>> ')
 
     if opcion == '1':
-        bbdd = BBDDhelp()
-        fechalimite = datetime.today() #+ 28
-        bbdd.lista_partidos(helper, user_key, user_secret, fechalimite)
+        #Paso1 - Recuperar partidos nuevos
+        print('\n')
+        print('Buscando partidos en www.hattrick.org... ')
+        PrimeraFecha = datetime.today() - timedelta(days=5)
+        bbdd.guardar_partidos(helper, user_key, user_secret, PrimeraFecha)
     elif opcion == '2':
         print('\n')
         print('Perdón! Sigue en contrucción')
