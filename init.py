@@ -27,6 +27,11 @@ try:
     user_key = cur.fetchone()[0]
     cur.execute('SELECT key FROM keys WHERE id = 4 LIMIT 1')
     user_secret = cur.fetchone()[0]
+    try:
+        cur.execute( 'SELECT max(MatchDate) FROM partidos')
+        fechamax = cur.fetchone()[0]
+    except:
+        fechamax = datetime.today() - timedelta(days=90)
 except:
     # Si el test da un valor de ERROR, lanzamos proceso de autorizacion
     # print('\n')
@@ -46,21 +51,31 @@ while True:
     opcion = input('>> ')
 
     if opcion == '1':
-        #Paso1 - Recuperar partidos nuevos
+        #Paso1 - Recuperar lista de partidos nuevos
         print('\n')
         print('Buscando partidos en www.hattrick.org... ')
-        PrimeraFecha = datetime.today() - timedelta(days=5)
-        bbdd.guardar_partidos(helper, user_key, user_secret, PrimeraFecha)
+        listaPartidos = bbdd.guardar_lista_partidos(helper, user_key, user_secret, fechamax)
+
+        #Paso2 - Recuperar detalle de los partidos nuevos
+        if len(listaPartidos) > 0:
+            print('\n')
+            print('Recuperamos los datos de los ',len(listaPartidos),' partidos nuevos en www.hattrick.org... ')
+            for partido in listaPartidos:
+                bbdd.recopilar_un_partido(helper, user_key, user_secret, partido)
+
     elif opcion == '2':
         print('\n')
-        print('Perdón! Sigue en contrucción')
+        print('Perdón! Esta parte esta en contrucción')
         print('\n')
+
     elif opcion == '3':
         print('\n')
-        print('Perdón! Sigue en contrucción')
+        print('Perdón! Esta parte esta en contrucción')
         print('\n')
+
     elif opcion == '4': break
     elif len(opcion) < 1: break
+
     else:
         print('\n')
         print('No has elegido una opcion valida! Prueba otra vez..')
