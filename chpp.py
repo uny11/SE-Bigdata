@@ -110,7 +110,7 @@ class CHPPhelp(object):
 
         return self.request_resource(token, filename, query)
 
-    def get_auth(self):        # Archivo auth.py
+    def get_auth(self, base):        # Archivo auth.py
         # Generamos la url para obtener el pin de autorizacion CHPP
         registration_url = self.get_request_token_url()
         print ('Abre esta direccion en tu navegador para obtener el PIN: ',registration_url)
@@ -124,7 +124,7 @@ class CHPPhelp(object):
         user_secret = access_token.secret
 
         #Guardamos los tokens en la base de datos
-        conn = sqlite3.connect('bigdata.sqlite')
+        conn = sqlite3.connect(base)
         cur = conn.cursor()
         try:
             cur.execute('INSERT INTO keys (id,key) VALUES (?,?)', (3,user_key))

@@ -17,8 +17,12 @@ print('\n')
 # Iniciamos claves y funciones para acceder a los recursos CHPP de la API de Hatrick
 helper = CHPPhelp()
 
+#Iniciamos base de datos de SE-Bigdata
+basedatos = 'bigdata.sqlite'
+init_bbdd(basedatos)
+
 # Buscamos si la App ya esta autorizada por el usuario para conectarse
-conn = sqlite3.connect('bigdata.sqlite')
+conn = sqlite3.connect(basedatos)
 cur = conn.cursor()
 try:
     cur.execute('SELECT key FROM keys WHERE id = 3')
@@ -38,7 +42,7 @@ except:
     print('Para usar SE-Bigdata, es necesario tu autorizacion CHPP para el uso de esta aplicacion')
     print('Por favor, sigue las instruciones:')
     print('\n')
-    helper.get_auth()
+    helper.get_auth(basedatos)
 cur.close()
 
 # Lanzamos MENU de la aplicacion
@@ -54,14 +58,14 @@ while True:
         #Paso1 - Recuperar lista de partidos nuevos
         print('\n')
         print('Buscando partidos en www.hattrick.org... ')
-        listaPartidos = bbdd.guardar_lista_partidos(helper, user_key, user_secret, fechamax)
+        listaPartidos = bbdd.guardar_lista_partidos(helper, basedatos, user_key, user_secret, fechamax)
 
         #Paso2 - Recuperar detalle de los partidos nuevos
         if len(listaPartidos) > 0:
             print('\n')
             print('Recuperamos los datos de los ',len(listaPartidos),' partidos nuevos en www.hattrick.org... ')
             for partido in listaPartidos:
-                bbdd.recopilar_un_partido(helper, user_key, user_secret, partido)
+                bbdd.recopilar_un_partido(helper, basedatos, user_key, user_secret, partido)
 
     elif opcion == '2':
         print('\n')
