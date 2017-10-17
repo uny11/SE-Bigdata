@@ -1,4 +1,20 @@
-#Esta version de chpp.py va a buscar los chpp_key/chpp_secret en la base de datos de la App
+# SE-Bigdata programa de recopilacion de estadisticas de www.hattrick.org
+# Copyright (C) 2017, Isaac Porta "uny11"
+#
+# This file is part of SE-Bigdata.
+#
+# SE-Bigdata is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# SE-Bigdata is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with SE-Bigdata.  If not, see <http://www.gnu.org/licenses/>.
 
 import oauth2 as oauth
 from contextlib import closing

@@ -1,4 +1,20 @@
-# SE-Bigdata con interface de consola
+# SE-Bigdata programa de recopilacion de estadisticas de www.hattrick.org
+# Copyright (C) 2017, Isaac Porta "uny11"
+#
+# This file is part of SE-Bigdata.
+#
+# SE-Bigdata is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# SE-Bigdata is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with SE-Bigdata.  If not, see <http://www.gnu.org/licenses/>.
 
 from chpp import CHPPhelp
 import bbdd
@@ -8,7 +24,12 @@ import sqlite3
 
 # print Bienvenida
 print('\n')
-print('BIENVENIDO a SE-Bigdata! v0.0 en construccion')
+print('''SE-Bigdata  Copyright (C) 2017  Isaac Porta "uny11"
+    Este programa vienen sin ABSOLUTAMENTE NINGUNA GARANTIA.
+    Este es software libre, i tu eres bienvenido a redistribuir el programa (licencia GPLv3).''')
+print('\n\n')
+print('''BIENVENIDO a SE-BIGDATA!
+v0.0''')
 print('\n')
 print('Gracias por participar en este estudio!')
 print('y no dudes en preguntar cualquier duda o reportar algun fallo (uny11)')
@@ -52,7 +73,7 @@ while True:
     print('     1.- Obtener datos de Hattrick')
     print('     2.- Enviar datos al servidor para enriquecer el estudio')
     print('     3.- Ver tus estadisticas')
-    print('     4.- Salir')
+    print('     4.- Salir\n')
     opcion = input('>> ')
 
     if opcion == '1':
