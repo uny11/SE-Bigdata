@@ -6,7 +6,7 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta
 
 
-def init_bbdd(base):
+def init_base(base):
     # Creamos las tablas necesarias sino estan creadas
     conn = sqlite3.connect(base)
     cur = conn.cursor()
@@ -38,7 +38,7 @@ def init_bbdd(base):
 
     cur.close()
 
-def guardar_lista_partidos(helper, base, user_key, user_secret, fecha):
+def new_partidos(helper, base, user_key, user_secret, fecha):
     # Peticion a la API
     xmldoc = helper.request_resource_with_key(  user_key,
                                                 user_secret,
@@ -83,7 +83,7 @@ def guardar_lista_partidos(helper, base, user_key, user_secret, fecha):
     return listaPartidosNuevos
 
 
-def recopilar_un_partido(helper, base, user_key, user_secret, idpartido):
+def get_partido(helper, base, user_key, user_secret, idpartido):
     #Consulta a la API
     xmldoc = helper.request_resource_with_key(     user_key,
                                                    user_secret,

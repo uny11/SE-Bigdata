@@ -7,6 +7,18 @@ from urllib.parse import parse_qsl
 from urllib.parse import urlencode
 import sqlite3
 
+# # Example to get the list of youth players
+# xmldoc = helper.request_resource_with_key(     user_key,
+#                                                user_secret,
+#                                                'youthplayerlist',
+#                                                {
+#                                                 'actionType' : 'details',
+#                                                 'showScoutCall' : 'true',
+#                                                 'showLastMatch' : 'true'
+#                                                }
+#                                               )
+# print(xmldoc)
+
 #Vamos a definir una clase que contenga todas las constantes y funciones con sus variables inicializadas
 class CHPPhelp(object):
     request_token_url     = 'https://chpp.hattrick.org/oauth/request_token.ashx'
