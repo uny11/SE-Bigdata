@@ -87,7 +87,7 @@ def init_base(base):
     # tabla jugadores
     cur.execute('''
                 CREATE TABLE IF NOT EXISTS jugadores
-                (PlayerID INTEGER PRIMARY KEY, Agreeability INTEGER, Aggressiveness INTEGER, Honesty INTEGER, Leadership INTEGER, Specialty INTEGER))
+                (PlayerID INTEGER PRIMARY KEY, Agreeability INTEGER, Aggressiveness INTEGER, Honesty INTEGER, Leadership INTEGER, Specialty INTEGER)
                 ''')
 
     cur.close()
@@ -129,8 +129,53 @@ def new_partidos(helper, base, user_key, user_secret, fecha, team):
             listaPartidosNuevos.append(idmatch)
         except:
             countMatchBBDD = countMatchBBDD + 1
+        # Recuperamos jugadores actuales de los equipos home team
+        xmljug = helper.request_resource_with_key(  user_key,
+                                                    user_secret,
+                                                    'players',
+                                                    {
+                                                     'version' : 2.3,
+                                                     'teamID' : teamidHome
+                                                    }
+                                                 )
+        rootjug = ET.fromstring(xmljug)
+        for player in rootjug.findall('Team/PlayerList/Player'):
+            idplayer = player.find('PlayerID').text
+            agree = player.find('Agreeability').text
+            aggre = player.find('Aggressiveness').text
+            hones = player.find('Honesty').text
+            leade = player.find('Leadership').text
+            speci = player.find('Specialty').text
+            try:
+                cur.execute('INSERT INTO jugadores (PlayerID, Agreeability, Aggressiveness, Honesty, Leadership, Specialty) VALUES (?, ?, ?, ?, ?, ?)',
+                (idplayer, agree, aggre, hones, leade, speci))
+            except:
+                continue
+        # Recuperamos jugadores actuales de los equipos away team
+        xmljug = helper.request_resource_with_key(  user_key,
+                                                    user_secret,
+                                                    'players',
+                                                    {
+                                                     'version' : 2.3,
+                                                     'teamID' : teamidAway
+                                                    }
+                                                 )
+        rootjug = ET.fromstring(xmljug)
+        for player in rootjug.findall('Team/PlayerList/Player'):
+            idplayer = player.find('PlayerID').text
+            agree = player.find('Agreeability').text
+            aggre = player.find('Aggressiveness').text
+            hones = player.find('Honesty').text
+            leade = player.find('Leadership').text
+            speci = player.find('Specialty').text
+            try:
+                cur.execute('INSERT INTO jugadores (PlayerID, Agreeability, Aggressiveness, Honesty, Leadership, Specialty) VALUES (?, ?, ?, ?, ?, ?)',
+                (idplayer, agree, aggre, hones, leade, speci))
+            except:
+                continue
     conn.commit()
     cur.close()
+
     init()
     print(Back.GREEN + Fore.WHITE + str(countMatchNuevos), Style.RESET_ALL + ' partidos nuevos han sido encontrados!')
     print(countMatchBBDD, ' partidos encontrados ya existian en SE-Bigdata')
