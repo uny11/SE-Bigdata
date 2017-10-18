@@ -28,10 +28,9 @@ print('\n')
 print(Fore.WHITE + Back.GREEN + '''SE-BIGDATA v0.0''')
 print('''Copyright (C) 2017  Isaac Porta "uny11"
     Este programa es software libre (licencia GPL-v3)''')
-print('\n\n')
+print('\n')
 print(Style.BRIGHT + 'Bienvenido y Gracias por participar en este estudio!')
 print('no dudes en reportar algun fallo y/o duda (uny11)')
-print('\n')
 
 # Iniciamos claves y funciones para acceder a los recursos CHPP de la API de Hatrick
 helper = CHPPhelp()
@@ -83,7 +82,7 @@ while True:
     print('     2.- Enviar datos al servidor para enriquecer el estudio')
     print('     3.- Ver tus estadisticas')
     print('     4.- Salir\n')
-    opcion = input(Back.WHITE + Fore.BLACK + '(por defecto 4) >> ')
+    opcion = input('(por defecto 4) >> ')
 
     if opcion == '1':
         # Paso0 - Miramos si hay partidos en la base y si hay miramos fecha del ultimo
@@ -92,28 +91,25 @@ while True:
         try:
             cur.execute( 'SELECT max(MatchDate) FROM partidos')
             fechamax = cur.fetchone()[0]
-            # if fechamax == None:
-            #     fechamax = datetime.today() - timedelta(days=90)
-            # else:
-            #     fechamax = fechamax.strftime('%Y-%m-%d %H:%M:%S') + timedelta(minutes=1)
         except:
             fechamax = datetime.today() - timedelta(days=90)
         cur.close()
 
-        # Paso1 - Recuperar lista de partidos nuevos
+        # Paso1 - Recuperamos lista de partidos nuevos
         print('\n')
         print('Buscando partidos en www.hattrick.org... ')
+        print('Paciencia, puede tardar un poco..\n')
         for team in listaEquipos:
-            print('Para tu equipo con ID: ',team)
+            print('Para tu equipo con ID ',team)
             listaPartidos = bbdd.new_partidos(helper, basedatos, user_key, user_secret, fechamax, team)
             # Paso1.2 - Recuperar detalle de los partidos nuevos para cada equipo
             if len(listaPartidos) > 0:
-                print('Recuperando los datos de los ',Back.WHITE + Fore.BLACK + str(len(listaPartidos)), Style.RESET_ALL + ' partidos nuevos en www.hattrick.org... ')
-                print('Paciencia, puede tardar un poco..')
+                print('Recuperando los datos de los ',Back.WHITE + Fore.BLACK + str(len(listaPartidos)), Style.RESET_ALL + ' partidos nuevos de www.hattrick.org... \n')
                 for partido in listaPartidos:
                     bbdd.get_partido(helper, basedatos, user_key, user_secret, partido)
             else:
                 None
+
         print(Back.GREEN + Fore.WHITE + 'Hecho!' + Style.RESET_ALL)
 
     elif opcion == '2':

@@ -21,7 +21,6 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta
 from colorama import init, Fore, Back, Style
 
-
 def init_base(base):
     # Creamos las tablas necesarias sino estan creadas
     conn = sqlite3.connect(base)
@@ -52,7 +51,7 @@ def init_base(base):
                 (MatchID INTEGER PRIMARY KEY, MatchType INTEGER, MatchDate TEXT, HomeTeamID INTEGER,
                 HomeGoals INTEGER, AwayTeamID INTEGER, AwayGoals INTEGER, TacticTypeHome INTEGER,
                 TacticSkillHome INTEGER, TacticTypeAway INTEGER, TacticSkillAway INTEGER, tarjetas INTEGER,
-                lesiones INTEGER, SUS_Home INTEGER, SUS_Away INTEGER, PossessionFirstHalfHome INTEGER,
+                lesiones INTEGER, PossessionFirstHalfHome INTEGER,
                 PossessionFirstHalfAway INTEGER, PossessionSecondHalfHome INTEGER, PossessionSecondHalfAway INTEGER,
                 RatingIndirectSetPiecesDefHome INTEGER, RatingIndirectSetPiecesAttHome INTEGER, RatingIndirectSetPiecesDefAway INTEGER,
                 RatingIndirectSetPiecesAttAway INTEGER)
@@ -69,6 +68,20 @@ def init_base(base):
                 ObjJugadas INTEGER, ObjLateral INTEGER, ObjPases INTEGER,
                 ObjAnotacion INTEGER, ObjXP INTEGER, ObjFidelidad INTEGER, ObjForma INTEGER, ObjResistencia INTEGER,
                 UNIQUE(MatchID, IndexEv))
+                ''')
+
+    # tabla alineacion
+    cur.execute('''
+                CREATE TABLE IF NOT EXISTS alineacion
+                (MatchID INTEGER, RoleTeam INTEGER, RoleID INTEGER, PlayerID INTEGER,
+                UNIQUE(MatchID, RoleTeam, RoleID))
+                ''')
+
+    # tabla sustituciones
+    cur.execute('''
+                CREATE TABLE IF NOT EXISTS sustituciones
+                (MatchID INTEGER, TeamID INTEGER, SubjectPlayerID INTEGER, ObjectPlayerID INTEGER, NewPositionId INTEGER, MatchMinute INTEGER,
+                UNIQUE(MatchID, TeamID, SubjectPlayerID))
                 ''')
 
     cur.close()
@@ -120,6 +133,8 @@ def new_partidos(helper, base, user_key, user_secret, fecha, team):
     return listaPartidosNuevos
 
 def get_partido(helper, base, user_key, user_secret, idpartido):
+    global rival
+    global teamrole
     #Consulta a la API
     xmldoc = helper.request_resource_with_key(     user_key,
                                                    user_secret,
@@ -179,6 +194,85 @@ def get_partido(helper, base, user_key, user_secret, idpartido):
         try:
             cur.execute('''INSERT INTO eventos (MatchID, IndexEv, Minute, EventTypeID, SubjectTeamID, SubjectPlayerID, ObjectPlayerID)
                         VALUES (?, ?, ?, ?, ?, ?, ?)''', (idpartido, indexevent, minute, idtypeevent, subteam, subplayer, objplayer))
+            conn.commit()
+        except:
+            continue
+
+    xmldoc = helper.request_resource_with_key(     user_key,
+                                                   user_secret,
+                                                   'matchlineup',
+                                                   {
+                                                    'version' : 2.0,
+                                                    'matchID' : idpartido
+                                                   }
+                                                  )
+    root = ET.fromstring(xmldoc)
+
+    hteamid = root.find('HomeTeam/HomeTeamID').text
+    ateamid = root.find('AwayTeam/AwayTeamID').text
+    teamidlineaup = root.find('Team/TeamID').text
+    if hteamid == teamidlineaup:
+        teamrole = 1
+        rival = ateamid
+    if ateamid == teamidlineaup:
+        teamrole = 2
+        rival = hteamid
+    for player in root.findall('Team/StartingLineup/Player'):
+        idplayer = player.find('PlayerID').text
+        idrole = player.find('RoleID').text
+        try:
+            cur.execute('''INSERT INTO alineacion (MatchID, RoleTeam, RoleID, PlayerID)
+                        VALUES (?, ?, ?, ?)''', (idpartido, teamrole, idrole, idplayer))
+            conn.commit()
+        except:
+            continue
+
+    for sus in root.findall('Team/Substitutions/Substitution'):
+        idteam = sus.find('TeamID').text
+        subplaid = sus.find('SubjectPlayerID').text
+        objplaid = sus.find('ObjectPlayerID').text
+        minutematch = sus.find('MatchMinute').text
+        posid = sus.find('NewPositionId').text
+        try:
+            cur.execute('''INSERT INTO sustituciones (MatchID, TeamID, SubjectPlayerID, ObjectPlayerID, MatchMinute, NewPositionId)
+                        VALUES (?, ?, ?, ?, ?, ?)''', (idpartido, idteam, subplaid, objplaid, minutematch, posid))
+            conn.commit()
+        except:
+            continue
+
+    xmldoc = helper.request_resource_with_key(   user_key,
+                                                 user_secret,
+                                                 'matchlineup',
+                                                   {
+                                                    'version' : 2.0,
+                                                    'matchID' : idpartido,
+                                                    'teamID' : rival
+                                                   }
+                                             )
+    root = ET.fromstring(xmldoc)
+    if teamrole == 1:
+        teamrole = 2
+    else:
+        teamrole = 1
+    for player in root.findall('Team/StartingLineup/Player'):
+        idplayer = player.find('PlayerID').text
+        idrole = player.find('RoleID').text
+        try:
+            cur.execute('''INSERT INTO alineacion (MatchID, RoleTeam, RoleID, PlayerID)
+                        VALUES (?, ?, ?, ?)''', (idpartido, teamrole, idrole, idplayer))
+            conn.commit()
+        except:
+            continue
+
+    for sus in root.findall('Team/Substitutions/Substitution'):
+        idteam = sus.find('TeamID').text
+        subplaid = sus.find('SubjectPlayerID').text
+        objplaid = sus.find('ObjectPlayerID').text
+        minutematch = sus.find('MatchMinute').text
+        posid = sus.find('NewPositionId').text
+        try:
+            cur.execute('''INSERT INTO sustituciones (MatchID, TeamID, SubjectPlayerID, ObjectPlayerID, MatchMinute, NewPositionId)
+                        VALUES (?, ?, ?, ?, ?, ?)''', (idpartido, idteam, subplaid, objplaid, minutematch, posid))
             conn.commit()
         except:
             continue
