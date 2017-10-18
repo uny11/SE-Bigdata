@@ -53,7 +53,7 @@ Se lista la lista de tablas y la lista de los campos de cada una de ellas.
 - SubjectTeamID
 - SubjectPlayerID
 - ObjectPlayerID
-- SubPorteria
+- SubPorteria (habilidades de playerdetails.xml)
 - SubDefensa
 - SubJugadas
 - SubLateral

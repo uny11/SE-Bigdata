@@ -106,6 +106,7 @@ while True:
             if len(listaPartidos) > 0:
                 print('Recuperando los datos de los ',Back.WHITE + Fore.BLACK + str(len(listaPartidos)), Style.RESET_ALL + ' partidos nuevos de www.hattrick.org... \n')
                 for partido in listaPartidos:
+                    # detalle partido, alineacion y sustituciones
                     bbdd.get_partido(helper, basedatos, user_key, user_secret, partido)
             else:
                 None
@@ -122,8 +123,12 @@ while True:
         print(Back.RED + Fore.WHITE + 'Perdón! Esta parte esta en contrucción' + Style.RESET_ALL)
         print('\n')
 
-    elif opcion == '4': break
-    elif len(opcion) < 1: break
+    elif opcion == '4':
+        print('\n')
+        break
+    elif len(opcion) < 1:
+        print('\n')
+        break
 
     else:
         print('\n')

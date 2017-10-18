@@ -84,6 +84,12 @@ def init_base(base):
                 UNIQUE(MatchID, TeamID, SubjectPlayerID))
                 ''')
 
+    # tabla jugadores
+    cur.execute('''
+                CREATE TABLE IF NOT EXISTS jugadores
+                (PlayerID INTEGER PRIMARY KEY, Agreeability INTEGER, Aggressiveness INTEGER, Honesty INTEGER, Leadership INTEGER, Specialty INTEGER))
+                ''')
+
     cur.close()
 
 def new_partidos(helper, base, user_key, user_secret, fecha, team):
