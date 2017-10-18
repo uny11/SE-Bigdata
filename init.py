@@ -32,30 +32,31 @@ print('\n')
 print(Style.BRIGHT + 'Bienvenido y Gracias por participar en este estudio!')
 print('no dudes en reportar algun fallo y/o duda (uny11)')
 
-# Iniciamos claves y funciones para acceder a los recursos CHPP de la API de Hatrick
-helper = CHPPhelp()
-
 #Iniciamos base de datos de SE-Bigdata
 basedatos = 'bigdata.sqlite'
 bbdd.init_base(basedatos)
+
+# Iniciamos claves y funciones para acceder a los recursos CHPP de la API de Hatrick
+helper = CHPPhelp()
 
 # Buscamos si la App tiene la autorizacion CHPP del usuario
 conn = sqlite3.connect(basedatos)
 cur = conn.cursor()
 try:
-    cur.execute('SELECT key FROM keys WHERE id = 3')
+    cur.execute('SELECT key FROM keys WHERE id = 1')
     test = cur.fetchone()[0]
     # El test es OK! nada que hacer
 except:
     # El test es NO OK -> lanzamos proceso de autorizacion
+    print('\n')
     print('Antes de nada, es necesario tu autorizacion-CHPP para recoger datos Hattrick!')
     print('Sigue las instruciones:')
     helper.get_auth(basedatos)
 
 # Recuperamos tokens, user y equipos del user
-cur.execute('SELECT key FROM keys WHERE id = 3 LIMIT 1')
+cur.execute('SELECT key FROM keys WHERE id = 1 LIMIT 1')
 user_key = cur.fetchone()[0]
-cur.execute('SELECT key FROM keys WHERE id = 4 LIMIT 1')
+cur.execute('SELECT key FROM keys WHERE id = 2 LIMIT 1')
 user_secret = cur.fetchone()[0]
 cur.execute('SELECT descripcion FROM info WHERE id = 1 LIMIT 1')
 user = cur.fetchone()[0]

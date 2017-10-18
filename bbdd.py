@@ -31,13 +31,6 @@ def init_base(base):
                 CREATE TABLE IF NOT EXISTS keys
                 (id INTEGER PRIMARY KEY, key TEXT)
                 ''')
-    try:
-        cur.execute('SELECT key FROM keys WHERE id = 1')
-        test = cur.fetchone()[0]
-    except:
-        cur.execute('INSERT INTO keys (id,key) VALUES (?,?)', (1,'1Pg9hSfo5mkli2zaT8Hprr'))
-        cur.execute('INSERT INTO keys (id,key) VALUES (?,?)', (2,'ERhrDhuV2uIEHG75QtHnHXDrOOYMixXzBS1V9yy3EZ6'))
-        conn.commit()
 
     # tabla info del user
     cur.execute('''

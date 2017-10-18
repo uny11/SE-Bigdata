@@ -33,13 +33,8 @@ class CHPPhelp(object):
     check_token_path      = 'https://chpp.hattrick.org/oauth/check_token.ashx'
     invalidate_token_path = 'https://chpp.hattrick.org/oauth/invalidate_token.ashx'
     resources_path        = 'http://chpp.hattrick.org/chppxml.ashx'
-    conn = sqlite3.connect('bigdata.sqlite')
-    cur = conn.cursor()
-    cur.execute('SELECT key FROM keys WHERE id = 1 LIMIT 1')
-    chpp_key = cur.fetchone()[0]
-    cur.execute('SELECT key FROM keys WHERE id = 2 LIMIT 1')
-    chpp_secret = cur.fetchone()[0]
-    cur.close()
+    chpp_key = '1Pg9hSfo5mkli2zaT8Hprr'
+    chpp_secret = 'ERhrDhuV2uIEHG75QtHnHXDrOOYMixXzBS1V9yy3EZ6'
 
     def __init__(self):
         self.consumer = oauth.Consumer(key=self.chpp_key,
@@ -151,11 +146,11 @@ class CHPPhelp(object):
         conn = sqlite3.connect(base)
         cur = conn.cursor()
         try:
-            cur.execute('INSERT INTO keys (id,key) VALUES (?,?)', (3,user_key))
+            cur.execute('INSERT INTO keys (id,key) VALUES (?,?)', (1,user_key))
         except:
             None
         try:
-            cur.execute('INSERT INTO keys (id,key) VALUES (?,?)', (4,user_secret))
+            cur.execute('INSERT INTO keys (id,key) VALUES (?,?)', (2,user_secret))
         except:
             None
 
