@@ -1,4 +1,3 @@
-# SE-Bigdata programa de recopilacion de estadisticas de www.hattrick.org
 # Copyright (C) 2017, Isaac Porta "uny11"
 #
 # This file is part of SE-Bigdata.
@@ -20,6 +19,7 @@ import sqlite3
 from  chpp import CHPPhelp
 import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta
+from colorama import init, Fore, Back, Style
 
 
 def init_base(base):
@@ -92,8 +92,9 @@ def new_partidos(helper, base, user_key, user_secret, fecha):
             countMatchBBDD = countMatchBBDD + 1
     conn.commit()
     cur.close()
-    print(countMatchNuevos, ' partidos nuevos han sido recuperados!')
-    print(countMatchBBDD, ' partidos ya existian en SE-Bigdata')
+    init()
+    print(Back.GREEN + Fore.WHITE + str(countMatchNuevos), Style.RESET_ALL + ' partidos nuevos han sido encontrados!')
+    print(countMatchBBDD, ' partidos encontrados ya existian en SE-Bigdata')
     print('\n')
 
     return listaPartidosNuevos

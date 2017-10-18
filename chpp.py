@@ -1,4 +1,3 @@
-# SE-Bigdata programa de recopilacion de estadisticas de www.hattrick.org
 # Copyright (C) 2017, Isaac Porta "uny11"
 #
 # This file is part of SE-Bigdata.
@@ -22,6 +21,7 @@ from urllib.request import urlopen
 from urllib.parse import parse_qsl
 from urllib.parse import urlencode
 import sqlite3
+from colorama import init, Fore, Back, Style
 
 # # Example to get the list of youth players
 # xmldoc = helper.request_resource_with_key(     user_key,
@@ -105,13 +105,19 @@ class CHPPhelp(object):
         # sign it
         req.sign_request(self.signature_method, self.consumer, token)
 
-        connection = urlopen(req.to_url())
-        data = connection.read().decode("utf-8")
-        request_token = dict(parse_qsl(data))
+        try:
+            connection = urlopen(req.to_url())
+            data = connection.read().decode("utf-8")
+            request_token = dict(parse_qsl(data))
 
-        token = oauth.Token(request_token['oauth_token'],
+            token = oauth.Token(request_token['oauth_token'],
                             request_token['oauth_token_secret'])
-        return token
+            return token
+        except:
+            print(Style.BRIGHT + Fore.RED + 'El PIN no es correcto, prueba otra vez')
+            pin = input('Entrar PIN de acesso: ')
+            access_token = self.get_access_token(pin)
+            return access_token
 
     def request_resource(self, token, filename, query=[]):
         # build the request
@@ -141,10 +147,11 @@ class CHPPhelp(object):
     def get_auth(self, base):        # Archivo auth.py
         # Generamos la url para obtener el pin de autorizacion CHPP
         registration_url = self.get_request_token_url()
-        print ('Abre esta direccion en tu navegador para obtener el PIN: ',registration_url)
+        print ('Abre esta direccion en tu navegador para obtener el PIN de acceso: ')
+        print(Style.BRIGHT + registration_url)
 
         # recuperamos el pin del usuario
-        pin = input('Entrar PIN: ')
+        pin = input('Entrar PIN de acesso: ')
 
         # Obtenemos los tokens con el pin obtenido
         access_token = self.get_access_token(pin)
@@ -166,6 +173,10 @@ class CHPPhelp(object):
         cur.close()
 
         print('\n')
-        print('SE-Bigdata ha sido autorizado con éxito!')
-        print('Disfruta de tus estadisticas!')
+        print(Fore.GREEN + Style.BRIGHT + 'SE-Bigdata ha sido autorizado con éxito!' + Style.RESET_ALL)
+        print(Style.BRIGHT + 'Disfruta de tus estadisticas! xD' + Style.RESET_ALL)
         print('\n')
+
+    # def get_user(self, token, token_secret):
+    #     # Buscamos nickname del usuario
+    #     xmldoc = self.request_resource_with_key(token, token_secret,)

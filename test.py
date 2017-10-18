@@ -5,19 +5,31 @@
 # from  chpp import CHPPhelp
 # import xml.etree.ElementTree as ET
 
+from colorama import init, Fore, Back, Style
 
-t = ['611097585', '615085410', '611097589']
+# print('\n')
+# print(Fore.GREEN + Style.BRIGHT + 'SE-Bigdata ha sido autorizado con éxito!' + Style.RESET_ALL)
+# print(Style.BRIGHT + 'Disfruta de tus estadisticas! xD')
+# print(Style.RESET_ALL)
+# print('\n')
 
-for id in t:
-    print(id)
+countMatchNuevos = 10
+print(Back.GREEN + Fore.WHITE + str(countMatchNuevos), Style.RESET_ALL + ' partidos nuevos han sido encontrados!')
+
+listaPartidos= [ '1', '2']
+
+print('Recuperando los datos de los ',Back.WHITE + Fore.BLACK + str(len(listaPartidos)), Style.RESET_ALL + ' partidos nuevos en www.hattrick.org... ')
+print('Paciencia, puede tardar un poco..')
 
 
 
 
 
 
-
-
+# t = ['611097585', '615085410', '611097589']
+#
+# for id in t:
+#     print(id)
 
 # xmldoc = '''
 # <HattrickData>

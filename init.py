@@ -1,4 +1,3 @@
-# SE-Bigdata programa de recopilacion de estadisticas de www.hattrick.org
 # Copyright (C) 2017, Isaac Porta "uny11"
 #
 # This file is part of SE-Bigdata.
@@ -21,18 +20,17 @@ import bbdd
 from datetime import datetime, timedelta
 import xml.etree.ElementTree as ET
 import sqlite3
+from colorama import init, Fore, Back, Style
 
 # print Bienvenida
+init(autoreset=True) #activar colorama para windows, no efecto en el resto de plataformas
 print('\n')
-print('''SE-Bigdata  Copyright (C) 2017  Isaac Porta "uny11"
-    Este programa vienen sin ABSOLUTAMENTE NINGUNA GARANTIA.
-    Este es software libre, i tu eres bienvenido a redistribuir el programa (licencia GPLv3).''')
+print(Fore.WHITE + Back.GREEN + '''BIENVENIDO a SE-BIGDATA! v0.0''')
+print('''Copyright (C) 2017  Isaac Porta "uny11"
+    Este programa es software libre (licencia GPL-v3)''')
 print('\n\n')
-print('''BIENVENIDO a SE-BIGDATA!
-v0.0''')
-print('\n')
-print('Gracias por participar en este estudio!')
-print('y no dudes en preguntar cualquier duda o reportar algun fallo (uny11)')
+print(Style.BRIGHT + 'Gracias por participar en este estudio!')
+print('no dudes en reportar algun fallo y/o duda (uny11)')
 print('\n')
 
 # Iniciamos claves y funciones para acceder a los recursos CHPP de la API de Hatrick
@@ -56,25 +54,28 @@ try:
     try:
         cur.execute( 'SELECT max(MatchDate) FROM partidos')
         fechamax = cur.fetchone()[0]
-        fechamax = datetime.today() + timedelta(minutes=1)
+        if fechamax == None:
+            fechamax = datetime.today() - timedelta(days=90)
+        else:
+            fechamax = fechamax + timedelta(minutes=1)
     except:
         fechamax = datetime.today() - timedelta(days=90)
 except:
     # El test es NO OK -> lanzamos proceso de autorizacion
-    print('Para usar SE-Bigdata, es necesario tu autorizacion CHPP para el uso de esta aplicacion')
-    print('Por favor, sigue las instruciones:')
-    print('\n')
+    print('Antes de nada, es necesario tu autorizacion-CHPP para recoger datos Hattrick!')
+    print('Sigue las instruciones:')
     helper.get_auth(basedatos)
 cur.close()
 
 # Lanzamos MENU de la aplicacion
 while True:
-    print('Que quieres hacer? Elige una opción (por defecto 4): ')
+    print('\n')
+    print(Back.WHITE + Fore.BLACK + 'Que quieres hacer?? ')
     print('     1.- Obtener datos de Hattrick')
     print('     2.- Enviar datos al servidor para enriquecer el estudio')
     print('     3.- Ver tus estadisticas')
     print('     4.- Salir\n')
-    opcion = input('>> ')
+    opcion = input(Back.WHITE + Fore.BLACK + '(por defecto 4) >> ')
 
     if opcion == '1':
         #Paso1 - Recuperar lista de partidos nuevos
@@ -84,19 +85,20 @@ while True:
 
         #Paso2 - Recuperar detalle de los partidos nuevos
         if len(listaPartidos) > 0:
-            print('\n')
-            print('Recuperamos los datos de los ',len(listaPartidos),' partidos nuevos en www.hattrick.org... ')
+            print('Recuperando los datos de los ',Back.WHITE + Fore.BLACK + str(len(listaPartidos)), Style.RESET_ALL + ' partidos nuevos en www.hattrick.org... ')
+            print('Paciencia, puede tardar un poco..')
             for partido in listaPartidos:
                 bbdd.get_partido(helper, basedatos, user_key, user_secret, partido)
+            print(Back.GREEN + Fore.WHITE + 'Hecho!' + Style.RESET_ALL)
 
     elif opcion == '2':
         print('\n')
-        print('Perdón! Esta parte esta en contrucción')
+        print(Back.RED + Fore.WHITE + 'Perdón! Esta parte esta en contrucción' + Style.RESET_ALL)
         print('\n')
 
     elif opcion == '3':
         print('\n')
-        print('Perdón! Esta parte esta en contrucción')
+        print(Back.RED + Fore.WHITE + 'Perdón! Esta parte esta en contrucción' + Style.RESET_ALL)
         print('\n')
 
     elif opcion == '4': break
@@ -104,5 +106,5 @@ while True:
 
     else:
         print('\n')
-        print('No has elegido una opcion valida! Prueba otra vez..')
+        print(Back.RED + Fore.WHITE + 'Perdón! Esta parte esta en contrucción' + Style.RESET_ALL)
         print('\n')
