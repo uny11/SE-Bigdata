@@ -22,18 +22,7 @@ from urllib.parse import parse_qsl
 from urllib.parse import urlencode
 import sqlite3
 from colorama import init, Fore, Back, Style
-
-# # Example to get the list of youth players
-# xmldoc = helper.request_resource_with_key(     user_key,
-#                                                user_secret,
-#                                                'youthplayerlist',
-#                                                {
-#                                                 'actionType' : 'details',
-#                                                 'showScoutCall' : 'true',
-#                                                 'showLastMatch' : 'true'
-#                                                }
-#                                               )
-# print(xmldoc)
+import xml.etree.ElementTree as ET
 
 #Vamos a definir una clase que contenga todas las constantes y funciones con sus variables inicializadas
 class CHPPhelp(object):
@@ -158,7 +147,7 @@ class CHPPhelp(object):
         user_key = access_token.key
         user_secret = access_token.secret
 
-        #Guardamos los tokens en la base de datos
+        # Guardamos los tokens en la base de datos
         conn = sqlite3.connect(base)
         cur = conn.cursor()
         try:
@@ -169,6 +158,19 @@ class CHPPhelp(object):
             cur.execute('INSERT INTO keys (id,key) VALUES (?,?)', (4,user_secret))
         except:
             None
+
+        # Recuperamos user y teams
+        user = self.get_user(user_key, user_secret)
+        teams = self.get_teams(user_key, user_secret)
+        try:
+            cur.execute('INSERT INTO info (id,type,descripcion) VALUES (?,?,?)', (1,'user',str(user)))
+            i = 2
+            for team in teams:
+                cur.execute('INSERT INTO info (id,type,descripcion) VALUES (?,?,?)', (i,'team',team))
+                i = i + 1
+        except:
+            None
+
         conn.commit()
         cur.close()
 
@@ -177,6 +179,33 @@ class CHPPhelp(object):
         print(Style.BRIGHT + 'Disfruta de tus estadisticas! xD' + Style.RESET_ALL)
         print('\n')
 
-    # def get_user(self, token, token_secret):
-    #     # Buscamos nickname del usuario
-    #     xmldoc = self.request_resource_with_key(token, token_secret,)
+    def get_user(self, token, token_secret):
+        # Buscamos nickname del usuario
+        xmldoc = self.request_resource_with_key( token,
+                                                 token_secret,
+                                                 'managercompendium',
+                                                 {
+                                                    'version' : 1.1,
+                                                 }
+                                                )
+        root = ET.fromstring(xmldoc)
+        user = root.find('Manager/Loginname').text
+
+        return user
+
+    def get_teams(self, token, token_secret):
+        # Buscamos nickname del usuario
+        xmldoc = self.request_resource_with_key( token,
+                                                 token_secret,
+                                                 'managercompendium',
+                                                 {
+                                                    'version' : 1.1,
+                                                 }
+                                                )
+        root = ET.fromstring(xmldoc)
+        listaTeams = []
+        for team in root.findall('Manager/Teams/Team'):
+            teamid = team.find('TeamId').text
+            listaTeams.append(teamid)
+
+        return listaTeams

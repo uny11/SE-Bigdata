@@ -27,6 +27,25 @@ def init_base(base):
     conn = sqlite3.connect(base)
     cur = conn.cursor()
 
+    # tabla keys
+    cur.execute('''
+                CREATE TABLE IF NOT EXISTS keys
+                (id INTEGER PRIMARY KEY, key TEXT)
+                ''')
+    try:
+        cur.execute('SELECT key FROM keys WHERE id = 1')
+        test = cur.fetchone()[0]
+    except:
+        cur.execute('INSERT INTO keys (id,key) VALUES (?,?)', (1,'1Pg9hSfo5mkli2zaT8Hprr'))
+        cur.execute('INSERT INTO keys (id,key) VALUES (?,?)', (2,'ERhrDhuV2uIEHG75QtHnHXDrOOYMixXzBS1V9yy3EZ6'))
+        conn.commit()
+
+    # tabla info del user
+    cur.execute('''
+                CREATE TABLE IF NOT EXISTS info
+                (id INTEGER PRIMARY KEY, type TEXT, descripcion TEXT)
+                ''')
+
     # tabla partidos
     cur.execute('''
                 CREATE TABLE IF NOT EXISTS partidos
@@ -54,13 +73,14 @@ def init_base(base):
 
     cur.close()
 
-def new_partidos(helper, base, user_key, user_secret, fecha):
+def new_partidos(helper, base, user_key, user_secret, fecha, team):
     # Peticion a la API
     xmldoc = helper.request_resource_with_key(  user_key,
                                                 user_secret,
                                                 'matchesarchive',
                                                 {
                                                  'version' : 1.3,
+                                                 'teamID' : team,
                                                  'isYouth' : 'false',
                                                  'FirstMatchDate' : fecha
                                                  #LastMatchDate no especificada, coge 3 temporadas maximo
@@ -98,7 +118,6 @@ def new_partidos(helper, base, user_key, user_secret, fecha):
     print('\n')
 
     return listaPartidosNuevos
-
 
 def get_partido(helper, base, user_key, user_secret, idpartido):
     #Consulta a la API

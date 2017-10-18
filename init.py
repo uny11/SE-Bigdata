@@ -23,13 +23,13 @@ import sqlite3
 from colorama import init, Fore, Back, Style
 
 # print Bienvenida
-init(autoreset=True) #activar colorama para windows, no efecto en el resto de plataformas
+init(autoreset=True)
 print('\n')
-print(Fore.WHITE + Back.GREEN + '''BIENVENIDO a SE-BIGDATA! v0.0''')
+print(Fore.WHITE + Back.GREEN + '''SE-BIGDATA v0.0''')
 print('''Copyright (C) 2017  Isaac Porta "uny11"
     Este programa es software libre (licencia GPL-v3)''')
 print('\n\n')
-print(Style.BRIGHT + 'Gracias por participar en este estudio!')
+print(Style.BRIGHT + 'Bienvenido y Gracias por participar en este estudio!')
 print('no dudes en reportar algun fallo y/o duda (uny11)')
 print('\n')
 
@@ -46,31 +46,39 @@ cur = conn.cursor()
 try:
     cur.execute('SELECT key FROM keys WHERE id = 3')
     test = cur.fetchone()[0]
-    # El test es ok, recuperamos claves de los usuarios para interactuar con la API
-    cur.execute('SELECT key FROM keys WHERE id = 3 LIMIT 1')
-    user_key = cur.fetchone()[0]
-    cur.execute('SELECT key FROM keys WHERE id = 4 LIMIT 1')
-    user_secret = cur.fetchone()[0]
-    try:
-        cur.execute( 'SELECT max(MatchDate) FROM partidos')
-        fechamax = cur.fetchone()[0]
-        if fechamax == None:
-            fechamax = datetime.today() - timedelta(days=90)
-        else:
-            fechamax = fechamax + timedelta(minutes=1)
-    except:
-        fechamax = datetime.today() - timedelta(days=90)
+    # El test es OK! nada que hacer
 except:
     # El test es NO OK -> lanzamos proceso de autorizacion
     print('Antes de nada, es necesario tu autorizacion-CHPP para recoger datos Hattrick!')
     print('Sigue las instruciones:')
     helper.get_auth(basedatos)
+
+# Recuperamos tokens, user y equipos del user
+cur.execute('SELECT key FROM keys WHERE id = 3 LIMIT 1')
+user_key = cur.fetchone()[0]
+cur.execute('SELECT key FROM keys WHERE id = 4 LIMIT 1')
+user_secret = cur.fetchone()[0]
+cur.execute('SELECT descripcion FROM info WHERE id = 1 LIMIT 1')
+user = cur.fetchone()[0]
+listaEquipos = []
+cur.execute('SELECT descripcion FROM info WHERE id = 2 LIMIT 1')
+listaEquipos.append(cur.fetchone()[0])
+try:
+    cur.execute('SELECT descripcion FROM info WHERE id = 3 LIMIT 1') #segundo equipo
+    listaEquipos.append(cur.fetchone()[0])
+    try:
+        cur.execute('SELECT descripcion FROM info WHERE id = 4 LIMIT 1') #tercer equipo
+        listaEquipos.append(cur.fetchone()[0])
+    except:
+        None
+except:
+    None
 cur.close()
 
 # Lanzamos MENU de la aplicacion
 while True:
     print('\n')
-    print(Back.WHITE + Fore.BLACK + 'Que quieres hacer?? ')
+    print(Back.WHITE + Fore.BLACK + 'Que quieres hacer?? ', Back.WHITE + Fore.BLACK + str(user))
     print('     1.- Obtener datos de Hattrick')
     print('     2.- Enviar datos al servidor para enriquecer el estudio')
     print('     3.- Ver tus estadisticas')
@@ -78,18 +86,35 @@ while True:
     opcion = input(Back.WHITE + Fore.BLACK + '(por defecto 4) >> ')
 
     if opcion == '1':
-        #Paso1 - Recuperar lista de partidos nuevos
+        # Paso0 - Miramos si hay partidos en la base y si hay miramos fecha del ultimo
+        conn = sqlite3.connect(basedatos)
+        cur = conn.cursor()
+        try:
+            cur.execute( 'SELECT max(MatchDate) FROM partidos')
+            fechamax = cur.fetchone()[0]
+            # if fechamax == None:
+            #     fechamax = datetime.today() - timedelta(days=90)
+            # else:
+            #     fechamax = fechamax.strftime('%Y-%m-%d %H:%M:%S') + timedelta(minutes=1)
+        except:
+            fechamax = datetime.today() - timedelta(days=90)
+        cur.close()
+
+        # Paso1 - Recuperar lista de partidos nuevos
         print('\n')
         print('Buscando partidos en www.hattrick.org... ')
-        listaPartidos = bbdd.new_partidos(helper, basedatos, user_key, user_secret, fechamax)
-
-        #Paso2 - Recuperar detalle de los partidos nuevos
-        if len(listaPartidos) > 0:
-            print('Recuperando los datos de los ',Back.WHITE + Fore.BLACK + str(len(listaPartidos)), Style.RESET_ALL + ' partidos nuevos en www.hattrick.org... ')
-            print('Paciencia, puede tardar un poco..')
-            for partido in listaPartidos:
-                bbdd.get_partido(helper, basedatos, user_key, user_secret, partido)
-            print(Back.GREEN + Fore.WHITE + 'Hecho!' + Style.RESET_ALL)
+        for team in listaEquipos:
+            print('Para tu equipo con ID: ',team)
+            listaPartidos = bbdd.new_partidos(helper, basedatos, user_key, user_secret, fechamax, team)
+            # Paso1.2 - Recuperar detalle de los partidos nuevos para cada equipo
+            if len(listaPartidos) > 0:
+                print('Recuperando los datos de los ',Back.WHITE + Fore.BLACK + str(len(listaPartidos)), Style.RESET_ALL + ' partidos nuevos en www.hattrick.org... ')
+                print('Paciencia, puede tardar un poco..')
+                for partido in listaPartidos:
+                    bbdd.get_partido(helper, basedatos, user_key, user_secret, partido)
+            else:
+                None
+        print(Back.GREEN + Fore.WHITE + 'Hecho!' + Style.RESET_ALL)
 
     elif opcion == '2':
         print('\n')
