@@ -97,6 +97,25 @@ def init_base(base):
                 (PlayerID INTEGER PRIMARY KEY, Agreeability INTEGER, Aggressiveness INTEGER, Honesty INTEGER, Leadership INTEGER, Specialty INTEGER)
                 ''')
 
+    # tabla SE
+    cur.execute('''
+                CREATE TABLE IF NOT EXISTS SE
+                (EventTypeID INTEGER PRIMARY KEY, EventName TEXT, TypeSEBD TEXT)
+                ''')
+    try:
+        cur.execute('SELECT EventTypeID FROM SE WHERE EventTypeID = 19')
+        test = cur.fetchone()[0]
+    except:
+        fhand = open('doc/EventList.csv')
+        for line in fhand:
+            valores = line.split(';')
+            if valores[2][:2] == 'SE':
+                cur.execute('INSERT INTO SE (EventTypeID, EventName, TypeSEBD) VALUES (?, ?, ?)',(valores[0], valores[1], valores[2][:2]))
+            else:
+                cur.execute('INSERT INTO SE (EventTypeID, EventName, TypeSEBD) VALUES (?, ?, ?)',(valores[0], valores[1], valores[2]))
+
+    conn.commit()
+
     cur.close()
 
 def new_partidos(helper, base, user_key, user_secret, fecha, team):
