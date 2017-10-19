@@ -71,7 +71,7 @@ cur.close()
 # Lanzamos MENU de la aplicacion
 while True:
     print('\n')
-    print(Fore.CYAN + Style.BRIGHT + 'Que te apetece hacer', Fore.CYAN + Style.BRIGHT+str(user),Fore.CYAN + Style.BRIGHT+'?\n')
+    print(Fore.GREEN + Style.BRIGHT + 'Que quieres hacer ahora', Fore.YELLOW + Style.BRIGHT+str(user),Fore.GREEN + Style.BRIGHT+'?\n')
     print('     1.- Obtener datos de Hattrick')
     print('     2.- Enviar datos al servidor para enriquecer el estudio')
     print('     3.- Ver tus estadisticas')
@@ -82,11 +82,9 @@ while True:
         # Paso0 - Miramos si hay partidos en la base y si hay miramos fecha del ultimo
         conn = sqlite3.connect(basedatos)
         cur = conn.cursor()
-        try:
-            cur.execute( 'SELECT max(MatchDate) FROM partidos')
-            fechamax = cur.fetchone()[0]
-        except:
-            fechamax = datetime.today() - timedelta(days=20)
+        cur.execute( 'SELECT max(MatchDate) FROM partidos')
+        fechamax = cur.fetchone()[0]
+        if fechamax == None: fechamax = datetime.today() - timedelta(days=15)
         cur.close()
 
         # Paso1 - Recuperamos lista de partidos nuevos
