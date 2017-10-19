@@ -57,9 +57,9 @@ def init_base(base):
                 SubjectTeamID INTEGER, SubjectPlayerID INTEGER, ObjectPlayerID INTEGER, SubPorteria INTEGER,
                 SubDefensa INTEGER, SubJugadas INTEGER, SubLateral INTEGER, SubPases INTEGER,
                 SubAnotacion INTEGER, SubXP INTEGER, SubFidelidad INTEGER, SubForma INTEGER,
-                SubResistencia INTEGER, ObjPorteria INTEGER, ObjDefensa INTEGER,
+                SubResistencia INTEGER, SubSpecialty INTEGER, ObjPorteria INTEGER, ObjDefensa INTEGER,
                 ObjJugadas INTEGER, ObjLateral INTEGER, ObjPases INTEGER,
-                ObjAnotacion INTEGER, ObjXP INTEGER, ObjFidelidad INTEGER, ObjForma INTEGER, ObjResistencia INTEGER,
+                ObjAnotacion INTEGER, ObjXP INTEGER, ObjFidelidad INTEGER, ObjForma INTEGER, ObjResistencia INTEGER, ObjSpecialty INTEGER,
                 UNIQUE(MatchID, IndexEv))
                 ''')
 
@@ -368,3 +368,32 @@ def get_partido(helper, base, user_key, user_secret, idpartido):
 
     conn.commit()
     cur.close()
+
+# def get_habilidades(helper, base, user_key, user_secret, idpartido):
+#
+#     conn = sqlite3.connect(base)
+#     cur = conn.cursor()
+#     cur2 = conn.cursor()
+#
+#     # # Recuperamos eventos del partido en base de datos
+#     # cur.execute('''SELECT a.MatchID, a.IndexEv, a.EventTypeID, a.SubjectPlayerID, a.ObjectPlayerID, b.TypeSEBD
+#     #             FROM eventos as a
+#     #             LEFT JOIN SE as b ON a.EventTypeID = b.EventTypeID
+#     #             WHERE b.TypeSEBD = 'SE' AND a.MatchID=?
+#     #             ''',(idpartido,))
+#     # for row in cur:
+#         #row[3] SubjectPlayerID i row[4] ObjectPlayerID
+#     #     xmldoc = helper.request_resource_with_key(     user_key,
+#     #                                                    user_secret,
+#     #                                                    'playerdetails',
+#     #                                                    {
+#     #                                                     'version' : 2.7,
+#     #                                                     'playerID' : row[3]
+#     #                                                    }
+#     #                                                   )
+#     #     root = ET.fromstring(xmldoc)
+#     #
+#     #
+#     # conn.commit()
+#     cur.close()
+#     cur2.close()

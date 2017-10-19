@@ -95,14 +95,25 @@ while True:
         for team in listaEquiposID:
             print('Para tu equipo "',listaEquiposNombre[num],'"')
             listaPartidos = bbdd.new_partidos(helper, basedatos, user_key, user_secret, fechamax, team)
+
             # Paso1.2 - Recuperar detalle de los partidos nuevos para cada equipo
             if len(listaPartidos) > 0:
-                print('Recuperando los datos de los ',Back.WHITE + Fore.BLACK + str(len(listaPartidos)), Style.RESET_ALL + ' partidos nuevos de www.hattrick.org... \n')
+                print('Recuperando datos de los ',Back.WHITE + Fore.BLACK + str(len(listaPartidos)), Style.RESET_ALL + ' partidos nuevos de www.hattrick.org... \n')
                 for partido in listaPartidos:
                     # detalle partido, alineacion y sustituciones
                     bbdd.get_partido(helper, basedatos, user_key, user_secret, partido)
             else:
                 None
+
+            # # Paso 1.3 - Recuperamos habilidades de jugadores implicados en eventos
+            # if len(listaPartidos) > 0:
+            #     print('Recuperando habilidades de nuestros jugadores implicados en eventos especiales en los ',Back.WHITE + Fore.BLACK + str(len(listaPartidos)), Style.RESET_ALL + ' partidos nuevos de www.hattrick.org... \n')
+            #     for partido in listaPartidos:
+            #         # habilidades jugadores
+            #         bbdd.get_habilidades(helper, basedatos, user_key, user_secret, partido)
+            # else:
+            #     None
+
             num = num + 1
 
         print(Back.GREEN + Fore.WHITE + 'Hecho!' + Style.RESET_ALL)
