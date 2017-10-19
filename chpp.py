@@ -23,6 +23,7 @@ from urllib.parse import urlencode
 import sqlite3
 from colorama import init, Fore, Back, Style
 import xml.etree.ElementTree as ET
+import webbrowser
 
 #Vamos a definir una clase que contenga todas las constantes y funciones con sus variables inicializadas
 class CHPPhelp(object):
@@ -131,11 +132,12 @@ class CHPPhelp(object):
     def get_auth(self, base):        # Archivo auth.py
         # Generamos la url para obtener el pin de autorizacion CHPP
         registration_url = self.get_request_token_url()
-        print ('Abre esta direccion en tu navegador para obtener el PIN de acceso: ')
-        print(Style.BRIGHT + registration_url)
+        print (' - Abre esta direccion en tu navegador (sino se ha abierto automaticamente) \n   para obtener el PIN de acceso: \n')
+        webbrowser.open(registration_url, new=0, autoraise=True)
+        print(Fore.GREEN + Style.BRIGHT + registration_url,'\n')
 
         # recuperamos el pin del usuario
-        pin = input('Entrar PIN de acesso: ')
+        pin = input('Entrar PIN de acesso (y pulse "Enter"): ')
 
         # Obtenemos los tokens con el pin obtenido
         access_token = self.get_access_token(pin)

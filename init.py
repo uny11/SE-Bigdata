@@ -26,11 +26,10 @@ from colorama import init, Fore, Back, Style
 init(autoreset=True)
 print('\n')
 print(Fore.WHITE + Back.GREEN + '''SE-BIGDATA v0.0''')
-print('''Copyright (C) 2017  Isaac Porta "uny11"
-    Este programa es software libre (licencia GPL-v3)''')
+print('Copyright (C) 2017, Isaac Porta "uny11" \nEste programa es software libre bajo la licencia GPL-v3')
 print('\n')
-print(Style.BRIGHT + 'Bienvenido y Gracias por participar en este estudio!')
-print('no dudes en reportar algun fallo y/o duda (uny11)')
+print(Fore.GREEN + Style.BRIGHT + 'Bienvenido y Gracias por participar en este estudio!')
+print('y no dudes en reportar algun fallo o duda (uny11)')
 
 #Iniciamos base de datos de SE-Bigdata
 basedatos = 'bigdata.sqlite'
@@ -50,7 +49,7 @@ except:
     # El test es NO OK -> lanzamos proceso de autorizacion
     print('\n')
     print('Antes de nada, es necesario tu autorizacion-CHPP para recoger datos Hattrick!')
-    print('Sigue las instruciones:')
+    print('Sigue las instruciones: \n')
     helper.get_auth(basedatos)
 
 # Recuperamos tokens, user y equipos del user
