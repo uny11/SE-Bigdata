@@ -1,7 +1,7 @@
 
 import sqlite3
 
-conn = sqlite3.connect('SE-list.sqlite3')
+conn = sqlite3.connect('EventList.sqlite3')
 cur = conn.cursor()
 
 fhand = open('doc/EventList.csv')
