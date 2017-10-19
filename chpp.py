@@ -160,11 +160,13 @@ class CHPPhelp(object):
         user = self.get_user(user_key, user_secret)
         teams = self.get_teams(user_key, user_secret)
         try:
-            cur.execute('INSERT INTO info (id,type,descripcion) VALUES (?,?,?)', (1,'user',str(user)))
+            cur.execute('INSERT INTO info (id,idHT,type,descripcion) VALUES (?,?,?,?)', (1,user[0],'user',str(user[1])))
             i = 2
-            for team in teams:
-                cur.execute('INSERT INTO info (id,type,descripcion) VALUES (?,?,?)', (i,'team',team))
+            y = 0
+            for x in range(int(len(teams)/2)):
+                cur.execute('INSERT INTO info (id,idHT,type,descripcion) VALUES (?,?,?,?)', (i,teams[y],'team',teams[y+1]))
                 i = i + 1
+                y = y + 2
         except:
             None
 
@@ -173,7 +175,7 @@ class CHPPhelp(object):
 
         print('\n')
         print(Fore.GREEN + Style.BRIGHT + 'SE-Bigdata ha sido autorizado con éxito!' + Style.RESET_ALL)
-        print(Style.BRIGHT + 'Disfruta de tus estadisticas! xD' + Style.RESET_ALL)
+        print('Disfruta de tus estadisticas! xD')
         print('\n')
 
     def get_user(self, token, token_secret):
@@ -186,7 +188,11 @@ class CHPPhelp(object):
                                                  }
                                                 )
         root = ET.fromstring(xmldoc)
-        user = root.find('Manager/Loginname').text
+        user = []
+        login = root.find('Manager/Loginname').text
+        userid = root.find('Manager/UserId').text
+        user.append(userid)
+        user.append(login)
 
         return user
 
@@ -203,6 +209,8 @@ class CHPPhelp(object):
         listaTeams = []
         for team in root.findall('Manager/Teams/Team'):
             teamid = team.find('TeamId').text
+            teamname = team.find('TeamName').text
             listaTeams.append(teamid)
+            listaTeams.append(teamname)
 
         return listaTeams

@@ -35,7 +35,7 @@ def init_base(base):
     # tabla info del user
     cur.execute('''
                 CREATE TABLE IF NOT EXISTS info
-                (id INTEGER PRIMARY KEY, type TEXT, descripcion TEXT)
+                (id INTEGER PRIMARY KEY, idHT INTEGER, type TEXT, descripcion TEXT)
                 ''')
 
     # tabla partidos
@@ -253,12 +253,14 @@ def get_partido(helper, base, user_key, user_secret, idpartido):
     root = ET.fromstring(xmldoc)
 
     hteamid = root.find('HomeTeam/HomeTeamID').text
+    hteamname = root.find('HomeTeam/HomeTeamName').text
     ateamid = root.find('AwayTeam/AwayTeamID').text
-    teamidlineaup = root.find('Team/TeamID').text
-    if hteamid == teamidlineaup:
+    ateamname = root.find('AwayTeam/AwayTeamName').text
+    teamNamelineaup = root.find('Team/TeamName').text
+    if hteamname == teamNamelineaup:
         teamrole = 1
         rival = ateamid
-    if ateamid == teamidlineaup:
+    if ateamname == teamNamelineaup:
         teamrole = 2
         rival = hteamid
     for player in root.findall('Team/StartingLineup/Player'):

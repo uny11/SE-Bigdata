@@ -59,19 +59,13 @@ cur.execute('SELECT key FROM keys WHERE id = 2 LIMIT 1')
 user_secret = cur.fetchone()[0]
 cur.execute('SELECT descripcion FROM info WHERE id = 1 LIMIT 1')
 user = cur.fetchone()[0]
-listaEquipos = []
-cur.execute('SELECT descripcion FROM info WHERE id = 2 LIMIT 1')
-listaEquipos.append(cur.fetchone()[0])
-try:
-    cur.execute('SELECT descripcion FROM info WHERE id = 3 LIMIT 1') #segundo equipo
-    listaEquipos.append(cur.fetchone()[0])
-    try:
-        cur.execute('SELECT descripcion FROM info WHERE id = 4 LIMIT 1') #tercer equipo
-        listaEquipos.append(cur.fetchone()[0])
-    except:
-        None
-except:
-    None
+cur.execute('SELECT idHT,descripcion FROM info WHERE id > 1 LIMIT 3')
+listaEquiposID = []
+listaEquiposNombre = []
+for row in cur:
+    listaEquiposID.append(row[0])
+    listaEquiposNombre.append(row[1])
+
 cur.close()
 
 # Lanzamos MENU de la aplicacion
@@ -99,8 +93,9 @@ while True:
         print('\n')
         print('Buscando partidos en www.hattrick.org... ')
         print('Paciencia, puede tardar un poco..\n')
-        for team in listaEquipos:
-            print('Para tu equipo con ID ',team)
+        num = 0
+        for team in listaEquiposID:
+            print('Para tu equipo "',listaEquiposNombre[num],'"')
             listaPartidos = bbdd.new_partidos(helper, basedatos, user_key, user_secret, fechamax, team)
             # Paso1.2 - Recuperar detalle de los partidos nuevos para cada equipo
             if len(listaPartidos) > 0:
@@ -110,6 +105,7 @@ while True:
                     bbdd.get_partido(helper, basedatos, user_key, user_secret, partido)
             else:
                 None
+            num = num + 1
 
         print(Back.GREEN + Fore.WHITE + 'Hecho!' + Style.RESET_ALL)
 
