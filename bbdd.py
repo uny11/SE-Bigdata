@@ -43,7 +43,7 @@ def init_base(base):
                 CREATE TABLE IF NOT EXISTS partidos
                 (MatchID INTEGER PRIMARY KEY, MatchType INTEGER, MatchDate TEXT, HomeTeamID INTEGER,
                 HomeGoals INTEGER, AwayTeamID INTEGER, AwayGoals INTEGER, TacticTypeHome INTEGER,
-                TacticSkillHome INTEGER, TacticTypeAway INTEGER, TacticSkillAway INTEGER, tarjetas INTEGER,
+                TacticSkillHome INTEGER, TacticTypeAway INTEGER, TacticSkillAway INTEGER, expulsiones INTEGER,
                 lesiones INTEGER, PossessionFirstHalfHome INTEGER,
                 PossessionFirstHalfAway INTEGER, PossessionSecondHalfHome INTEGER, PossessionSecondHalfAway INTEGER,
                 RatingIndirectSetPiecesDefHome INTEGER, RatingIndirectSetPiecesAttHome INTEGER, RatingIndirectSetPiecesDefAway INTEGER,
@@ -68,6 +68,20 @@ def init_base(base):
                 CREATE TABLE IF NOT EXISTS alineacion
                 (MatchID INTEGER, RoleTeam INTEGER, RoleID INTEGER, PlayerID INTEGER,
                 UNIQUE(MatchID, RoleTeam, RoleID))
+                ''')
+
+    # tabla tarjetas
+    cur.execute('''
+                CREATE TABLE IF NOT EXISTS tarjetas
+                (MatchID INTEGER, IndexTarjeta INTEGER, PlayerID INTEGER, TeamID INTEGER, BookingType INTEGER, BookingMinute INTEGER,
+                UNIQUE(MatchID, IndexTarjeta))
+                ''')
+
+    # tabla lesiones
+    cur.execute('''
+                CREATE TABLE IF NOT EXISTS lesiones
+                (MatchID INTEGER, IndexInjury INTEGER, PlayerID INTEGER, TeamID INTEGER, InjuryType INTEGER, InjuryMinute INTEGER,
+                UNIQUE(MatchID, IndexInjury))
                 ''')
 
     # tabla sustituciones
@@ -200,16 +214,34 @@ def get_partido(helper, base, user_key, user_secret, idpartido):
         skilltactichome = match.find('HomeTeam/TacticSkill').text
         typetacticaway = match.find('AwayTeam/TacticType').text
         skilltacticaway = match.find('AwayTeam/TacticSkill').text
-        try:
-            test = match.find('Bookings/Booking/BookingPlayerID').text
-            tarjetas = 1
-        except:
-            tarjetas = 0
-        try:
-            test = match.find('Injuries/Injury/InjuryPlayerID').text
-            lesiones = 1
-        except:
-            lesiones = 0
+        expulsiones = 0
+        for target in match.findall('Bookings/Booking'):
+            try:
+                indextarget = target.get("Index")
+                idplayer = target.find('BookingPlayerID').text
+                idteam = target.find('BookingTeamID').text
+                typebooking = target.find('BookingType').text
+                if typebooking == '2': expulsiones = 1
+                minutebooking = target.find('BookingMinute').text
+                cur.execute('''INSERT INTO tarjetas (MatchID, IndexTarjeta, PlayerID, TeamID, BookingType, BookingMinute)
+                            VALUES (?, ?, ?, ?, ?, ?)''', (idpartido, indextarget, idplayer, idteam, typebooking, minutebooking))
+                conn.commit()
+            except:
+                None
+        lesiones = 0
+        for inj in match.findall('Injuries/Injury'):
+            try:
+                indexinjury = inj.get("Index")
+                idplayer = inj.find('InjuryPlayerID').text
+                idteam = inj.find('InjuryTeamID').text
+                typeinjury = inj.find('InjuryType').text
+                if typeinjury == '2': lesiones = 1
+                minuteinjury = inj.find('InjuryMinute').text
+                cur.execute('''INSERT INTO lesiones (MatchID, IndexInjury, PlayerID, TeamID, InjuryType, InjuryMinute)
+                            VALUES (?, ?, ?, ?, ?, ?)''',(idpartido, indexinjury, idplayer, idteam, typeinjury, minuteinjury))
+                conn.commit()
+            except:
+                None
         homeFpos = match.find('PossessionFirstHalfHome').text
         awayFpos = match.find('PossessionFirstHalfAway').text
         homeSpos = match.find('PossessionSecondHalfHome').text
@@ -220,10 +252,10 @@ def get_partido(helper, base, user_key, user_secret, idpartido):
         ratIndAttaway = match.find('AwayTeam/RatingIndirectSetPiecesAtt').text
         try:
             cur.execute('''UPDATE partidos SET TacticTypeHome=?, TacticSkillHome=?, TacticTypeAway=?, TacticSkillAway=?,
-                    tarjetas=?, lesiones=?, PossessionFirstHalfHome=?, PossessionFirstHalfAway=?, PossessionSecondHalfHome=?,
+                    expulsiones=?, lesiones=?, PossessionFirstHalfHome=?, PossessionFirstHalfAway=?, PossessionSecondHalfHome=?,
                     PossessionSecondHalfAway=?, RatingIndirectSetPiecesDefHome=?, RatingIndirectSetPiecesAttHome=?,
                     RatingIndirectSetPiecesDefAway=?, RatingIndirectSetPiecesAttAway=? WHERE MatchID= ?''',
-                    (typetactichome, skilltactichome, typetacticaway, skilltacticaway, tarjetas, lesiones, homeFpos, awayFpos, homeSpos, awaySpos, ratIndDefhome, ratIndAtthome, ratIndDefaway, ratIndAttaway, idpartido))
+                    (typetactichome, skilltactichome, typetacticaway, skilltacticaway, expulsiones, lesiones, homeFpos, awayFpos, homeSpos, awaySpos, ratIndDefhome, ratIndAtthome, ratIndDefaway, ratIndAttaway, idpartido))
             conn.commit()
         except:
             continue

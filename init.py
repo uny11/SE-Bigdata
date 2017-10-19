@@ -86,7 +86,7 @@ while True:
             cur.execute( 'SELECT max(MatchDate) FROM partidos')
             fechamax = cur.fetchone()[0]
         except:
-            fechamax = datetime.today() - timedelta(days=90)
+            fechamax = datetime.today() - timedelta(days=20)
         cur.close()
 
         # Paso1 - Recuperamos lista de partidos nuevos

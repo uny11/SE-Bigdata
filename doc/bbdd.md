@@ -26,7 +26,7 @@ Se lista la lista de tablas y la lista de los campos de cada una de ellas.
 - TacticSkillHome
 - TacticTypeAway
 - TacticSkillAway
-- tarjetas #valor '1'= si y valor '0'=no
+- expulsiones #valor '1'= si y valor '0'=no
 - lesiones #valor '1'= si y valor '0'=no
 - PossessionFirstHalfHome
 - PossessionFirstHalfAway
@@ -44,6 +44,22 @@ Se lista la lista de tablas y la lista de los campos de cada una de ellas.
 - Honesty
 - Leadership
 - Specialty
+
+## Tabla tarjetas (matchdetails.xml)
+- [KEY] MatchID
+- [KEY] IndexTarjeta
+- PlayerID
+- TeamID
+- BookingType
+- BookingMinute
+
+## Tabla lesiones (matchdetails.xml)
+- [KEY] MatchID
+- [KEY] IndexInjury
+- PlayerID
+- TeamID
+- InjuryType
+- InjuryMinute
 
 ## Tabla "eventos" (matchdetails.xml)
 - [KEY] MatchID
