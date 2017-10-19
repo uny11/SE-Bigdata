@@ -1,0 +1,304 @@
+19;Players enter the field;NotDefined
+20;Tactical disposition;NotDefined
+21;Player names in lineup;NotDefined
+22;Players from neighborhood used;NotDefined
+23;Same formation both teams;NotDefined
+24;Team formations (different);NotDefined
+25;Regional derby;NotDefined
+26;Neutral ground;NotDefined
+27;Away is actually home;NotDefined
+30;Spectators/venue: rain;Spectators/venue
+31;Spectators/venue: cloudy;Spectators/venue
+32;Spectators/venue: fair weather;Spectators/venue
+33;Spectators/venue: sunny;Spectators/venue
+35;Arena extended with temporary seats;NotDefined
+40;Dominated;NotDefined
+41;Best player;NotDefined
+42;Worst player;NotDefined
+45;Half time results;NotDefined
+46;Hat-trick comment;NotDefined
+47;No team dominated;NotDefined
+55;Penalty contest: Goal by Technical (no nerves);Penalty contest
+56;Penalty contest: Goal, no nerves;Penalty contest
+57;Penalty contest: Goal in spite of nerves;Penalty contest
+58;Penalty contest: No goal because of nerves;Penalty contest
+59;Penalty contest: No goal in spite of no nerves;Penalty contest
+60;Underestimation;NotDefined
+61;Organization breaks;NotDefined
+62;Withdraw;NotDefined
+63;Remove underestimation at pause;NotDefined
+64;Reorganize;NotDefined
+65;Nerves in important thrilling game;NotDefined
+66;Remove underestimation at pause (goaldiff = 0);NotDefined
+67;Remove underestimation at pause (goaldiff = 1);NotDefined
+68;Successful pressing;NotDefined
+69;Remove underestimation;NotDefined
+70;Extension;NotDefined
+71;Penalty contest (after extension);NotDefined
+72;Extension decided;NotDefined
+73;After 22 penalties tossing coin!;NotDefined
+75;Added time;NotDefined
+76;No added time;NotDefined
+80;New captain;NotDefined
+81;New set pieces taker;NotDefined
+90;Injured but keeps playing;NotDefined
+91;Moderately injured: leaves field;Moderately injured
+92;Badly injured: leaves field;Badly injured
+93;Injured and no replacement existed;NotDefined
+94;Injured after foul but continues;NotDefined
+95;Injured after foul and exits;NotDefined
+96;Injured after foul and no replacement existed;NotDefined
+97;Keeper injured: field player has to take his place;Keeper injured
+100;Reducing goal home team free kick;NotDefined
+101;Reducing goal home team middle;NotDefined
+102;Reducing goal home team left wing;NotDefined
+103;Reducing goal home team right wing;NotDefined
+104;Reducing goal home team penalty kick normal;NotDefined
+105;SE: Goal Unpredictable long pass;SE
+106;SE: Goal Unpredictable scores on his own;SE
+107;SE: Goal longshot;SE
+108;SE: Goal Unpredictable special action;SE
+109;SE: Goal Unpredictable mistake;SE
+110;Equalizer goal home team free kick;NotDefined
+111;Equalizer goal home team middle;NotDefined
+112;Equalizer goal home team left wing;NotDefined
+113;Equalizer goal home team right wing;NotDefined
+114;Equalizer goal home team penalty kick normal;NotDefined
+115;SE: Quick scores after rush;SE
+116;SE: Quick rushes, passes and receiver scores;SE
+117;SE: Tired defender mistake, striker scores;SE
+118;SE: Goal: Corner to anyone;SE
+119;SE: Goal Corner: Head specialist;SE
+120;Goal to take lead home team free kick;NotDefined
+121;Goal to take lead home team middle;NotDefined
+122;Goal to take lead home team left wing;NotDefined
+123;Goal to take lead home team right wing;NotDefined
+124;Goal to take lead home team penalty kick normal;NotDefined
+125;SE: Goal: Unpredictable, own goal;SE
+130;Increase goal home team free kick;NotDefined
+131;Increase goal home team middle;NotDefined
+132;Increase goal home team left wing;NotDefined
+133;Increase goal home team right wing;NotDefined
+134;Increase goal home team penalty kick normal;NotDefined
+135;SE: Experienced forward scores;SE
+136;SE: Inexperienced defender causes goal;SE
+137;SE: Winger to Head spec. Scores;SE
+138;SE: Winger to anyone Scores;SE
+139;SE: Technical goes around head player;SE
+140;Counter attack goal: free kick;Counter attack goal
+141;Counter attack goal: middle;Counter attack goal
+142;Counter attack goal: left;Counter attack goal
+143;Counter attack goal: right;Counter attack goal
+150;Reducing goal away team free kick;NotDefined
+151;Reducing goal away team middle;NotDefined
+152;Reducing goal away team left wing;NotDefined
+153;Reducing goal away team right wing;NotDefined
+154;Reducing goal away team penalty kick normal;NotDefined
+160;Equalizer goal away team free kick;NotDefined
+161;Equalizer goal away team middle;NotDefined
+162;Equalizer goal away team left wing;NotDefined
+163;Equalizer goal away team right wing;NotDefined
+164;Equalizer goal away team penalty kick normal;NotDefined
+170;Goal to take lead away team free kick;NotDefined
+171;Goal to take lead away team middle;NotDefined
+172;Goal to take lead away team left wing;NotDefined
+173;Goal to take lead away team right wing;NotDefined
+174;Goal to take lead away team penalty kick normal;NotDefined
+180;Increase goal away team free kick;NotDefined
+181;Increase goal away team middle;NotDefined
+182;Increase goal away team left wing;NotDefined
+183;Increase goal away team right wing;NotDefined
+184;Increase goal away team penalty kick normal;NotDefined
+185;Goal indirect free kick;NotDefined
+186;Counter attack goal: indirect free kick;Counter attack goal
+187;Goal long shot;NotDefined
+190;SE: Goal: Powerful normal forward generates extra chance;SE
+200;No reducing goal home team free kick;NotDefined
+201;No reducing goal home team middle;NotDefined
+202;No reducing goal home team left wing;NotDefined
+203;No reducing goal home team right wing;NotDefined
+204;No reducing goal home team penalty kick normal;NotDefined
+205;SE: No Goal Unpredictable long pass;SE
+206;SE: No Goal Unpredictable almost scores;SE
+207;SE: No Goal longshot;SE
+208;SE: No Goal Unpredictable special action;SE
+209;SE: No Goal Unpredictable mistake;SE
+210;No equalizer goal home team free kick;NotDefined
+211;No equalizer goal home team middle;NotDefined
+212;No equalizer goal home team left wing;NotDefined
+213;No equalizer goal home team right wing;NotDefined
+214;No equalizer goal home team penalty kick normal;NotDefined
+215;SE: Speedy misses after rush;SE
+216;SE: Quick rushes, passes but receiver fails;SE
+217;SE: Tired defender mistake but no goal;SE
+218;SE: No goal: Corner to anyone;SE
+219;SE: No Goal Corner: Head specialist;SE
+220;No goal to take lead home team free kick;NotDefined
+221;No goal to take lead home team middle;NotDefined
+222;No goal to take lead home team left wing;NotDefined
+223;No goal to take lead home team right wing;NotDefined
+224;No goal to take lead home team penalty kick normal;NotDefined
+225;SE: No goal: Unpredictable, own goal almost;SE
+230;No increase goal home team free kick;NotDefined
+231;No increase goal home team middle;NotDefined
+232;No increase goal home team left wing;NotDefined
+233;No increase goal home team right wing;NotDefined
+234;No increase goal home team penalty kick normal;NotDefined
+235;SE: Experienced forward fails to score;SE
+236;SE: Inexperienced defender almost causes goal;SE
+237;SE: Winger to someone: No goal;SE
+239;SE: Technical goes around head player, no goal;SE
+240;Counter attack: no goal: free kick;Counter attack
+241;Counter attack: no goal: middle;Counter attack
+242;Counter attack: no goal: left;Counter attack
+243;Counter attack: no goal: right;Counter attack
+250;No reducing goal away team free kick;NotDefined
+251;No reducing goal away team middle;NotDefined
+252;No reducing goal away team left wing;NotDefined
+253;No reducing goal away team right wing;NotDefined
+254;No reducing goal away team penalty kick normal;NotDefined
+260;No equalizer goal away team free kick;NotDefined
+261;No equalizer goal away team middle;NotDefined
+262;No equalizer goal away team left wing;NotDefined
+263;No equalizer goal away team right wing;NotDefined
+264;No equalizer goal away team penalty kick normal;NotDefined
+270;No goal to take lead away team free kick;NotDefined
+271;No goal to take lead away team middle;NotDefined
+272;No goal to take lead away team left wing;NotDefined
+273;No goal to take lead away team right wing;NotDefined
+274;No goal to take lead away team penalty kick normal;NotDefined
+280;No increase goal away team free kick;NotDefined
+281;No increase goal away team middle;NotDefined
+282;No increase goal away team left wing;NotDefined
+283;No increase goal away team right wing;NotDefined
+284;No increase goal away team penalty kick normal;NotDefined
+285;No goal indirect free kick;NotDefined
+286;Counter attack: no goal: indirect free kick;Counter attack
+287;No goal long shot;NotDefined
+288;No goal long shot: defended;No goal long shot
+289;SE: Quick rushes, stopped by quick defender;SE
+290;SE: No Goal: Powerful normal forward generates extra chance;SE
+301;SE: Technical suffers from rain;SE
+302;SE: Powerful thrives in rain;SE
+303;SE: Technical thrives in sun;SE
+304;SE: Powerful suffers from sun;SE
+305;SE: Quick loses in rain;SE
+306;SE: Quick loses in sun;SE
+307;SE: Support player boost succeeded;SE
+308;SE: Support player boost failed and organization dropped;SE
+309;SE: Support player boost failed;SE
+310;SE: Powerful defensive inner presses chance;SE
+331;Tactic Type: Pressing;Tactic Type
+332;Tactic Type: Counter-attacking;Tactic Type
+333;Tactic Type: Attack in middle;Tactic Type
+334;Tactic Type: Attack on wings;Tactic Type
+335;Tactic Type: Play creatively;Tactic Type
+336;Tactic Type: Long shots;Tactic Type
+343;Tactic: Attack in middle used;Tactic
+344;Tactic: Attack on wings used;Tactic
+350;Player substitution: team is behind;Player substitution
+351;Player substitution: team is ahead;Player substitution
+352;Player substitution: minute;Player substitution
+360;Change of tactic: team is behind;Change of tactic
+361;Change of tactic: team is ahead;Change of tactic
+362;Change of tactic: minute;Change of tactic
+370;Player position swap: team is behind;Player position swap
+371;Player position swap: team is ahead;Player position swap
+372;Player position swap: minute;Player position swap
+380;Man marking success: short distance;Man marking success
+381;Man marking success: long distance;Man marking success
+382;Man marking effect changed from short to long distance;NotDefined
+383;Man marking effect changed from long to short distance;NotDefined
+401;Injury: Knee left;Injury
+402;Injury: Knee right;Injury
+403;Injury: Thigh left;Injury
+404;Injury: Thigh right;Injury
+405;Injury: Foot left;Injury
+406;Injury: Foot right;Injury
+407;Injury: Ankle left;Injury
+408;Injury: Ankle right;Injury
+409;Injury: Calf left;Injury
+410;Injury: Calf right;Injury
+411;Injury: Groin left;Injury
+412;Injury: Groin right;Injury
+413;Injury: Collarbone;Injury
+414;Injury: Back;Injury
+415;Injury: Hand left;Injury
+416;Injury: Hand right;Injury
+417;Injury: Arm left;Injury
+418;Injury: Arm right;Injury
+419;Injury: Shoulder left;Injury
+420;Injury: Shoulder right;Injury
+421;Injury: Rib;Injury
+422;Injury: Head;Injury
+423;Injured by foul;NotDefined
+424;Injured player replaced;NotDefined
+425;No replacement for injured player;NotDefined
+426;Field player has to take injured keeper's place;NotDefined
+427;Player injured was regainer so got bruised instead;NotDefined
+450;Player got third yellow card misses next match;NotDefined
+451;With this standing team x will relegate to cup y;NotDefined
+452;Player current team matches 100s anniversary;NotDefined
+453;Player possibly the last game in this team;NotDefined
+454;Doctor report of injury length;NotDefined
+455;New star player of the team;NotDefined
+456;Player career goals multiple of 50;NotDefined
+457;Player league goals this season;NotDefined
+458;Player cup goals this season;NotDefined
+459;Bench player warming up;NotDefined
+460;Fans shocked by losing;NotDefined
+461;Fans upset by losing;NotDefined
+462;Fans surprised by winning;NotDefined
+463;Fans excited by winning;NotDefined
+464;Exact number of spectators;NotDefined
+465;Team should win match to secure winning the league;NotDefined
+466;Team should win match to have chance of winning league;NotDefined
+467;The winner of this match (if there is one) can have a chance of winning the league;NotDefined
+468;Team should win match to make sure they don't demote;NotDefined
+469;Team should win match to have a chance of not demoting;NotDefined
+470;The loser of this match will demote;NotDefined
+471;Hometeam/Awayteam has most possession in beginning of match;NotDefined
+472;Equal possession in beginning of match;NotDefined
+473;Career ending injury;NotDefined
+474;Possession shifted;NotDefined
+475;Low attendance because of fan mood;NotDefined
+476;Extra security because of fan mood;NotDefined
+477;Both team’s fans are angry;NotDefined
+478;Team will have best cup run if win;NotDefined
+479;Both teams could have best cup run if win (competing);NotDefined
+480;Current round is team's best cup run;NotDefined
+481;New formation today;NotDefined
+482;Teams using the same style of play;NotDefined
+483;Teams using different styles of play;NotDefined
+484;One team's style of play;NotDefined
+485;Team of oldies;NotDefined
+486;Team is aggressive;NotDefined
+487;Team has only homegrown players;NotDefined
+488;Team has all players from same country;NotDefined
+489;Comeback after a long injury;NotDefined
+490;Previous match (cup) similar outcome;NotDefined
+491;Previous match (cup) different outcome;NotDefined
+492;Previous match (league) similar outcome;NotDefined
+493;Previous match (league) different outcome;NotDefined
+500;Both teams walkover;NotDefined
+501;Home team walkover;NotDefined
+502;Away team walkover;NotDefined
+503;Both teams break game (2 players remaining);NotDefined
+504;Home team breaks game (2 players remaining);NotDefined
+505;Away team breaks game (2 players remaining);NotDefined
+510;Yellow card nasty play;NotDefined
+511;Yellow card cheating;NotDefined
+512;Red card (2nd warning) nasty play;NotDefined
+513;Red card (2nd warning) cheating;NotDefined
+514;Red card without warning;NotDefined
+597;Second half started;NotDefined
+598;Match started;NotDefined
+599;Match finished;NotDefined
+601;Congratulations to the winner;NotDefined
+602;Winner advances to next cup round (no relegation cup for loser);NotDefined
+603;Winner advances to next cup round and loser relegates to cup X;NotDefined
+604;Match ended in a tie;NotDefined
+605;End of match: congratulations team won the league;End of match
+606;End of match: sad that team will demote directly;End of match
+650;Hattrick Anniversary;NotDefined
+651;Team Anniversary;NotDefined

@@ -225,7 +225,6 @@ def get_partido(helper, base, user_key, user_secret, idpartido):
                 minutebooking = target.find('BookingMinute').text
                 cur.execute('''INSERT INTO tarjetas (MatchID, IndexTarjeta, PlayerID, TeamID, BookingType, BookingMinute)
                             VALUES (?, ?, ?, ?, ?, ?)''', (idpartido, indextarget, idplayer, idteam, typebooking, minutebooking))
-                # conn.commit()
             except:
                 None
         lesiones = 0
@@ -239,7 +238,6 @@ def get_partido(helper, base, user_key, user_secret, idpartido):
                 minuteinjury = inj.find('InjuryMinute').text
                 cur.execute('''INSERT INTO lesiones (MatchID, IndexInjury, PlayerID, TeamID, InjuryType, InjuryMinute)
                             VALUES (?, ?, ?, ?, ?, ?)''',(idpartido, indexinjury, idplayer, idteam, typeinjury, minuteinjury))
-                # conn.commit()
             except:
                 None
         homeFpos = match.find('PossessionFirstHalfHome').text
@@ -256,7 +254,6 @@ def get_partido(helper, base, user_key, user_secret, idpartido):
                     PossessionSecondHalfAway=?, RatingIndirectSetPiecesDefHome=?, RatingIndirectSetPiecesAttHome=?,
                     RatingIndirectSetPiecesDefAway=?, RatingIndirectSetPiecesAttAway=? WHERE MatchID= ?''',
                     (typetactichome, skilltactichome, typetacticaway, skilltacticaway, expulsiones, lesiones, homeFpos, awayFpos, homeSpos, awaySpos, ratIndDefhome, ratIndAtthome, ratIndDefaway, ratIndAttaway, idpartido))
-            # conn.commit()
         except:
             continue
 
@@ -270,7 +267,6 @@ def get_partido(helper, base, user_key, user_secret, idpartido):
         try:
             cur.execute('''INSERT INTO eventos (MatchID, IndexEv, Minute, EventTypeID, SubjectTeamID, SubjectPlayerID, ObjectPlayerID)
                         VALUES (?, ?, ?, ?, ?, ?, ?)''', (idpartido, indexevent, minute, idtypeevent, subteam, subplayer, objplayer))
-            # conn.commit()
         except:
             continue
 
@@ -301,7 +297,6 @@ def get_partido(helper, base, user_key, user_secret, idpartido):
         try:
             cur.execute('''INSERT INTO alineacion (MatchID, RoleTeam, RoleID, PlayerID)
                         VALUES (?, ?, ?, ?)''', (idpartido, teamrole, idrole, idplayer))
-            # conn.commit()
         except:
             continue
 
@@ -314,7 +309,6 @@ def get_partido(helper, base, user_key, user_secret, idpartido):
         try:
             cur.execute('''INSERT INTO sustituciones (MatchID, TeamID, SubjectPlayerID, ObjectPlayerID, MatchMinute, NewPositionId)
                         VALUES (?, ?, ?, ?, ?, ?)''', (idpartido, idteam, subplaid, objplaid, minutematch, posid))
-            # conn.commit()
         except:
             continue
 
@@ -338,7 +332,6 @@ def get_partido(helper, base, user_key, user_secret, idpartido):
         try:
             cur.execute('''INSERT INTO alineacion (MatchID, RoleTeam, RoleID, PlayerID)
                         VALUES (?, ?, ?, ?)''', (idpartido, teamrole, idrole, idplayer))
-            # conn.commit()
         except:
             continue
 
@@ -351,9 +344,8 @@ def get_partido(helper, base, user_key, user_secret, idpartido):
         try:
             cur.execute('''INSERT INTO sustituciones (MatchID, TeamID, SubjectPlayerID, ObjectPlayerID, MatchMinute, NewPositionId)
                         VALUES (?, ?, ?, ?, ?, ?)''', (idpartido, idteam, subplaid, objplaid, minutematch, posid))
-            # conn.commit()
         except:
             continue
-        
+
     conn.commit()
     cur.close()
