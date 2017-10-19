@@ -26,10 +26,10 @@ from colorama import init, Fore, Back, Style
 init(autoreset=True)
 print('\n')
 print(Fore.WHITE + Back.GREEN + '''SE-BIGDATA v0.0''')
-print('Copyright (C) 2017, Isaac Porta "uny11" \nEste programa es software libre bajo la licencia GPL-v3')
+print('Copyright (C) 2017, "uny11" Isaac Porta \nEste programa es software libre bajo la licencia GPL-v3')
 print('\n')
 print(Fore.GREEN + Style.BRIGHT + 'Bienvenido y Gracias por participar en este estudio!')
-print('y no dudes en reportar algun fallo o duda (uny11)')
+print('y no dudes en reportar algun fallo o duda (uny11)\n')
 
 #Iniciamos base de datos de SE-Bigdata
 basedatos = 'bigdata.sqlite'
@@ -77,7 +77,7 @@ cur.close()
 # Lanzamos MENU de la aplicacion
 while True:
     print('\n')
-    print(Back.WHITE + Fore.BLACK + 'Que quieres hacer?? ', Back.WHITE + Fore.BLACK + str(user))
+    print(Fore.CYAN + Style.BRIGHT + 'Que te apetece hacer', Fore.CYAN + Style.BRIGHT+str(user),Fore.CYAN + Style.BRIGHT+'?\n')
     print('     1.- Obtener datos de Hattrick')
     print('     2.- Enviar datos al servidor para enriquecer el estudio')
     print('     3.- Ver tus estadisticas')
