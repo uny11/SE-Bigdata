@@ -2,8 +2,7 @@
 # SE-BIGDATA
 
 App to participate in the study of new special system (SE) of the online game Hattrick (www.hattrick.org).
-The goal is to collect all important data of the match’s users with the new events system for later analysis.
-
+The final goal is to collect all important data of the match’s users and discover the % of appearance and conversion of special events.
 
 ### CURRENT STATUS : « Under construction »
 
