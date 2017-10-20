@@ -17,6 +17,7 @@
 
 from chpp import CHPPhelp
 import bbdd
+import send
 from datetime import datetime, timedelta
 import xml.etree.ElementTree as ET
 import sqlite3
@@ -121,8 +122,20 @@ while True:
 
     elif opcion == '2':
         print('\n')
-        print(Back.RED + Fore.WHITE + 'Perdón! Esta parte esta en contrucción' + Style.RESET_ALL)
-        print('\n')
+        print('Se enviara el archivo '+Fore.GREEN+'"bigdata.sqlite"'+Style.RESET_ALL+' al servidor.')
+        print('Este archivo es la base de datos generada por SE-Bigdata con todos los datos recogidos de tus partidos.')
+        print('     Recuerda que si tienes conocimientos de "SQLite" puedes abrir dicho archivo para "jugar" con tus datos xDDD')
+        print('     Por ejemplo, con la aplicacion gratuita "DB Browser", la puedes encontrar aqui: http://sqlitebrowser.org/ \n')
+        print('Por otro lado, solo comentar que '+Fore.RED+Back.WHITE+'NO'+Style.RESET_ALL+' se envian tu claves personales CHPP.')
+        print('Estas se encuentran en el archivo "auth.sqlite" a salvo\n')
+
+        seguir = input('Enviamos '+Fore.GREEN+'"bigdata.sqlite"'+Style.RESET_ALL+' al servidor (s/n)? (por defecto "n") >> ')
+        if seguir == 's' or seguir == 'S':
+            send.enviar_datos(basedatos, user)
+            print(Back.GREEN + Fore.WHITE + 'Envio completado con éxito!!' + Style.RESET_ALL)
+            print(Fore.GREEN+'Muchas Gracias por participar!')
+        else:
+            print('\nOk, pues mejor en otro momento..')
 
     elif opcion == '3':
         print('\n')
