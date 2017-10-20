@@ -107,7 +107,7 @@ def init_base(baseprincipal, baseauth):
         cur.execute('SELECT EventTypeID FROM SE WHERE EventTypeID = 19')
         test = cur.fetchone()[0]
     except:
-        fhand = open('doc/EventList.csv')
+        fhand = open('doc/EventList.txt')
         for line in fhand:
             valores = line.split(';')
             if valores[2][:2] == 'SE':
@@ -205,7 +205,7 @@ def new_partidos(helper, base, user_key, user_secret, fecha, team):
     cur.close()
 
     init()
-    print(Back.GREEN + Fore.WHITE + str(countMatchNuevos), Style.RESET_ALL + ' partidos nuevos han sido encontrados!')
+    print(Back.GREEN + Fore.BLACK + str(countMatchNuevos), Style.RESET_ALL + ' partidos nuevos han sido encontrados!')
     print(countMatchBBDD, ' partidos encontrados ya existian en SE-Bigdata\n')
 
     return listaPartidosNuevos
@@ -393,13 +393,13 @@ def get_habilidades(helper, base, user_key, user_secret, idpartido):
                                                        }
                                                       )
         Subplayer = ET.fromstring(xmlSub)
-        specialtysub = Subplayer.find('Player/Specialty').text
-        formsub = Subplayer.find('Player/PlayerForm').text
-        loyalsub = Subplayer.find('Player/Loyalty').text
-        mothersub = Subplayer.find('Player/MotherClubBonus').text
-        xpsub = Subplayer.find('Player/Experience').text
-        ressub = Subplayer.find('Player/PlayerSkills/StaminaSkill').text
         try:
+            specialtysub = Subplayer.find('Player/Specialty').text
+            formsub = Subplayer.find('Player/PlayerForm').text
+            loyalsub = Subplayer.find('Player/Loyalty').text
+            mothersub = Subplayer.find('Player/MotherClubBonus').text
+            xpsub = Subplayer.find('Player/Experience').text
+            ressub = Subplayer.find('Player/PlayerSkills/StaminaSkill').text
             porsub = Subplayer.find('Player/PlayerSkills/KeeperSkill').text
             defsub = Subplayer.find('Player/PlayerSkills/DefenderSkill').text
             jugsub = Subplayer.find('Player/PlayerSkills/PlaymakerSkill').text
@@ -408,6 +408,12 @@ def get_habilidades(helper, base, user_key, user_secret, idpartido):
             anosub = Subplayer.find('Player/PlayerSkills/ScorerSkill').text
             bpsub = Subplayer.find('Player/PlayerSkills/SetPiecesSkill').text
         except:
+            specialtysub = -99
+            formsub = -99
+            loyalsub = -99
+            mothersub = 'false'
+            xpsub = -99
+            ressub = -99
             porsub = -99
             defsub = -99
             jugsub = -99
@@ -420,7 +426,7 @@ def get_habilidades(helper, base, user_key, user_secret, idpartido):
             specialtyobj = -99
             formobj = -99
             loyalobj = -99
-            motherobj = -99
+            motherobj = 'false'
             xpobj = -99
             resobj = -99
             porobj = -99
@@ -440,13 +446,13 @@ def get_habilidades(helper, base, user_key, user_secret, idpartido):
                                                            }
                                                           )
             Objplayer = ET.fromstring(xmlObj)
-            specialtyobj = Objplayer.find('Player/Specialty').text
-            formobj = Objplayer.find('Player/PlayerForm').text
-            loyalobj = Objplayer.find('Player/Loyalty').text
-            motherobj = Objplayer.find('Player/MotherClubBonus').text
-            xpobj = Objplayer.find('Player/Experience').text
-            resobj = Objplayer.find('Player/PlayerSkills/StaminaSkill').text
             try:
+                specialtyobj = Objplayer.find('Player/Specialty').text
+                formobj = Objplayer.find('Player/PlayerForm').text
+                loyalobj = Objplayer.find('Player/Loyalty').text
+                motherobj = Objplayer.find('Player/MotherClubBonus').text
+                xpobj = Objplayer.find('Player/Experience').text
+                resobj = Objplayer.find('Player/PlayerSkills/StaminaSkill').text
                 porobj = Objplayer.find('Player/PlayerSkills/KeeperSkill').text
                 defobj = Objplayer.find('Player/PlayerSkills/DefenderSkill').text
                 jugobj = Objplayer.find('Player/PlayerSkills/PlaymakerSkill').text
@@ -455,6 +461,12 @@ def get_habilidades(helper, base, user_key, user_secret, idpartido):
                 anoobj = Objplayer.find('Player/PlayerSkills/ScorerSkill').text
                 bpobj = Objplayer.find('Player/PlayerSkills/SetPiecesSkill').text
             except:
+                specialtyobj = -99
+                formobj = -99
+                loyalobj = -99
+                motherobj = -99
+                xpobj = -99
+                resobj = -99
                 porobj = -99
                 defobj = -99
                 jugobj = -99

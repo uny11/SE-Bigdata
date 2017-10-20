@@ -26,7 +26,7 @@ from colorama import init, Fore, Back, Style
 # print Bienvenida
 init(autoreset=True)
 print('\n')
-print(Fore.WHITE + Back.GREEN + '''SE-BIGDATA v0.0''')
+print(Fore.BLACK + Back.GREEN + '''SE-BIGDATA v0.0''')
 print('Copyright (C) 2017, "uny11" Isaac Porta \nEste programa es software libre bajo la licencia GPL-v3')
 print('\n')
 print(Fore.GREEN + Style.BRIGHT + 'Bienvenido y Gracias por participar en este estudio!')
@@ -86,7 +86,7 @@ while True:
         cur = conn.cursor()
         cur.execute( 'SELECT max(MatchDate) FROM partidos')
         fechamax = cur.fetchone()[0]
-        if fechamax == None: fechamax = datetime.today() - timedelta(days=7)
+        if fechamax == None: fechamax = datetime.today() - timedelta(days=30)
         cur.close()
 
         # Paso1 - Recuperamos lista de partidos nuevos
@@ -100,7 +100,7 @@ while True:
 
             # Paso1.2 - Recuperar detalle de los partidos nuevos para cada equipo
             if len(listaPartidos) > 0:
-                print('Recuperando datos de los ',Back.WHITE + Fore.BLACK + str(len(listaPartidos)), Style.RESET_ALL + ' partidos nuevos de www.hattrick.org...')
+                print('Recuperando datos de los ',Back.WHITE + Fore.BLACK + Style.BRIGHT + str(len(listaPartidos)), Style.RESET_ALL + ' partidos nuevos de www.hattrick.org...')
                 for partido in listaPartidos:
                     # detalle partido, alineacion y sustituciones
                     bbdd.get_partido(helper, basedatos, user_key, user_secret, partido)
@@ -109,7 +109,7 @@ while True:
 
             # Paso 1.3 - Recuperamos habilidades de jugadores implicados en eventos
             if len(listaPartidos) > 0:
-                print('Recuperando habilidades de nuestros jugadores implicados en eventos en los ',Back.WHITE + Fore.BLACK + str(len(listaPartidos)), Style.RESET_ALL + ' partidos nuevos de www.hattrick.org... \n')
+                print('Recuperando habilidades de nuestros jugadores implicados en eventos en los ',Back.WHITE + Fore.BLACK + Style.BRIGHT + str(len(listaPartidos)), Style.RESET_ALL + ' partidos nuevos de www.hattrick.org... \n')
                 for partido in listaPartidos:
                     # habilidades jugadores
                     bbdd.get_habilidades(helper, basedatos, user_key, user_secret, partido)
@@ -118,7 +118,7 @@ while True:
 
             num = num + 1
 
-        print(Back.GREEN + Fore.WHITE + 'SE-Bigdata ha sido actualizado con éxito!!' + Style.RESET_ALL)
+        print(Back.GREEN + Fore.BLACK + 'SE-Bigdata ha sido actualizado con éxito!!' + Style.RESET_ALL)
 
     elif opcion == '2':
         print('\n')
@@ -132,7 +132,7 @@ while True:
         seguir = input('Enviamos '+Fore.GREEN+'"bigdata.sqlite"'+Style.RESET_ALL+' al servidor (s/n)? (por defecto "n") >> ')
         if seguir == 's' or seguir == 'S':
             send.enviar_datos(basedatos, user)
-            print(Back.GREEN + Fore.WHITE + 'Envio completado con éxito!!' + Style.RESET_ALL)
+            print(Back.GREEN + Fore.BLACK + 'Envio completado con éxito!!' + Style.RESET_ALL)
             print(Fore.GREEN+'Muchas Gracias por participar!')
         else:
             print('\nOk, pues mejor en otro momento..')
