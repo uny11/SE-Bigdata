@@ -63,7 +63,7 @@ Se lista la lista de tablas y la lista de los campos de cada una de ellas.
 
 ## Tabla "eventos" (matchdetails.xml)
 - [KEY] MatchID
-- [KEY] Index
+- [KEY] IndexEv
 - Minute
 - EventTypeID
 - SubjectTeamID
@@ -75,20 +75,26 @@ Se lista la lista de tablas y la lista de los campos de cada una de ellas.
 - SubLateral
 - SubPases
 - SubAnotacion
+- SubBP
 - SubXP
-- SubFidelidad
 - SubForma
 - SubResistencia
+- SubSpecialty
+- SubLoyalty
+- SubMotherClubBonus
 - ObjPorteria
 - ObjDefensa
 - ObjJugadas
 - ObjLateral
 - ObjPases
 - ObjAnotacion
+- ObjBP
 - ObjXP
-- ObjFidelidad
 - ObjForma
 - ObjResistencia
+- ObjSpecialty
+- ObjLoyalty
+- ObjMotherClubBonus
 
 ## Tabla "alineacion" (matchlineaup.xml)
 - [KEY] MatchID

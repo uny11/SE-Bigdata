@@ -56,10 +56,9 @@ def init_base(base):
                 (MatchID INTEGER, IndexEv INTEGER, Minute INTEGER, EventTypeID INTEGER,
                 SubjectTeamID INTEGER, SubjectPlayerID INTEGER, ObjectPlayerID INTEGER, SubPorteria INTEGER,
                 SubDefensa INTEGER, SubJugadas INTEGER, SubLateral INTEGER, SubPases INTEGER,
-                SubAnotacion INTEGER, SubXP INTEGER, SubFidelidad INTEGER, SubForma INTEGER,
-                SubResistencia INTEGER, SubSpecialty INTEGER, ObjPorteria INTEGER, ObjDefensa INTEGER,
+                SubAnotacion INTEGER, SubBP INTEGER, SubXP INTEGER, SubForma INTEGER, SubResistencia INTEGER, SubSpecialty INTEGER, SubLoyalty INTEGER, SubMotherClubBonus TEXT, ObjPorteria INTEGER, ObjDefensa INTEGER,
                 ObjJugadas INTEGER, ObjLateral INTEGER, ObjPases INTEGER,
-                ObjAnotacion INTEGER, ObjXP INTEGER, ObjFidelidad INTEGER, ObjForma INTEGER, ObjResistencia INTEGER, ObjSpecialty INTEGER,
+                ObjAnotacion INTEGER, ObjXP INTEGER, ObjForma INTEGER, ObjResistencia INTEGER, ObjSpecialty INTEGER, ObjLoyalty INTEGER, ObjMotherClubBonus TEXT, ObjBP INTEGER,
                 UNIQUE(MatchID, IndexEv))
                 ''')
 
@@ -369,31 +368,104 @@ def get_partido(helper, base, user_key, user_secret, idpartido):
     conn.commit()
     cur.close()
 
-# def get_habilidades(helper, base, user_key, user_secret, idpartido):
-#
-#     conn = sqlite3.connect(base)
-#     cur = conn.cursor()
-#     cur2 = conn.cursor()
-#
-#     # # Recuperamos eventos del partido en base de datos
-#     # cur.execute('''SELECT a.MatchID, a.IndexEv, a.EventTypeID, a.SubjectPlayerID, a.ObjectPlayerID, b.TypeSEBD
-#     #             FROM eventos as a
-#     #             LEFT JOIN SE as b ON a.EventTypeID = b.EventTypeID
-#     #             WHERE b.TypeSEBD = 'SE' AND a.MatchID=?
-#     #             ''',(idpartido,))
-#     # for row in cur:
-#         #row[3] SubjectPlayerID i row[4] ObjectPlayerID
-#     #     xmldoc = helper.request_resource_with_key(     user_key,
-#     #                                                    user_secret,
-#     #                                                    'playerdetails',
-#     #                                                    {
-#     #                                                     'version' : 2.7,
-#     #                                                     'playerID' : row[3]
-#     #                                                    }
-#     #                                                   )
-#     #     root = ET.fromstring(xmldoc)
-#     #
-#     #
-#     # conn.commit()
-#     cur.close()
-#     cur2.close()
+def get_habilidades(helper, base, user_key, user_secret, idpartido):
+
+    conn = sqlite3.connect(base)
+    cur = conn.cursor()
+    cur2 = conn.cursor()
+
+    # Recuperamos eventos del partido en base de datos
+    cur.execute('''SELECT a.MatchID, a.IndexEv, a.EventTypeID, a.SubjectPlayerID, a.ObjectPlayerID, b.TypeSEBD
+                FROM eventos as a
+                LEFT JOIN SE as b ON a.EventTypeID = b.EventTypeID
+                WHERE b.TypeSEBD = 'SE' AND a.MatchID=?
+                ''',(idpartido,))
+    for row in cur:
+        # row[3] SubjectPlayerID i row[4] ObjectPlayerID
+        xmlSub = helper.request_resource_with_key(     user_key,
+                                                       user_secret,
+                                                       'playerdetails',
+                                                       {
+                                                        'version' : 2.7,
+                                                        'playerID' : row[3]
+                                                       }
+                                                      )
+        Subplayer = ET.fromstring(xmlSub)
+        specialtysub = Subplayer.find('Player/Specialty').text
+        formsub = Subplayer.find('Player/PlayerForm').text
+        loyalsub = Subplayer.find('Player/Loyalty').text
+        mothersub = Subplayer.find('Player/MotherClubBonus').text
+        xpsub = Subplayer.find('Player/Experience').text
+        ressub = Subplayer.find('Player/PlayerSkills/StaminaSkill').text
+        try:
+            porsub = Subplayer.find('Player/PlayerSkills/KeeperSkill').text
+            defsub = Subplayer.find('Player/PlayerSkills/DefenderSkill').text
+            jugsub = Subplayer.find('Player/PlayerSkills/PlaymakerSkill').text
+            latsub = Subplayer.find('Player/PlayerSkills/WingerSkill').text
+            passub = Subplayer.find('Player/PlayerSkills/PassingSkill').text
+            anosub = Subplayer.find('Player/PlayerSkills/ScorerSkill').text
+            bpsub = Subplayer.find('Player/PlayerSkills/SetPiecesSkill').text
+        except:
+            porsub = -99
+            defsub = -99
+            jugsub = -99
+            latsub = -99
+            passub = -99
+            anosub = -99
+            bpsub = -99
+
+        if row[4] == '0':
+            specialtyobj = -99
+            formobj = -99
+            loyalobj = -99
+            motherobj = -99
+            xpobj = -99
+            resobj = -99
+            porobj = -99
+            defobj = -99
+            jugobj = -99
+            latobj = -99
+            pasobj = -99
+            anoobj = -99
+            bpobj = -99
+        else:
+            xmlObj = helper.request_resource_with_key(     user_key,
+                                                           user_secret,
+                                                           'playerdetails',
+                                                           {
+                                                            'version' : 2.7,
+                                                            'playerID' : row[4]
+                                                           }
+                                                          )
+            Objplayer = ET.fromstring(xmlObj)
+            specialtyobj = Objplayer.find('Player/Specialty').text
+            formobj = Objplayer.find('Player/PlayerForm').text
+            loyalobj = Objplayer.find('Player/Loyalty').text
+            motherobj = Objplayer.find('Player/MotherClubBonus').text
+            xpobj = Objplayer.find('Player/Experience').text
+            resobj = Objplayer.find('Player/PlayerSkills/StaminaSkill').text
+            try:
+                porobj = Objplayer.find('Player/PlayerSkills/KeeperSkill').text
+                defobj = Objplayer.find('Player/PlayerSkills/DefenderSkill').text
+                jugobj = Objplayer.find('Player/PlayerSkills/PlaymakerSkill').text
+                latobj = Objplayer.find('Player/PlayerSkills/WingerSkill').text
+                pasobj = Objplayer.find('Player/PlayerSkills/PassingSkill').text
+                anoobj = Objplayer.find('Player/PlayerSkills/ScorerSkill').text
+                bpobj = Objplayer.find('Player/PlayerSkills/SetPiecesSkill').text
+            except:
+                porobj = -99
+                defobj = -99
+                jugobj = -99
+                latobj = -99
+                pasobj = -99
+                anoobj = -99
+                bpobj = -99
+
+        cur2.execute('''UPDATE eventos SET SubPorteria=?, SubDefensa=?, SubJugadas=?, SubLateral=?, SubPases=?, SubAnotacion=?, SubBP=?, SubXP=?, SubForma=?, SubResistencia=?, SubSpecialty=?, SubLoyalty=?, SubMotherClubBonus=?,
+                        ObjPorteria=?, ObjDefensa=?, ObjJugadas=?, ObjLateral=?, ObjPases=?, ObjAnotacion=?, ObjBP=?, ObjXP=?, ObjForma=?, ObjResistencia=?, ObjSpecialty=?, ObjLoyalty=?, ObjMotherClubBonus=?
+                        WHERE MatchID = ? AND IndexEv = ?''',(porsub, defsub, jugsub, latsub, passub, anosub, bpsub, xpsub, formsub, ressub, specialtysub, loyalsub, mothersub,
+                        porobj, defobj, jugobj, latobj, pasobj, anoobj, bpobj, xpobj, formobj, resobj, specialtyobj, loyalobj, motherobj, idpartido, row[1]))
+
+    conn.commit()
+    cur.close()
+    cur2.close()

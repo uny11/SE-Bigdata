@@ -84,7 +84,7 @@ while True:
         cur = conn.cursor()
         cur.execute( 'SELECT max(MatchDate) FROM partidos')
         fechamax = cur.fetchone()[0]
-        if fechamax == None: fechamax = datetime.today() - timedelta(days=15)
+        if fechamax == None: fechamax = datetime.today() - timedelta(days=7)
         cur.close()
 
         # Paso1 - Recuperamos lista de partidos nuevos
@@ -105,14 +105,14 @@ while True:
             else:
                 None
 
-            # # Paso 1.3 - Recuperamos habilidades de jugadores implicados en eventos
-            # if len(listaPartidos) > 0:
-            #     print('Recuperando habilidades de nuestros jugadores implicados en eventos especiales en los ',Back.WHITE + Fore.BLACK + str(len(listaPartidos)), Style.RESET_ALL + ' partidos nuevos de www.hattrick.org... \n')
-            #     for partido in listaPartidos:
-            #         # habilidades jugadores
-            #         bbdd.get_habilidades(helper, basedatos, user_key, user_secret, partido)
-            # else:
-            #     None
+            # Paso 1.3 - Recuperamos habilidades de jugadores implicados en eventos
+            if len(listaPartidos) > 0:
+                print('Recuperando habilidades de nuestros jugadores implicados en eventos en los ',Back.WHITE + Fore.BLACK + str(len(listaPartidos)), Style.RESET_ALL + ' partidos nuevos de www.hattrick.org... \n')
+                for partido in listaPartidos:
+                    # habilidades jugadores
+                    bbdd.get_habilidades(helper, basedatos, user_key, user_secret, partido)
+            else:
+                None
 
             num = num + 1
 
