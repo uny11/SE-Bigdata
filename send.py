@@ -10,7 +10,7 @@ def enviar_datos(fichero, user):
 
     # Contruimos partes del mensaje
     ahora = datetime.now()
-    asunto = str(user)+' '+str(ahora)
+    asunto = str(ahora)+'%'+str(user)
     texto = 'Aqui va la base de datos! de '+str(user)+' de '+str(ahora)
 
     # Establecemos conexion con el servidor smtp de gmail

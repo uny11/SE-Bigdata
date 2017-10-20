@@ -21,15 +21,16 @@ import send
 from datetime import datetime, timedelta
 import xml.etree.ElementTree as ET
 import sqlite3
+import os
 from colorama import init, Fore, Back, Style
 
 # print Bienvenida
 init(autoreset=True)
 print('\n')
-print(Fore.BLACK + Back.GREEN + '''SE-BIGDATA v0.0''')
-print('Copyright (C) 2017, "uny11" Isaac Porta \nEste programa es software libre bajo la licencia GPL-v3')
+print(Fore.GREEN + Back.BLACK + '''SE-BIGDATA v0.0''')
+print('Copyright (C) 2017, "uny11"\nEste sencillo programa es software libre bajo la licencia GPL-v3')
 print('\n')
-print(Fore.GREEN + Style.BRIGHT + 'Bienvenido y Gracias por participar en este estudio!')
+print(Fore.GREEN + 'Bienvenido y Gracias por participar en este estudio!')
 print('y no dudes en reportar algun fallo o duda (uny11)\n')
 
 #Iniciamos base de datos de SE-Bigdata
@@ -67,14 +68,20 @@ listaEquiposNombre = []
 for row in cur:
     listaEquiposID.append(row[0])
     listaEquiposNombre.append(row[1])
-
+cur.close()
+conn = sqlite3.connect(basedatos)
+cur = conn.cursor()
+cur.execute( 'SELECT max(MatchDate) FROM partidos')
+fechamax = cur.fetchone()[0]
 cur.close()
 
 # Lanzamos MENU de la aplicacion
 while True:
+    (mode, ino, dev, nlink, uid, gid, size, atime, mtime, ctime) = os.stat('bigdata.sqlite')
+    size = size/1024
     print('\n')
-    print(Fore.GREEN + Style.BRIGHT + 'Que quieres hacer ahora', Fore.YELLOW + Style.BRIGHT+str(user),Fore.GREEN + Style.BRIGHT+'?\n')
-    print('     1.- Obtener datos de Hattrick')
+    print(Fore.GREEN + 'Que quieres hacer', Fore.YELLOW + Style.BRIGHT+str(user),Fore.GREEN + Style.BRIGHT+'?\n')
+    print('     1.- Recuperar datos de Hattrick - Ultimo partido recuperado: '+Fore.GREEN+fechamax)
     print('     2.- Enviar datos al servidor para enriquecer el estudio')
     print('     3.- Ver tus estadisticas')
     print('     4.- Salir\n')
@@ -84,8 +91,6 @@ while True:
         # Paso0 - Miramos si hay partidos en la base y si hay miramos fecha del ultimo
         conn = sqlite3.connect(basedatos)
         cur = conn.cursor()
-        cur.execute( 'SELECT max(MatchDate) FROM partidos')
-        fechamax = cur.fetchone()[0]
         if fechamax == None: fechamax = datetime.today() - timedelta(days=30)
         cur.close()
 
@@ -118,18 +123,46 @@ while True:
 
             num = num + 1
 
-        print(Back.GREEN + Fore.BLACK + 'SE-Bigdata ha sido actualizado con éxito!!' + Style.RESET_ALL)
+        print(Fore.GREEN + 'SE-Bigdata ha sido actualizado con éxito!!')
 
     elif opcion == '2':
-        print('\n')
-        print('Se enviara el archivo '+Fore.GREEN+'"bigdata.sqlite"'+Style.RESET_ALL+' al servidor.')
-        print('Este archivo es la base de datos generada por SE-Bigdata con todos los datos recogidos de tus partidos.')
-        print('     Recuerda que si tienes conocimientos de "SQLite" puedes abrir dicho archivo para "jugar" con tus datos xDDD')
-        print('     Por ejemplo, con la aplicacion gratuita "DB Browser", la puedes encontrar aqui: http://sqlitebrowser.org/ \n')
-        print('Por otro lado, solo comentar que '+Fore.RED+Back.WHITE+'NO'+Style.RESET_ALL+' se envian tu claves personales CHPP.')
-        print('Estas se encuentran en el archivo "auth.sqlite" a salvo\n')
+        # Recuperamos algunos datos de la base de datos
+        (mode, ino, dev, nlink, uid, gid, size, atime, mtime, ctime) = os.stat('bigdata.sqlite')
+        size = size/1024
+        conn = sqlite3.connect(basedatos)
+        cur = conn.cursor()
+        cur.execute('SELECT count(MatchID) FROM partidos')
+        numpartidos = cur.fetchone()[0]
+        cur.execute('SELECT count(SubPorteria) FROM eventos')
+        numeventos = cur.fetchone()[0]
+        cur.execute('SELECT count(PlayerID) FROM jugadores')
+        numjugadores = cur.fetchone()[0]
+        cur.execute('SELECT count(MatchID) FROM lesiones')
+        numlesiones = cur.fetchone()[0]
+        cur.execute('SELECT count(MatchID) FROM sustituciones')
+        numsus = cur.fetchone()[0]
+        cur.execute('SELECT count(MatchID) FROM tarjetas')
+        numtarjetas = cur.fetchone()[0]
+        cur.execute( 'SELECT max(MatchDate) FROM partidos')
+        fechamax = cur.fetchone()[0]
+        cur.close()
 
-        seguir = input('Enviamos '+Fore.GREEN+'"bigdata.sqlite"'+Style.RESET_ALL+' al servidor (s/n)? (por defecto "n") >> ')
+        print('\n')
+        print('Vamos a enviar el archivo '+Back.BLACK+Fore.GREEN+'"bigdata.sqlite"'+Style.RESET_ALL+' al servidor.')
+        print('Este archivo es la base de datos generada por SE-Bigdata con toda la información recogida de Hattrick.\n')
+        print('La base tiene un tamaño de',Back.BLACK+Fore.GREEN+str(size),'KB y contiene:')
+        print(Back.BLACK+Fore.GREEN+str(numpartidos),'  partidos, el mas reciente de: '+Back.BLACK+Fore.GREEN+fechamax)
+        print(Back.BLACK+Fore.GREEN+str(numeventos),'  eventos especiales (con las habilidades de tus jugadores implicados, no las rivales)')
+        print(Back.BLACK+Fore.GREEN+str(numjugadores),' jugadores (su especialidad y caracter)')
+        print(Back.BLACK+Fore.GREEN+str(numlesiones),'  lesiones')
+        print(Back.BLACK+Fore.GREEN+str(numsus),'  sustituciones')
+        print(Back.BLACK+Fore.GREEN+str(numtarjetas),'  tarjetas\n')
+        print('Recuerda que si tienes conocimientos de "SQLite" puedes abrir dicho archivo para "jugar" con tus datos xDDD')
+        print('Por ejemplo, con la aplicacion gratuita "DB Browser", la puedes encontrar aqui: http://sqlitebrowser.org/ \n')
+        print('Por otro lado, solo comentar que '+Fore.RED+Back.WHITE+Style.BRIGHT+'NO'+Style.RESET_ALL+' se envian tu claves personales CHPP.')
+        print('Estas se encuentran a salvo en otro archivo (auth.sqlite)\n')
+
+        seguir = input('Enviamos pues '+Fore.GREEN+'"bigdata.sqlite"'+Style.RESET_ALL+' al servidor (s/n)? (por defecto "n") >> ')
         if seguir == 's' or seguir == 'S':
             send.enviar_datos(basedatos, user)
             print(Back.GREEN + Fore.BLACK + 'Envio completado con éxito!!' + Style.RESET_ALL)
