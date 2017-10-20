@@ -21,19 +21,21 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta
 from colorama import init, Fore, Back, Style
 
-def init_base(base):
+def init_base(baseprincipal, baseauth):
     # Creamos las tablas necesarias sino estan creadas
-    conn = sqlite3.connect(base)
+    conn = sqlite3.connect(baseprincipal)
+    conn2 = sqlite3.connect(baseauth)
     cur = conn.cursor()
+    cur2 = conn2.cursor()
 
     # tabla keys
-    cur.execute('''
+    cur2.execute('''
                 CREATE TABLE IF NOT EXISTS keys
                 (id INTEGER PRIMARY KEY, key TEXT)
                 ''')
 
     # tabla info del user
-    cur.execute('''
+    cur2.execute('''
                 CREATE TABLE IF NOT EXISTS info
                 (id INTEGER PRIMARY KEY, idHT INTEGER, type TEXT, descripcion TEXT)
                 ''')
@@ -114,8 +116,9 @@ def init_base(base):
                 cur.execute('INSERT INTO SE (EventTypeID, EventName, TypeSEBD) VALUES (?, ?, ?)',(valores[0], valores[1], valores[2]))
 
     conn.commit()
-
+    conn2.commit()
     cur.close()
+    cur2.close()
 
 def new_partidos(helper, base, user_key, user_secret, fecha, team):
     # Peticion a la API
@@ -203,8 +206,7 @@ def new_partidos(helper, base, user_key, user_secret, fecha, team):
 
     init()
     print(Back.GREEN + Fore.WHITE + str(countMatchNuevos), Style.RESET_ALL + ' partidos nuevos han sido encontrados!')
-    print(countMatchBBDD, ' partidos encontrados ya existian en SE-Bigdata')
-    print('\n')
+    print(countMatchBBDD, ' partidos encontrados ya existian en SE-Bigdata\n')
 
     return listaPartidosNuevos
 

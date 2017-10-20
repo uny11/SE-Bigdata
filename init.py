@@ -34,7 +34,7 @@ print('y no dudes en reportar algun fallo o duda (uny11)\n')
 #Iniciamos base de datos de SE-Bigdata
 bbddauth = 'auth.sqlite'
 basedatos = 'bigdata.sqlite'
-bbdd.init_base(basedatos)
+bbdd.init_base(basedatos, bbddauth)
 
 # Iniciamos claves y funciones para acceder a los recursos CHPP de la API de Hatrick
 helper = CHPPhelp()
@@ -99,7 +99,7 @@ while True:
 
             # Paso1.2 - Recuperar detalle de los partidos nuevos para cada equipo
             if len(listaPartidos) > 0:
-                print('Recuperando datos de los ',Back.WHITE + Fore.BLACK + str(len(listaPartidos)), Style.RESET_ALL + ' partidos nuevos de www.hattrick.org... \n')
+                print('Recuperando datos de los ',Back.WHITE + Fore.BLACK + str(len(listaPartidos)), Style.RESET_ALL + ' partidos nuevos de www.hattrick.org...')
                 for partido in listaPartidos:
                     # detalle partido, alineacion y sustituciones
                     bbdd.get_partido(helper, basedatos, user_key, user_secret, partido)
@@ -117,7 +117,7 @@ while True:
 
             num = num + 1
 
-        print(Back.GREEN + Fore.WHITE + 'Hecho!' + Style.RESET_ALL)
+        print(Back.GREEN + Fore.WHITE + 'SE-Bigdata ha sido actualizado con éxito!!' + Style.RESET_ALL)
 
     elif opcion == '2':
         print('\n')
