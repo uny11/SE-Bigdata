@@ -32,6 +32,7 @@ print(Fore.GREEN + Style.BRIGHT + 'Bienvenido y Gracias por participar en este e
 print('y no dudes en reportar algun fallo o duda (uny11)\n')
 
 #Iniciamos base de datos de SE-Bigdata
+bbddauth = 'auth.sqlite'
 basedatos = 'bigdata.sqlite'
 bbdd.init_base(basedatos)
 
@@ -39,7 +40,7 @@ bbdd.init_base(basedatos)
 helper = CHPPhelp()
 
 # Buscamos si la App tiene la autorizacion CHPP del usuario
-conn = sqlite3.connect(basedatos)
+conn = sqlite3.connect(bbddauth)
 cur = conn.cursor()
 try:
     cur.execute('SELECT key FROM keys WHERE id = 1')
@@ -50,7 +51,7 @@ except:
     print('\n')
     print('Antes de nada, es necesario tu autorizacion-CHPP para recoger datos Hattrick!')
     print('Sigue las instruciones: \n')
-    helper.get_auth(basedatos)
+    helper.get_auth(bbddauth)
 
 # Recuperamos tokens, user y equipos del user
 cur.execute('SELECT key FROM keys WHERE id = 1 LIMIT 1')
