@@ -167,7 +167,7 @@ while True:
         print('Recuerda que si tienes conocimientos de "SQLite" puedes abrir dicho archivo para "jugar" con tus datos xDDD')
         print('Por ejemplo, con la aplicacion gratuita "DB Browser", la puedes encontrar aqui: http://sqlitebrowser.org/ \n')
         print('Por otro lado, solo comentar que '+Fore.RED+Back.WHITE+Style.BRIGHT+'NO'+Style.RESET_ALL+' se envian tu claves personales CHPP.')
-        print('Estas se encuentran a salvo en otro archivo (auth.sqlite)\n')
+        print('Estas claes se encuentran a salvo en otro archivo (auth.sqlite)\n')
 
         seguir = input('Enviamos pues '+Fore.GREEN+'"bigdata.sqlite"'+Style.RESET_ALL+' al servidor (s/n)? (por defecto "n") >> ')
         if seguir == 's' or seguir == 'S':
