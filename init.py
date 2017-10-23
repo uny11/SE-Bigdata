@@ -81,6 +81,7 @@ while True:
     size = size/1024
     print('\n')
     print(Fore.GREEN + 'Que quieres hacer', Fore.YELLOW + Style.BRIGHT+str(user),Fore.GREEN + Style.BRIGHT+'?\n')
+    if fechamax == None: fechamax = 'Ningun partido en la base'
     print('     1.- Recuperar datos de Hattrick - Ultimo partido recuperado: '+Fore.GREEN+fechamax)
     print('     2.- Enviar datos al servidor para enriquecer el estudio')
     print('     3.- Ver tus estadisticas')
@@ -124,6 +125,12 @@ while True:
             num = num + 1
 
         print(Fore.GREEN + 'SE-Bigdata ha sido actualizado con éxito!!')
+
+        conn = sqlite3.connect(basedatos)
+        cur = conn.cursor()
+        cur.execute( 'SELECT max(MatchDate) FROM partidos')
+        fechamax = cur.fetchone()[0]
+        cur.close()
 
     elif opcion == '2':
         # Recuperamos algunos datos de la base de datos
