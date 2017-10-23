@@ -178,9 +178,37 @@ while True:
             print('\nOk, pues mejor en otro momento..')
 
     elif opcion == '3':
+
+        (mode, ino, dev, nlink, uid, gid, size, atime, mtime, ctime) = os.stat('bigdata.sqlite')
+        size = size/1024
+        conn = sqlite3.connect(basedatos)
+        cur = conn.cursor()
+        cur.execute('SELECT count(MatchID) FROM partidos')
+        numpartidos = cur.fetchone()[0]
+        cur.execute('SELECT count(SubPorteria) FROM eventos')
+        numeventos = cur.fetchone()[0]
+        cur.execute('SELECT count(PlayerID) FROM jugadores')
+        numjugadores = cur.fetchone()[0]
+        cur.execute('SELECT count(MatchID) FROM lesiones')
+        numlesiones = cur.fetchone()[0]
+        cur.execute('SELECT count(MatchID) FROM sustituciones')
+        numsus = cur.fetchone()[0]
+        cur.execute('SELECT count(MatchID) FROM tarjetas')
+        numtarjetas = cur.fetchone()[0]
+        cur.execute( 'SELECT max(MatchDate) FROM partidos')
+        fechamax = cur.fetchone()[0]
+        cur.close()
+
         print('\n')
-        print(Back.RED + Fore.WHITE + 'Perdón! Esta parte esta en contrucción' + Style.RESET_ALL)
-        print('\n')
+        print(Back.RED + Fore.WHITE + 'Perdón! Esta sigue esta en contrucción' + Style.RESET_ALL)
+        print('De momento, solo te puedo decir que:\n')
+        print('La base de partidos tiene un tamaño de',Back.BLACK+Fore.GREEN+str(size),'KB y contiene:')
+        print(Back.BLACK+Fore.GREEN+str(numpartidos),'  partidos, el mas reciente de: '+Back.BLACK+Fore.GREEN+fechamax)
+        print(Back.BLACK+Fore.GREEN+str(numeventos),'  eventos especiales (con las habilidades de tus jugadores implicados, no las rivales)')
+        print(Back.BLACK+Fore.GREEN+str(numjugadores),' jugadores (su especialidad y caracter)')
+        print(Back.BLACK+Fore.GREEN+str(numlesiones),'  lesiones')
+        print(Back.BLACK+Fore.GREEN+str(numsus),'  sustituciones')
+        print(Back.BLACK+Fore.GREEN+str(numtarjetas),'  tarjetas\n')
 
     elif opcion == '4':
         print('\n')
@@ -191,5 +219,5 @@ while True:
 
     else:
         print('\n')
-        print(Back.RED + Fore.WHITE + 'Perdón! Esta parte esta en contrucción' + Style.RESET_ALL)
+        print(Back.RED + Fore.WHITE + 'Perdón! Esta sigue esta en contrucción' + Style.RESET_ALL)
         print('\n')
