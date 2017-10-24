@@ -115,6 +115,24 @@ def init_base(baseprincipal, baseauth):
             else:
                 cur.execute('INSERT INTO SE (EventTypeID, EventName, TypeSEBD) VALUES (?, ?, ?)',(valores[0], valores[1], valores[2]))
 
+    # vista alineacion_all con minutos jugados de todos los jugadores incluidas las susticiones!
+    cur.execute('''
+                CREATE VIEW IF NOT EXISTS alineacion_all as
+                select a.MatchID, a.RoleTeam, a.RoleID as Pos, a.PlayerID as Player, b.Specialty,
+                case when c.MatchMinute is null then 90 when c.MatchMinute > 90 then 90 else c.MatchMinute end as Minutos
+                from alineacion as a
+                left join jugadores as b ON a.PlayerID = b.PlayerID
+                left join sustituciones as c ON a.MatchID = c.MatchID AND a.PlayerID = c.SubjectPlayerID
+                UNION ALL
+                select a.MatchID, a.RoleTeam, c.NewPositionId as Pos, c.ObjectPlayerID as Player, d.Specialty,
+                case when c.MatchMinute is null then 0 when c.MatchMinute > 90 then 0 else 90-c.MatchMinute end as Minutos
+                from alineacion as a
+                left join jugadores as b ON a.PlayerID = b.PlayerID
+                left join sustituciones as c ON a.MatchID = c.MatchID AND a.PlayerID = c.SubjectPlayerID
+                left join jugadores as d ON c.ObjectPlayerID = d.PlayerID
+                where Minutos > 0
+                ''')
+
     conn.commit()
     conn2.commit()
     cur.close()
