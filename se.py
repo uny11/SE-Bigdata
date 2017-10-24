@@ -80,7 +80,7 @@ while True:
     (mode, ino, dev, nlink, uid, gid, size, atime, mtime, ctime) = os.stat('bigdata.sqlite')
     size = size/1024
     print('\n')
-    print(Fore.GREEN + 'Que quieres hacer', Fore.YELLOW + Style.BRIGHT+str(user),Fore.GREEN + Style.BRIGHT+'?\n')
+    print(Fore.GREEN + 'Que quieres hacer', Fore.YELLOW + Style.BRIGHT+str(user),Fore.GREEN + '?\n')
     if fechamax == None: fechamax = 'Ningun partido en la base'
     print('     1.- Recuperar datos de Hattrick - Ultimo partido recuperado: '+Fore.GREEN+fechamax)
     print('     2.- Enviar datos al servidor para enriquecer el estudio')
@@ -167,9 +167,10 @@ while True:
         print('Recuerda que si tienes conocimientos de "SQLite" puedes abrir dicho archivo para "jugar" con tus datos xDDD')
         print('Por ejemplo, con la aplicacion gratuita "DB Browser", la puedes encontrar aqui: http://sqlitebrowser.org/ \n')
         print('Por otro lado, solo comentar que '+Fore.RED+Back.WHITE+Style.BRIGHT+'NO'+Style.RESET_ALL+' se envian tu claves personales CHPP.')
-        print('Estas claes se encuentran a salvo en otro archivo (auth.sqlite)\n')
+        print('Estas claves se encuentran a salvo en otro archivo (auth.sqlite) y no se enviaran\n')
 
-        seguir = input('Enviamos pues '+Fore.GREEN+'"bigdata.sqlite"'+Style.RESET_ALL+' al servidor (s/n)? (por defecto "n") >> ')
+        print('Enviamos pues '+Fore.GREEN+'"bigdata.sqlite"'+Style.RESET_ALL+' al servidor (s/n)?')
+        seguir = input('(por defecto n) >> ')
         if seguir == 's' or seguir == 'S':
             send.enviar_datos(basedatos, user)
             print(Back.GREEN + Fore.BLACK + 'Envio completado con éxito!!' + Style.RESET_ALL)
@@ -200,8 +201,8 @@ while True:
         cur.close()
 
         print('\n')
-        print(Back.RED + Fore.WHITE + 'Perdón! Esta sigue esta en contrucción' + Style.RESET_ALL)
-        print('De momento, solo te puedo decir que:\n')
+        print(Back.RED + Fore.WHITE + 'Perdón! Esta parte sigue esta en contrucción\n' + Style.RESET_ALL)
+        print('De momento, solo te puedo decir que:')
         print('La base de partidos tiene un tamaño de',Back.BLACK+Fore.GREEN+str(size),'KB y contiene:')
         print(Back.BLACK+Fore.GREEN+str(numpartidos),'  partidos, el mas reciente de: '+Back.BLACK+Fore.GREEN+fechamax)
         print(Back.BLACK+Fore.GREEN+str(numeventos),'  eventos especiales (con las habilidades de tus jugadores implicados, no las rivales)')
@@ -211,13 +212,11 @@ while True:
         print(Back.BLACK+Fore.GREEN+str(numtarjetas),'  tarjetas\n')
 
     elif opcion == '4':
-        print('\n')
+        print(Fore.YELLOW + Style.BRIGHT + '\nHasta la proxima!\n')
         break
     elif len(opcion) < 1:
-        print('\n')
+        print(Fore.YELLOW + Style.BRIGHT + '\nHasta la proxima!\n')
         break
 
     else:
-        print('\n')
-        print(Back.RED + Fore.WHITE + 'Perdón! Esta sigue esta en contrucción' + Style.RESET_ALL)
-        print('\n')
+        print(Back.RED + Fore.WHITE + '\nUps, no he entendido que quieres hacer..prueba otra vez' + Style.RESET_ALL)
