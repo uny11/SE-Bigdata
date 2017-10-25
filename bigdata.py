@@ -92,7 +92,7 @@ while True:
         # Paso0 - Miramos si hay partidos en la base y si hay miramos fecha del ultimo
         conn = sqlite3.connect(basedatos)
         cur = conn.cursor()
-        if fechamax == None: fechamax = datetime.today() - timedelta(days=30)
+        if fechamax == None: fechamax = datetime.today() - timedelta(days=90)
         cur.close()
 
         # Paso1 - Recuperamos lista de partidos nuevos
@@ -101,7 +101,7 @@ while True:
         print('Paciencia, puede tardar un poco..\n')
         num = 0
         for team in listaEquiposID:
-            print('Para tu equipo "',listaEquiposNombre[num],'"')
+            print('Para tu equipo <',Fore.YELLOW + Style.BRIGHT + str(listaEquiposNombre[num]),'>')
             listaPartidos = bbdd.new_partidos(helper, basedatos, user_key, user_secret, fechamax, team)
 
             # Paso1.2 - Recuperar detalle de los partidos nuevos para cada equipo
@@ -115,7 +115,7 @@ while True:
 
             # Paso 1.3 - Recuperamos habilidades de jugadores implicados en eventos
             if len(listaPartidos) > 0:
-                print('Recuperando habilidades de nuestros jugadores implicados en eventos en los ',Back.WHITE + Fore.BLACK + Style.BRIGHT + str(len(listaPartidos)), Style.RESET_ALL + ' partidos nuevos de www.hattrick.org... \n')
+                print('Recuperando habilidades de tus jugadores implicados en eventos de los ',Back.WHITE + Fore.BLACK + Style.BRIGHT + str(len(listaPartidos)), Style.RESET_ALL + ' partidos nuevos encontrados.. \n')
                 for partido in listaPartidos:
                     # habilidades jugadores
                     bbdd.get_habilidades(helper, basedatos, user_key, user_secret, partido)
@@ -124,7 +124,7 @@ while True:
 
             num = num + 1
 
-        print(Fore.GREEN + 'SE-Bigdata ha sido actualizado con éxito!!')
+        print(Fore.GREEN + 'SE-Bigdata ha sido actualizada con éxito!!')
 
         conn = sqlite3.connect(basedatos)
         cur = conn.cursor()
@@ -315,7 +315,6 @@ while True:
                 print('Es decir un',Fore.GREEN + str(App),'% de aparicion y un',Fore.GREEN + str(Con),'% de conversion global.\n')
 
                 cur.close()
-
 
             elif selecion == '2':
                 print(Fore.RED + '\nperdón, esta parte sigue en construccion\n')
