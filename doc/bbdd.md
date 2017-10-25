@@ -103,7 +103,7 @@ Se lista la lista de tablas y la lista de los campos de cada una de ellas.
 - PlayerID
 
 Info RoleID:
-    POR_ #Contiene el valor del PlayerID con RoleID = 100 de la alineacion. Sino hay jugadores en la posicion toma el valor "0"
+    POR_ #Contiene el valor del PlayerID con RoleID = 100 de la alineacion.
     DLD_ #RoleID = 101
     DCD_ #RoleID = 102
     DCC_ #RoleID = 103

@@ -200,16 +200,148 @@ while True:
         fechamax = cur.fetchone()[0]
         cur.close()
 
-        print('\n')
-        print(Back.RED + Fore.WHITE + 'Perdón! Esta parte sigue esta en contrucción\n' + Style.RESET_ALL)
-        print('De momento, solo te puedo decir que:')
-        print('La base de partidos tiene un tamaño de',Back.BLACK+Fore.GREEN+str(size),'KB y contiene:')
+        print('\nLa base de partidos tiene un tamaño de',Back.BLACK+Fore.GREEN+str(size),'KB y contiene:')
         print(Back.BLACK+Fore.GREEN+str(numpartidos),'  partidos, el mas reciente de: '+Back.BLACK+Fore.GREEN+fechamax)
         print(Back.BLACK+Fore.GREEN+str(numeventos),'  eventos especiales (con las habilidades de tus jugadores implicados, no las rivales)')
         print(Back.BLACK+Fore.GREEN+str(numjugadores),' jugadores (su especialidad y caracter)')
         print(Back.BLACK+Fore.GREEN+str(numlesiones),'  lesiones')
         print(Back.BLACK+Fore.GREEN+str(numsus),'  sustituciones')
         print(Back.BLACK+Fore.GREEN+str(numtarjetas),'  tarjetas\n')
+
+        # Menu del estudio
+        while True:
+
+            print('Que tipo de especialistas quieres verificar?')
+            print('     1.- Imprevisibles')
+            print('     2.- Rápidos')
+            print('     3.- Cabezones')
+            print('     4.- Técnicos')
+            print('     5.- Potentes')
+            print('     6.- Sin especialidad (Extremos con Lateral)')
+            print('     7.- Eventos de Equipo')
+            print('     8.- Salir')
+            selecion = input('(por defecto 8) >> ')
+
+            if selecion == '1':
+
+                conn = sqlite3.connect(basedatos)
+                cur = conn.cursor()
+                cur.execute('SELECT count(MatchID) as Partidos_e05 from (select distinct MatchID from alineacion_all where Specialty = 4 and Pos < 106 and Pos > 99)')
+                Partidos_e05 = cur.fetchone()[0]
+                cur.execute('SELECT sum(maxMin) from (select MatchID, max(Minutos) as maxMin from (select * from alineacion_all where Specialty = 4 and Pos < 106 and Pos > 99) group by MatchID)')
+                Minutos_e05 = cur.fetchone()[0]
+                Partidos05_PondMin = Minutos_e05 / 90
+                cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 105')
+                Gols05 = cur.fetchone()[0]
+                cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 205')
+                Fallos05 = cur.fetchone()[0]
+
+                if Partidos05_PondMin == 0:
+                    App = 0.0
+                    Con = 0.0
+                else:
+                    App = ((Gols05+Fallos05) / Partidos05_PondMin) * 100
+                    Con = ((Gols05) / Partidos05_PondMin) * 100
+
+                print(Fore.YELLOW + Style.BRIGHT + '\nEv. Individual ID=05: Imprevisible Pase Largo - Porteros y defensas')
+                print(Minutos_e05, 'minutos en',Partidos_e05, 'partidos, es decir, en', Fore.GREEN + str(Partidos05_PondMin), 'partidos reales:')
+                print('Un total de',Fore.GREEN + str(Gols05+Fallos05),'eventos. Con', Fore.GREEN + str(Gols05),'goles.')
+                print('Es decir un',Fore.GREEN + str(App),'% de aparicion y un',Fore.GREEN + str(Con),'% de conversion global.\n')
+
+                cur.execute('SELECT count(MatchID) as Partidos_e06 from (select distinct MatchID from alineacion_all where Specialty = 4 and Pos > 105)')
+                Partidos_e06 = cur.fetchone()[0]
+                cur.execute('SELECT sum(maxMin) from (select MatchID, max(Minutos) as maxMin from (select * from alineacion_all where Specialty = 4 and Pos > 105) group by MatchID)')
+                Minutos_e06 = cur.fetchone()[0]
+                Partidos06_PondMin = Minutos_e06 / 90
+                cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 106')
+                Gols06 = cur.fetchone()[0]
+                cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 206')
+                Fallos06 = cur.fetchone()[0]
+
+                if Partidos06_PondMin == 0:
+                    App = 0.0
+                    Con = 0.0
+                else:
+                    App = ((Gols06+Fallos06) / Partidos06_PondMin) * 100
+                    Con = ((Gols06) / Partidos06_PondMin) * 100
+
+                print(Fore.YELLOW + Style.BRIGHT + '\nEv. Individual ID=06: Imprevisible Anotación - Extremos, Inners y Delanteros')
+                print(Minutos_e06, 'minutos en',Partidos_e06, 'partidos, es decir, en', Fore.GREEN + str(Partidos06_PondMin), 'partidos reales:')
+                print('Un total de',Fore.GREEN + str(Gols06+Fallos06),'eventos. Con', Fore.GREEN + str(Gols06),'goles.')
+                print('Es decir un',Fore.GREEN + str(App),'% de aparicion y un',Fore.GREEN + str(Con),'% de conversion global.\n')
+
+                cur.execute('SELECT count(MatchID) as Partidos_e08 from (select distinct MatchID from alineacion_all where Specialty = 4 and Pos > 100)')
+                Partidos_e08 = cur.fetchone()[0]
+                cur.execute('SELECT sum(maxMin) from (select MatchID, max(Minutos) as maxMin from (select * from alineacion_all where Specialty = 4 and Pos > 100) group by MatchID)')
+                Minutos_e08 = cur.fetchone()[0]
+                Partidos08_PondMin = Minutos_e08 / 90
+                cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 108')
+                Gols08 = cur.fetchone()[0]
+                cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 208')
+                Fallos08 = cur.fetchone()[0]
+
+                if Partidos08_PondMin == 0:
+                    App = 0.0
+                    Con = 0.0
+                else:
+                    App = ((Gols08+Fallos08) / Partidos08_PondMin) * 100
+                    Con = ((Gols08) / Partidos08_PondMin) * 100
+
+                print(Fore.YELLOW + Style.BRIGHT + '\nEv. Individual ID=08: Imprevisible - Todos menos Porteros')
+                print(Minutos_e08, 'minutos en',Partidos_e08, 'partidos, es decir, en', Fore.GREEN + str(Partidos08_PondMin), 'partidos reales:')
+                print('Un total de',Fore.GREEN + str(Gols08+Fallos08),'eventos. Con', Fore.GREEN + str(Gols08),'goles.')
+                print('Es decir un',Fore.GREEN + str(App),'% de aparicion y un',Fore.GREEN + str(Con),'% de conversion global.\n')
+
+                cur.execute('SELECT count(MatchID) as Partidos_e08 from (select distinct MatchID from alineacion_all where Specialty = 4 and Pos > 100 and Pos < 110 and Pos <> 106)')
+                Partidos_e09 = cur.fetchone()[0]
+                cur.execute('SELECT sum(maxMin) from (select MatchID, max(Minutos) as maxMin from (select * from alineacion_all where Specialty = 4 and Pos > 100 and Pos < 110 and Pos <> 106) group by MatchID)')
+                Minutos_e09 = cur.fetchone()[0]
+                Partidos09_PondMin = Minutos_e09 / 90
+                cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 109')
+                Gols09 = cur.fetchone()[0]
+                cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 209')
+                Fallos09 = cur.fetchone()[0]
+
+                if Partidos09_PondMin == 0:
+                    App = 0.0
+                    Con = 0.0
+                else:
+                    App = ((Gols09+Fallos09) / Partidos09_PondMin) * 100
+                    Con = ((Gols09) / Partidos09_PondMin) * 100
+
+                print(Fore.YELLOW + Style.BRIGHT + '\nEv. Individual ID=09: Error Imprevisible - Defensas y Inners')
+                print(Minutos_e09, 'minutos en',Partidos_e09, 'partidos, es decir, en', Fore.GREEN + str(Partidos09_PondMin), 'partidos reales:')
+                print('Un total de',Fore.GREEN + str(Gols09+Fallos09),'eventos. Con', Fore.GREEN + str(Gols09),'goles.')
+                print('Es decir un',Fore.GREEN + str(App),'% de aparicion y un',Fore.GREEN + str(Con),'% de conversion global.\n')
+
+                cur.close()
+
+
+            elif selecion == '2':
+                print(Fore.RED + '\nperdón, esta parte sigue en construccion\n')
+
+            elif selecion == '3':
+                print(Fore.RED + '\nperdón, esta parte sigue en construccion\n')
+
+            elif selecion == '4':
+                print(Fore.RED + '\nperdón, esta parte sigue en construccion\n')
+
+            elif selecion == '5':
+                print(Fore.RED + '\nperdón, esta parte sigue en construccion\n')
+
+            elif selecion == '6':
+                print(Fore.RED + '\nperdón, esta parte sigue en construccion\n')
+
+            elif selecion == '7':
+                print(Fore.RED + '\nperdón, esta parte sigue en construccion\n')
+
+            elif selecion == '8':
+                print(Fore.RED + '\nperdón, esta parte sigue en construccion\n')
+                break
+
+            elif len(selecion) < 1:
+                break
+
 
     elif opcion == '4':
         print(Fore.YELLOW + Style.BRIGHT + '\nHasta la proxima!\n')
