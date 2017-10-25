@@ -7,7 +7,7 @@ App to participate in the study of new special system (SE) of the online game Ha
 The final goal is to collect all important data of the match’s users and discover the % of appearance and conversion of special events.
 
 ## CURRENT STATUS : « Under construction »
-### (by only a little work to have something operational (25/10/17) xDD)
+> (by only a little work to have something operational (25/10/17) xDD)
 
 Now this App already retrieves the user data from Hattrick successfully (with CHPP authentication) and this information is saved in main database correctly.
 For the moment, with a console interface (works well under linux and windows).
