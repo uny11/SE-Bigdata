@@ -84,7 +84,7 @@ while True:
     if fechamax == None: fechamax = 'Ningun partido en la base'
     print('     1.- Recuperar datos de Hattrick - Ultimo partido recuperado: '+Fore.GREEN+fechamax)
     print('     2.- Enviar datos al servidor para enriquecer el estudio')
-    print('     3.- Ver tus estadisticas')
+    print('     3.- Ver tus estadisticas generales')
     print('     4.- Salir\n')
     opcion = input('(por defecto 4) >> ')
 
