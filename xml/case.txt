@@ -1,6 +1,0 @@
-MatchID: 615085410
-IDTeam: 120994
-
-Match con sustituciones: 10623051
-PlayerVader: 384131341
-PlayerRival: 391701062

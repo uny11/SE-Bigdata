@@ -1,10 +1,12 @@
 
 *Copyright (C) 2017, Isaac Porta "uny11" inside hattrick*
 
+# SE-BIGDATA
+
 ![Logo](/images/logo.png)
 
-(english)
-# SE-BIGDATA
+
+> (english)
 
 App to participate in the study of new special system (SE) of the online game Hattrick (www.hattrick.org).
 The final goal is to collect all important data of the match’s users and discover the % of appearance and conversion of special events.
@@ -20,11 +22,12 @@ Now, I'm working on this features:
 - Generate (and calculate) the user's statistics (of special events).
 
 
-(español)
-# SE-BIGDATA
+
+
+> (español)
 
 Aplicación para participar en el estudio del nuevo sistema de eventos especiales del juego online Hattrick (www.hattrick.org).
-EL objetivo final es recoger todas los datos importantes de los partidos de los usuarios i averiguar los % de aparición y conversión de cada evento.
+El objetivo final es recoger todas los datos importantes de los partidos de los usuarios i averiguar los % de aparición y conversión de cada evento.
 
 ### Estado de desarrollo : « En construcción »
 > (pero queda muy poco trabajo para tener algo operacional (25/10/17) xDD)

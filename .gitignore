@@ -1,8 +1,4 @@
 ~
 __pycache__
-hidden.py
-hidden.txt
-init-keys.py
-rm-keys.py
 bigdata.sqlite
 auth.sqlite
