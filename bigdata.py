@@ -214,13 +214,12 @@ while True:
             print('Que tipo de especialistas quieres verificar?')
             print('     1.- Imprevisibles')
             print('     2.- Rápidos')
-            print('     3.- Cabezones')
-            print('     4.- Técnicos')
-            print('     5.- Potentes')
-            print('     6.- Sin especialidad (Extremos con Lateral)')
-            print('     7.- Eventos de Equipo')
-            print('     8.- Salir')
-            selecion = input('(por defecto 8) >> ')
+            print('     3.- Técnicos')
+            print('     4.- Potentes')
+            print('     5.- Extremos (con lateral y cabezones)')
+            print('     6.- Eventos de Equipo')
+            print('     7.- Salir')
+            selecion = input('(por defecto 7) >> ')
 
             if selecion == '1':
 
@@ -379,7 +378,34 @@ while True:
                 cur.close()
 
             elif selecion == '3':
-                print(Fore.RED + '\nperdón, esta parte sigue en construccion\n')
+                conn = sqlite3.connect(basedatos)
+                cur = conn.cursor()
+
+                cur.execute('SELECT count(MatchID) as Partidos_e39 from (select distinct MatchID from alineacion_all_contrarios where Pos > 105 and Specialty = 1 and "Specialty:1" = 5)')
+                Partidos_e39 = cur.fetchone()[0]
+                cur.execute('SELECT sum (MaxMinutos) as Minutos_e39 from(select MatchID, max (Minutos) as MaxMinutos from (select MatchID, Pos, Specialty, "Specialty:1" as SpeContraria, Minutos from alineacion_all_contrarios where Pos > 105 and Specialty = 1 and "Specialty:1" = 5) group by MatchID)')
+                Minutos_e39 = cur.fetchone()[0]
+                Partidos39_PondMin = Minutos_e39 / 90
+                cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 139')
+                Gols39 = cur.fetchone()[0]
+                cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 239')
+                Fallos39 = cur.fetchone()[0]
+
+                if Partidos39_PondMin == 0:
+                    App = 0.0
+                else:
+                    App = ((Gols39+Fallos39) / Partidos39_PondMin) * 100
+                if Gols39+Fallos39 == 0:
+                    Con = 0.0
+                else:
+                    Con = ((Gols39) / (Gols39+Fallos39)) * 100
+
+                print(Fore.YELLOW + Style.BRIGHT + '\nEv. Individual ID=39: Técnico vs Cabezón - Extremos, Inners y Delanteros vs posición contraria')
+                print(Minutos_e39, 'minutos en',Partidos_e39, 'partidos, es decir, en', Fore.GREEN + str("%.2f" % Partidos39_PondMin), 'partidos reales:')
+                print('Un total de',Fore.GREEN + str(Gols39+Fallos39),'eventos. Con', Fore.GREEN + str(Gols39),'goles.')
+                print('Es decir un',Fore.GREEN + str("%.2f" % App),'% de aparicion y un',Fore.GREEN + str("%.2f" % Con),'% de conversion global.\n')
+
+                cur.close()
 
             elif selecion == '4':
                 print(Fore.RED + '\nperdón, esta parte sigue en construccion\n')
@@ -391,9 +417,6 @@ while True:
                 print(Fore.RED + '\nperdón, esta parte sigue en construccion\n')
 
             elif selecion == '7':
-                print(Fore.RED + '\nperdón, esta parte sigue en construccion\n')
-
-            elif selecion == '8':
                 print(Fore.RED + '\nperdón, esta parte sigue en construccion\n')
                 break
 

@@ -133,6 +133,19 @@ def init_base(baseprincipal, baseauth):
                 where Minutos > 0
                 ''')
 
+    # vista anterior con posiciones contrarias en letras
+    cur.execute('''
+                CREATE VIEW IF NOT EXISTS alineacion_all_contrarios as
+                select * from ( select *, case	when RoleTeam = 1 then 2 when RoleTeam = 2 then 1 end as RoleContrario,
+                case when Pos = 106 then "ED" when Pos > 106 and Pos < 110 then "Inner" when Pos = 110 then "EI" when Pos > 110 then "F" when Pos = 101 then "DLD" when Pos = 105 then "DLI" when Pos > 101 and Pos < 105 then "DC" end as PosLetras,
+                case when Pos = 106 then "DLI" when Pos > 106 and Pos < 110 then "Inner" when Pos = 110 then "DLD" when Pos > 110 then "DC" when Pos = 101 then "EI" when Pos = 105 then "ED" when Pos > 101 and Pos < 105 then "F" end as PosConLetras
+                from alineacion_all) as a
+                left join ( select *, case	when RoleTeam = 1 then 2 when RoleTeam = 2 then 1 end as RoleContrario,
+                case when Pos = 106 then "ED" when Pos > 106 and Pos < 110 then "Inner" when Pos = 110 then "EI" when Pos > 110 then "F" when Pos = 101 then "DLD" when Pos = 105 then "DLI" when Pos > 101 and Pos < 105 then "DC" end as PosLetras,
+                case when Pos = 106 then "DLI" when Pos > 106 and Pos < 110 then "Inner" when Pos = 110 then "DLD" when Pos > 110 then "DC" when Pos = 101 then "EI" when Pos = 105 then "ED" when Pos > 101 and Pos < 105 then "F" end as PosConLetras
+                from alineacion_all) as b ON a.MatchID = b.MatchID and a.RoleContrario = b.RoleTeam and a.PosConLetras = b.PosLetras
+                ''')
+
     conn.commit()
     conn2.commit()
     cur.close()
