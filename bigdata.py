@@ -246,9 +246,9 @@ while True:
                     Con = ((Gols05) / (Gols05+Fallos05)) * 100
 
                 print(Fore.YELLOW + Style.BRIGHT + '\nEv. Individual ID=05: Imprevisible Pase Largo - Porteros y defensas')
-                print(Minutos_e05, 'minutos en',Partidos_e05, 'partidos, es decir, en', Fore.GREEN + str(Partidos05_PondMin), 'partidos reales:')
+                print(Minutos_e05, 'minutos en',Partidos_e05, 'partidos, es decir, en', Fore.GREEN + str("%.2f" % Partidos05_PondMin), 'partidos reales:')
                 print('Un total de',Fore.GREEN + str(Gols05+Fallos05),'eventos. Con', Fore.GREEN + str(Gols05),'goles.')
-                print('Es decir un',Fore.GREEN + str(App),'% de aparicion y un',Fore.GREEN + str(Con),'% de conversion global.\n')
+                print('Es decir un',Fore.GREEN + str("%.2f" % App),'% de aparicion y un',Fore.GREEN + str("%.2f" % Con),'% de conversion global.\n')
 
                 cur.execute('SELECT count(MatchID) as Partidos_e06 from (select distinct MatchID from alineacion_all where Specialty = 4 and Pos > 105)')
                 Partidos_e06 = cur.fetchone()[0]
@@ -270,9 +270,9 @@ while True:
                     Con = ((Gols06) / (Gols06+Fallos06)) * 100
 
                 print(Fore.YELLOW + Style.BRIGHT + '\nEv. Individual ID=06: Imprevisible Anotación - Extremos, Inners y Delanteros')
-                print(Minutos_e06, 'minutos en',Partidos_e06, 'partidos, es decir, en', Fore.GREEN + str(Partidos06_PondMin), 'partidos reales:')
+                print(Minutos_e06, 'minutos en',Partidos_e06, 'partidos, es decir, en', Fore.GREEN + str("%.2f" % Partidos06_PondMin), 'partidos reales:')
                 print('Un total de',Fore.GREEN + str(Gols06+Fallos06),'eventos. Con', Fore.GREEN + str(Gols06),'goles.')
-                print('Es decir un',Fore.GREEN + str(App),'% de aparicion y un',Fore.GREEN + str(Con),'% de conversion global.\n')
+                print('Es decir un',Fore.GREEN + str("%.2f" % App),'% de aparicion y un',Fore.GREEN + str("%.2f" % Con),'% de conversion global.\n')
 
                 cur.execute('SELECT count(MatchID) as Partidos_e08 from (select distinct MatchID from alineacion_all where Specialty = 4 and Pos > 100)')
                 Partidos_e08 = cur.fetchone()[0]
@@ -294,9 +294,9 @@ while True:
                     Con = ((Gols08) / (Gols08+Fallos08)) * 100
 
                 print(Fore.YELLOW + Style.BRIGHT + '\nEv. Individual ID=08: Imprevisible - Todos menos Porteros')
-                print(Minutos_e08, 'minutos en',Partidos_e08, 'partidos, es decir, en', Fore.GREEN + str(Partidos08_PondMin), 'partidos reales:')
+                print(Minutos_e08, 'minutos en',Partidos_e08, 'partidos, es decir, en', Fore.GREEN + str("%.2f" % Partidos08_PondMin), 'partidos reales:')
                 print('Un total de',Fore.GREEN + str(Gols08+Fallos08),'eventos. Con', Fore.GREEN + str(Gols08),'goles.')
-                print('Es decir un',Fore.GREEN + str(App),'% de aparicion y un',Fore.GREEN + str(Con),'% de conversion global.\n')
+                print('Es decir un',Fore.GREEN + str("%.2f" % App),'% de aparicion y un',Fore.GREEN + str("%.2f" % Con),'% de conversion global.\n')
 
                 cur.execute('SELECT count(MatchID) as Partidos_e08 from (select distinct MatchID from alineacion_all where Specialty = 4 and Pos > 100 and Pos < 110 and Pos <> 106)')
                 Partidos_e09 = cur.fetchone()[0]
@@ -318,9 +318,9 @@ while True:
                     Con = ((Gols09) / (Gols09+Fallos09)) * 100
 
                 print(Fore.YELLOW + Style.BRIGHT + '\nEv. Individual ID=09: Error Imprevisible - Defensas y Inners')
-                print(Minutos_e09, 'minutos en',Partidos_e09, 'partidos, es decir, en', Fore.GREEN + str(Partidos09_PondMin), 'partidos reales:')
+                print(Minutos_e09, 'minutos en',Partidos_e09, 'partidos, es decir, en', Fore.GREEN + str("%.2f" % Partidos09_PondMin), 'partidos reales:')
                 print('Un total de',Fore.GREEN + str(Gols09+Fallos09),'eventos. Con', Fore.GREEN + str(Gols09),'goles.')
-                print('Es decir un',Fore.GREEN + str(App),'% de aparicion y un',Fore.GREEN + str(Con),'% de conversion global.\n')
+                print('Es decir un',Fore.GREEN + str("%.2f" % App),'% de aparicion y un',Fore.GREEN + str("%.2f" % Con),'% de conversion global.\n')
 
                 cur.close()
 
@@ -348,9 +348,9 @@ while True:
                     Con = ((Gols15) / (Gols15+Fallos15)) * 100
 
                 print(Fore.YELLOW + Style.BRIGHT + '\nEv. Individual ID=15: Rápido + Anotación - Extremos, Inners y Delanteros')
-                print(Minutos_e15, 'minutos en',Partidos_e15, 'partidos, es decir, en', Fore.GREEN + str(Partidos15_PondMin), 'partidos reales:')
+                print(Minutos_e15, 'minutos en',Partidos_e15, 'partidos, es decir, en', Fore.GREEN + str("%.2f" % Partidos15_PondMin), 'partidos reales:')
                 print('Un total de',Fore.GREEN + str(Gols15+Fallos15),'eventos. Con', Fore.GREEN + str(Gols15),'goles.')
-                print('Es decir un',Fore.GREEN + str(App),'% de aparicion y un',Fore.GREEN + str(Con),'% de conversion global.\n')
+                print('Es decir un',Fore.GREEN + str("%.2f" % App),'% de aparicion y un',Fore.GREEN + str("%.2f" % Con),'% de conversion global.\n')
 
                 cur.execute('SELECT count(MatchID) as Partidos_e16 from (select distinct MatchID from alineacion_all where Specialty = 2 and Pos > 105)')
                 Partidos_e16 = cur.fetchone()[0]
@@ -372,9 +372,9 @@ while True:
                     Con = ((Gols16) / (Gols16+Fallos16)) * 100
 
                 print(Fore.YELLOW + Style.BRIGHT + '\nEv. Individual ID=16: Rápido + Pases - Extremos, Inners y Delanteros')
-                print(Minutos_e16, 'minutos en',Partidos_e16, 'partidos, es decir, en', Fore.GREEN + str(Partidos16_PondMin), 'partidos reales:')
+                print(Minutos_e16, 'minutos en',Partidos_e16, 'partidos, es decir, en', Fore.GREEN + str("%.2f" % Partidos16_PondMin), 'partidos reales:')
                 print('Un total de',Fore.GREEN + str(Gols16+Fallos16),'eventos. Con', Fore.GREEN + str(Gols16),'goles.')
-                print('Es decir un',Fore.GREEN + str(App),'% de aparicion y un',Fore.GREEN + str(Con),'% de conversion global.\n')
+                print('Es decir un',Fore.GREEN + str("%.2f" % App),'% de aparicion y un',Fore.GREEN + str("%.2f" % Con),'% de conversion global.\n')
 
                 cur.close()
 
