@@ -22,8 +22,6 @@ Now, I'm working on this features:
 - Generate (and calculate) the user's statistics (of special events).
 
 
-
-
 > (español)
 
 Aplicación para participar en el estudio del nuevo sistema de eventos especiales del juego online Hattrick (www.hattrick.org).
@@ -38,3 +36,7 @@ También es posible enviar la base de datos de partidos al servidor para enrique
 
 Estoy trabajando en la siguiente característica:
 - Calcular y generar las estadísticas del usuario para ser mostradas en la aplicación.
+
+
+### Screenshoot:
+![ejemplo](/images/ejemplo.png)
