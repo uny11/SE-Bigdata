@@ -43,7 +43,7 @@ def init_base(baseprincipal, baseauth):
     # tabla partidos
     cur.execute('''
                 CREATE TABLE IF NOT EXISTS partidos
-                (MatchID INTEGER PRIMARY KEY, MatchType INTEGER, MatchDate TEXT, HomeTeamID INTEGER,
+                (MatchID INTEGER PRIMARY KEY, MatchType INTEGER, SourceSystem TEXT, MatchDate TEXT, HomeTeamID INTEGER,
                 HomeGoals INTEGER, AwayTeamID INTEGER, AwayGoals INTEGER, TacticTypeHome INTEGER,
                 TacticSkillHome INTEGER, TacticTypeAway INTEGER, TacticSkillAway INTEGER, expulsiones INTEGER,
                 lesiones INTEGER, PossessionFirstHalfHome INTEGER,
@@ -152,7 +152,11 @@ def init_base(baseprincipal, baseauth):
     cur2.close()
 
 def new_partidos(helper, base, user_key, user_secret, fecha, team):
-    # Peticion a la API
+    listaPartidosNuevos = []
+    conn = sqlite3.connect(base)
+    cur = conn.cursor()
+
+    # Haremos 2 pasadas en lista de aprtidos. En matchesarchives solo hay partidos con Source=Hattrick (no torneos)
     xmldoc = helper.request_resource_with_key(  user_key,
                                                 user_secret,
                                                 'matchesarchive',
@@ -164,13 +168,8 @@ def new_partidos(helper, base, user_key, user_secret, fecha, team):
                                                  #LastMatchDate no especificada, coge 3 temporadas maximo
                                                 }
                                              )
-    #Guardamos la lista de partidos en la BBDD (file=matchsarchive)
-    conn = sqlite3.connect(base)
-    cur = conn.cursor()
 
     countMatchNuevos = 0
-    countMatchBBDD = 0
-    listaPartidosNuevos = []
 
     root = ET.fromstring(xmldoc)
     for match in root.findall('Team/MatchList/Match'):
@@ -181,13 +180,14 @@ def new_partidos(helper, base, user_key, user_secret, fecha, team):
         goalsaway = match.find('AwayGoals').text
         teamidHome= match.find('HomeTeam/HomeTeamID').text
         teamidAway = match.find('AwayTeam/AwayTeamID').text
+        systemsource = 'Hattrick'
         try:
-            cur.execute('INSERT INTO partidos (MatchID, MatchType, MatchDate, HomeTeamID, HomeGoals, AwayTeamID, AwayGoals) VALUES (?, ?, ?, ?, ?, ?, ?)',
-            (idmatch, typematch, datematch, teamidHome, goalshome, teamidAway, goalsaway))
+            cur.execute('INSERT INTO partidos (MatchID, SourceSystem, MatchType, MatchDate, HomeTeamID, HomeGoals, AwayTeamID, AwayGoals) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+            (idmatch, systemsource, typematch, datematch, teamidHome, goalshome, teamidAway, goalsaway))
             countMatchNuevos = countMatchNuevos + 1
             listaPartidosNuevos.append(idmatch)
         except:
-            countMatchBBDD = countMatchBBDD + 1
+            None
         # Recuperamos jugadores actuales de los equipos home team
         xmljug = helper.request_resource_with_key(  user_key,
                                                     user_secret,
@@ -232,18 +232,104 @@ def new_partidos(helper, base, user_key, user_secret, fecha, team):
                 (idplayer, agree, aggre, hones, leade, speci))
             except:
                 continue
+
+    # Segunda pasada en lista de partidos. Ahora en matches para buscar los partidos Source=htointegrated
+    hoy = datetime.now()
+    xmldoc2 = helper.request_resource_with_key(  user_key,
+                                                user_secret,
+                                                'matches',
+                                                {
+                                                 'version' : 2.8,
+                                                 'teamID' : team,
+                                                 'isYouth' : 'false',
+                                                 'LastMatchDate' : hoy
+                                                }
+                                             )
+
+    root = ET.fromstring(xmldoc2)
+    for match in root.findall('Team/MatchList/Match'):
+        idmatch = match.find('MatchID').text
+        typematch = match.find('MatchType').text
+        datematch = match.find('MatchDate').text
+        goalshome = match.find('HomeGoals').text
+        goalsaway = match.find('AwayGoals').text
+        teamidHome= match.find('HomeTeam/HomeTeamID').text
+        teamidAway = match.find('AwayTeam/AwayTeamID').text
+        systemsource = match.find('SourceSystem').text
+        try:
+            cur.execute('INSERT INTO partidos (MatchID, SourceSystem, MatchType, MatchDate, HomeTeamID, HomeGoals, AwayTeamID, AwayGoals) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+            (idmatch, systemsource, typematch, datematch, teamidHome, goalshome, teamidAway, goalsaway))
+            countMatchNuevos = countMatchNuevos + 1
+            listaPartidosNuevos.append(idmatch)
+        except:
+            None
+        # Recuperamos jugadores actuales de los equipos home team
+        xmljug = helper.request_resource_with_key(  user_key,
+                                                    user_secret,
+                                                    'players',
+                                                    {
+                                                     'version' : 2.3,
+                                                     'teamID' : teamidHome
+                                                    }
+                                                 )
+        rootjug = ET.fromstring(xmljug)
+        for player in rootjug.findall('Team/PlayerList/Player'):
+            idplayer = player.find('PlayerID').text
+            agree = player.find('Agreeability').text
+            aggre = player.find('Aggressiveness').text
+            hones = player.find('Honesty').text
+            leade = player.find('Leadership').text
+            speci = player.find('Specialty').text
+            try:
+                cur.execute('INSERT INTO jugadores (PlayerID, Agreeability, Aggressiveness, Honesty, Leadership, Specialty) VALUES (?, ?, ?, ?, ?, ?)',
+                (idplayer, agree, aggre, hones, leade, speci))
+            except:
+                continue
+        # Recuperamos jugadores actuales de los equipos away team
+        xmljug = helper.request_resource_with_key(  user_key,
+                                                    user_secret,
+                                                    'players',
+                                                    {
+                                                     'version' : 2.3,
+                                                     'teamID' : teamidAway
+                                                    }
+                                                 )
+        rootjug = ET.fromstring(xmljug)
+        for player in rootjug.findall('Team/PlayerList/Player'):
+            idplayer = player.find('PlayerID').text
+            agree = player.find('Agreeability').text
+            aggre = player.find('Aggressiveness').text
+            hones = player.find('Honesty').text
+            leade = player.find('Leadership').text
+            speci = player.find('Specialty').text
+            try:
+                cur.execute('INSERT INTO jugadores (PlayerID, Agreeability, Aggressiveness, Honesty, Leadership, Specialty) VALUES (?, ?, ?, ?, ?, ?)',
+                (idplayer, agree, aggre, hones, leade, speci))
+            except:
+                continue
+
     conn.commit()
     cur.close()
 
     init()
     print(Back.GREEN + Fore.BLACK + str(countMatchNuevos), Style.RESET_ALL + ' partidos nuevos han sido encontrados!')
-    print(countMatchBBDD, ' partidos encontrados ya existian en SE-Bigdata\n')
 
     return listaPartidosNuevos
 
 def get_partido(helper, base, user_key, user_secret, idpartido):
     global rival
     global teamrole
+
+    # Guardamos la info ordenadamente dentro la base de datos de la App
+    conn = sqlite3.connect(base)
+    cur = conn.cursor()
+    cur.execute('SELECT SourceSystem FROM partidos WHERE MatchID = ?',(idpartido,))
+    source = cur.fetchone()[0]
+    if source == 'HTOIntegrated':
+        source = 'htointegrated'
+    else:
+        source = 'hattrick'
+
     #Consulta a la API
     xmldoc = helper.request_resource_with_key(     user_key,
                                                    user_secret,
@@ -251,14 +337,13 @@ def get_partido(helper, base, user_key, user_secret, idpartido):
                                                    {
                                                     'version' : 2.9,
                                                     'matchEvents' : 'true',
-                                                    'matchID' : idpartido
+                                                    'matchID' : idpartido,
+                                                    'sourceSystem' : source
                                                    }
                                                   )
     root = ET.fromstring(xmldoc)
 
-    # Guardamos la info ordenadamente dentro la base de datos de la App
-    conn = sqlite3.connect(base)
-    cur = conn.cursor()
+
 
     for match in root.findall('Match'):
         typetactichome = match.find('HomeTeam/TacticType').text
@@ -326,7 +411,8 @@ def get_partido(helper, base, user_key, user_secret, idpartido):
                                                    'matchlineup',
                                                    {
                                                     'version' : 2.0,
-                                                    'matchID' : idpartido
+                                                    'matchID' : idpartido,
+                                                    'sourceSystem' : source
                                                    }
                                                   )
     root = ET.fromstring(xmldoc)
@@ -369,7 +455,8 @@ def get_partido(helper, base, user_key, user_secret, idpartido):
                                                    {
                                                     'version' : 2.0,
                                                     'matchID' : idpartido,
-                                                    'teamID' : rival
+                                                    'teamID' : rival,
+                                                    'sourceSystem' : source
                                                    }
                                              )
     root = ET.fromstring(xmldoc)

@@ -124,7 +124,7 @@ while True:
 
             num = num + 1
 
-        print(Fore.GREEN + 'SE-Bigdata ha sido actualizada con éxito!!')
+        print(Fore.GREEN + 'SE-Bigdata está ahora actualizada!!')
 
         conn = sqlite3.connect(basedatos)
         cur = conn.cursor()
