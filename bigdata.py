@@ -238,10 +238,12 @@ while True:
 
                 if Partidos05_PondMin == 0:
                     App = 0.0
-                    Con = 0.0
                 else:
                     App = ((Gols05+Fallos05) / Partidos05_PondMin) * 100
-                    Con = ((Gols05) / Partidos05_PondMin) * 100
+                if Gols05+Fallos05 == 0:
+                    Con = 0.0
+                else:
+                    Con = ((Gols05) / (Gols05+Fallos05)) * 100
 
                 print(Fore.YELLOW + Style.BRIGHT + '\nEv. Individual ID=05: Imprevisible Pase Largo - Porteros y defensas')
                 print(Minutos_e05, 'minutos en',Partidos_e05, 'partidos, es decir, en', Fore.GREEN + str(Partidos05_PondMin), 'partidos reales:')
@@ -260,10 +262,12 @@ while True:
 
                 if Partidos06_PondMin == 0:
                     App = 0.0
-                    Con = 0.0
                 else:
                     App = ((Gols06+Fallos06) / Partidos06_PondMin) * 100
-                    Con = ((Gols06) / Partidos06_PondMin) * 100
+                if Gols06+Fallos06 == 0:
+                    Con = 0.0
+                else:
+                    Con = ((Gols06) / (Gols06+Fallos06)) * 100
 
                 print(Fore.YELLOW + Style.BRIGHT + '\nEv. Individual ID=06: Imprevisible Anotación - Extremos, Inners y Delanteros')
                 print(Minutos_e06, 'minutos en',Partidos_e06, 'partidos, es decir, en', Fore.GREEN + str(Partidos06_PondMin), 'partidos reales:')
@@ -282,10 +286,12 @@ while True:
 
                 if Partidos08_PondMin == 0:
                     App = 0.0
-                    Con = 0.0
                 else:
                     App = ((Gols08+Fallos08) / Partidos08_PondMin) * 100
-                    Con = ((Gols08) / Partidos08_PondMin) * 100
+                if Gols08+Fallos08 == 0:
+                    Con = 0.0
+                else:
+                    Con = ((Gols08) / (Gols08+Fallos08)) * 100
 
                 print(Fore.YELLOW + Style.BRIGHT + '\nEv. Individual ID=08: Imprevisible - Todos menos Porteros')
                 print(Minutos_e08, 'minutos en',Partidos_e08, 'partidos, es decir, en', Fore.GREEN + str(Partidos08_PondMin), 'partidos reales:')
@@ -304,10 +310,12 @@ while True:
 
                 if Partidos09_PondMin == 0:
                     App = 0.0
-                    Con = 0.0
                 else:
                     App = ((Gols09+Fallos09) / Partidos09_PondMin) * 100
-                    Con = ((Gols09) / Partidos09_PondMin) * 100
+                if Gols09+Fallos09 == 0:
+                    Con = 0.0
+                else:
+                    Con = ((Gols09) / (Gols09+Fallos09)) * 100
 
                 print(Fore.YELLOW + Style.BRIGHT + '\nEv. Individual ID=09: Error Imprevisible - Defensas y Inners')
                 print(Minutos_e09, 'minutos en',Partidos_e09, 'partidos, es decir, en', Fore.GREEN + str(Partidos09_PondMin), 'partidos reales:')
@@ -332,10 +340,12 @@ while True:
 
                 if Partidos15_PondMin == 0:
                     App = 0.0
-                    Con = 0.0
                 else:
                     App = ((Gols15+Fallos15) / Partidos15_PondMin) * 100
-                    Con = ((Gols15) / Partidos15_PondMin) * 100
+                if Gols15+Fallos15 == 0:
+                    Con = 0.0
+                else:
+                    Con = ((Gols15) / (Gols15+Fallos15)) * 100
 
                 print(Fore.YELLOW + Style.BRIGHT + '\nEv. Individual ID=15: Rápido + Anotación - Extremos, Inners y Delanteros')
                 print(Minutos_e15, 'minutos en',Partidos_e15, 'partidos, es decir, en', Fore.GREEN + str(Partidos15_PondMin), 'partidos reales:')
@@ -354,10 +364,12 @@ while True:
 
                 if Partidos16_PondMin == 0:
                     App = 0.0
-                    Con = 0.0
                 else:
                     App = ((Gols16+Fallos16) / Partidos16_PondMin) * 100
-                    Con = ((Gols16) / Partidos16_PondMin) * 100
+                if Gols16+Fallos16 == 0:
+                    Con = 0.0
+                else:
+                    Con = ((Gols16) / (Gols16+Fallos16)) * 100
 
                 print(Fore.YELLOW + Style.BRIGHT + '\nEv. Individual ID=16: Rápido + Pases - Extremos, Inners y Delanteros')
                 print(Minutos_e16, 'minutos en',Partidos_e16, 'partidos, es decir, en', Fore.GREEN + str(Partidos16_PondMin), 'partidos reales:')
