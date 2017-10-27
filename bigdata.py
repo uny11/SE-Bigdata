@@ -411,7 +411,58 @@ while True:
                 print(Fore.RED + '\nperdón, esta parte sigue en construccion\n')
 
             elif selecion == '5':
-                print(Fore.RED + '\nperdón, esta parte sigue en construccion\n')
+                conn = sqlite3.connect(basedatos)
+                cur = conn.cursor()
+
+                cur.execute('SELECT count(MatchID) as Partidos_e37 from (select distinct MatchID from alineacion_all where Pos = 106 or Pos = 110)')
+                Partidos_e37 = cur.fetchone()[0]
+                cur.execute('SELECT sum(maxMin) from (select MatchID, max(Minutos) as maxMin from (select * from alineacion_all where Pos = 106 or Pos = 110) group by MatchID)')
+                Minutos_e37 = cur.fetchone()[0]
+                Partidos37_PondMin = Minutos_e37 / 90
+                cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 137')
+                Gols37 = cur.fetchone()[0]
+                cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 237')
+                Fallos37 = cur.fetchone()[0]
+
+                if Partidos37_PondMin == 0:
+                    App = 0.0
+                else:
+                    App = ((Gols37+Fallos37) / Partidos37_PondMin) * 100
+                if Gols37+Fallos37 == 0:
+                    Con = 0.0
+                else:
+                    Con = ((Gols37) / (Gols37+Fallos37)) * 100
+
+                print(Fore.YELLOW + Style.BRIGHT + '\nEv. Individual ID=37: Extremos + Anotación - Extremos')
+                print(Minutos_e37, 'minutos en',Partidos_e37, 'partidos, es decir, en', Fore.GREEN + str("%.2f" % Partidos37_PondMin), 'partidos reales:')
+                print('Un total de',Fore.GREEN + str(Gols37+Fallos37),'eventos. Con', Fore.GREEN + str(Gols37),'goles.')
+                print('Es decir un',Fore.GREEN + str("%.2f" % App),'% de aparicion y un',Fore.GREEN + str("%.2f" % Con),'% de conversion global.\n')
+
+                cur.execute('SELECT count(MatchID) as Partidos_e38 from (select distinct MatchID from alineacion_all where Pos = 106 or Pos = 110)')
+                Partidos_e38 = cur.fetchone()[0]
+                cur.execute('SELECT sum(maxMin) from (select MatchID, max(Minutos) as maxMin from (select * from alineacion_all where Pos = 106 or Pos = 110) group by MatchID)')
+                Minutos_e38 = cur.fetchone()[0]
+                Partidos38_PondMin = Minutos_e38 / 90
+                cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 138')
+                Gols38 = cur.fetchone()[0]
+                cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 238')
+                Fallos38 = cur.fetchone()[0]
+
+                if Partidos38_PondMin == 0:
+                    App = 0.0
+                else:
+                    App = ((Gols38+Fallos38) / Partidos38_PondMin) * 100
+                if Gols38+Fallos38 == 0:
+                    Con = 0.0
+                else:
+                    Con = ((Gols38) / (Gols38+Fallos38)) * 100
+
+                print(Fore.YELLOW + Style.BRIGHT + '\nEv. Individual ID=38: Extremos + Cabezon - Extremos')
+                print(Minutos_e38, 'minutos en',Partidos_e38, 'partidos, es decir, en', Fore.GREEN + str("%.2f" % Partidos38_PondMin), 'partidos reales:')
+                print('Un total de',Fore.GREEN + str(Gols38+Fallos38),'eventos. Con', Fore.GREEN + str(Gols38),'goles.')
+                print('Es decir un',Fore.GREEN + str("%.2f" % App),'% de aparicion y un',Fore.GREEN + str("%.2f" % Con),'% de conversion global.\n')
+
+                cur.close()
 
             elif selecion == '6':
                 print(Fore.RED + '\nperdón, esta parte sigue en construccion\n')
