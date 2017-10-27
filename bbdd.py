@@ -248,6 +248,8 @@ def new_partidos(helper, base, user_key, user_secret, fecha, team):
 
     root = ET.fromstring(xmldoc2)
     for match in root.findall('Team/MatchList/Match'):
+        statusmatch = match.find('Status').text
+        if statusmatch != 'FINISHED': continue  
         idmatch = match.find('MatchID').text
         typematch = match.find('MatchType').text
         datematch = match.find('MatchDate').text
