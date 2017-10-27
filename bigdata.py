@@ -216,7 +216,7 @@ while True:
             print('     2.- Rápidos')
             print('     3.- Técnicos')
             print('     4.- Potentes')
-            print('     5.- Extremos (con lateral y cabezones)')
+            print('     5.- Extremos')
             print('     6.- Eventos de Equipo')
             print('     7.- Salir')
             selecion = input('(por defecto 7) >> ')
@@ -465,10 +465,61 @@ while True:
                 cur.close()
 
             elif selecion == '6':
-                print(Fore.RED + '\nperdón, esta parte sigue en construccion\n')
+                conn = sqlite3.connect(basedatos)
+                cur = conn.cursor()
+
+                cur.execute('SELECT count(MatchID) as Partidos_e18 from (select distinct MatchID from alineacion_all)')
+                Partidos_e18 = cur.fetchone()[0]
+                cur.execute('SELECT sum(maxMin) from (select MatchID, max(Minutos) as maxMin from (select * from alineacion_all) group by MatchID)')
+                Minutos_e18 = cur.fetchone()[0]
+                Partidos18_PondMin = Minutos_e18 / 90
+                cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 118')
+                Gols18 = cur.fetchone()[0]
+                cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 218')
+                Fallos18 = cur.fetchone()[0]
+
+                if Partidos18_PondMin == 0:
+                    App = 0.0
+                else:
+                    App = ((Gols18+Fallos18) / Partidos18_PondMin) * 100
+                if Gols18+Fallos18 == 0:
+                    Con = 0.0
+                else:
+                    Con = ((Gols18) / (Gols18+Fallos18)) * 100
+
+                print(Fore.YELLOW + Style.BRIGHT + '\nEv. Equipo ID=18: Corners + Anotación')
+                print(Minutos_e18, 'minutos en',Partidos_e18, 'partidos, es decir, en', Fore.GREEN + str("%.2f" % Partidos18_PondMin), 'partidos reales:')
+                print('Un total de',Fore.GREEN + str(Gols18+Fallos18),'eventos. Con', Fore.GREEN + str(Gols18),'goles.')
+                print('Es decir un',Fore.GREEN + str("%.2f" % App),'% de aparicion y un',Fore.GREEN + str("%.2f" % Con),'% de conversion global.\n')
+
+                cur.execute('SELECT count(MatchID) as Partidos_e19 from (select distinct MatchID from alineacion_all where Specialty = 5)')
+                Partidos_e19 = cur.fetchone()[0]
+                cur.execute('SELECT sum(maxMin) from (select MatchID, max(Minutos) as maxMin from (select * from alineacion_all where Specialty = 5) group by MatchID)')
+                Minutos_e19 = cur.fetchone()[0]
+                Partidos19_PondMin = Minutos_e19 / 90
+                cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 119')
+                Gols19 = cur.fetchone()[0]
+                cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 219')
+                Fallos19 = cur.fetchone()[0]
+
+                if Partidos19_PondMin == 0:
+                    App = 0.0
+                else:
+                    App = ((Gols19+Fallos19) / Partidos19_PondMin) * 100
+                if Gols19+Fallos19 == 0:
+                    Con = 0.0
+                else:
+                    Con = ((Gols19) / (Gols19+Fallos19)) * 100
+
+                print(Fore.YELLOW + Style.BRIGHT + '\nEv. Equipo ID=19: Corners + Cabezones')
+                print(Minutos_e19, 'minutos en',Partidos_e19, 'partidos, es decir, en', Fore.GREEN + str("%.2f" % Partidos19_PondMin), 'partidos reales:')
+                print('Un total de',Fore.GREEN + str(Gols19+Fallos19),'eventos. Con', Fore.GREEN + str(Gols19),'goles.')
+                print('Es decir un',Fore.GREEN + str("%.2f" % App),'% de aparicion y un',Fore.GREEN + str("%.2f" % Con),'% de conversion global.\n')
+
+                cur.close()
+
 
             elif selecion == '7':
-                print(Fore.RED + '\nperdón, esta parte sigue en construccion\n')
                 break
 
             elif len(selecion) < 1:
