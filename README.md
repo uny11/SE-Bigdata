@@ -1,5 +1,5 @@
 
-*Copyright (C) 2017, Isaac Porta "uny11" inside hattrick*
+*Copyright (C) 2017, Isaac Porta "uny11" en hattrick*
 
 # SE-BIGDATA
 
@@ -18,16 +18,16 @@ Los resultados del estudio se publicarán en algun foro de Hattrick a determinar
 
 
 ### Estado de desarrollo : « En construcción »
-> (27/10/17) queda muy poco para una versión operacional)
+> 27/10/17: queda muy poco para una versión operacional)
 
+Caracteristicas implantadas por el momento:
 - Ahora mismo la aplicación recoge los datos de hattrick correctamente (con autorización CHPP).
 - Esta información es grabada en la base de datos principal correctamente.
 - Por el momento, la interface es de consola (funciona ok en linux y windows en los primeros test realizados).
 - También es posible enviar la base de datos de partidos al servidor para enriquecer el estudio global correctamente.
-- Al mismo tiempo, el programa permite revisar los datos obtenidos de forma general para cada usuario.
+- Revisar % de aparición/conversión generales del usuario para cada evento.
 
-Estoy trabajando en los últimos detalles para asegurar su buen funcionamiento,
-uny11
+Estoy trabajando en los últimos detalles para asegurar su buen funcionamiento.
 
 ### Screenshoot:
 ![ejemplo](/images/ejemplo.png)
