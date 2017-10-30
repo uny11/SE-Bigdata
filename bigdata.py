@@ -98,7 +98,7 @@ while True:
         # Paso1 - Recuperamos lista de partidos nuevos
         print('\n')
         print('Buscando partidos en www.hattrick.org... ')
-        print('Paciencia, puede tardar un poco..\n')
+        print('Paciencia, puede tardar un poco (sobretodo la primera vez)..\n')
         num = 0
         for team in listaEquiposID:
             print('Para tu equipo <',Fore.YELLOW + Style.BRIGHT + str(listaEquiposNombre[num]),'>')
@@ -207,11 +207,16 @@ while True:
         print(Back.BLACK+Fore.GREEN+str(numlesiones),'  lesiones')
         print(Back.BLACK+Fore.GREEN+str(numsus),'  sustituciones')
         print(Back.BLACK+Fore.GREEN+str(numtarjetas),'  tarjetas\n')
+        print(Style.BRIGHT+Fore.RED+'IMPORTANTE, recuerda que:')
+        print('Las estadisticas mostradas a continuación son simplemente orientativas.')
+        print('Se necesita una base de partidos más grande para llegar a buenas conclusiones.')
+        print('Además, cada evento tiene sus matices que no son considerados aqui.')
+        print('Te recomiendo que pases por la ',Fore.GREEN + 'federación "XXX"',' para ver/comentar/participar en los resultados del estudio en detalle\n')
 
         # Menu del estudio
         while True:
 
-            print('Que tipo de especialistas quieres verificar?')
+            print('Que tipo de especialistas quieres ver?')
             print('     1.- Imprevisibles')
             print('     2.- Rápidos')
             print('     3.- Técnicos')
@@ -514,6 +519,54 @@ while True:
                 print(Fore.YELLOW + Style.BRIGHT + '\nEv. Equipo ID=19: Corners + Cabezones')
                 print(Minutos_e19, 'minutos en',Partidos_e19, 'partidos, es decir, en', Fore.GREEN + str("%.2f" % Partidos19_PondMin), 'partidos reales:')
                 print('Un total de',Fore.GREEN + str(Gols19+Fallos19),'eventos. Con', Fore.GREEN + str(Gols19),'goles.')
+                print('Es decir un',Fore.GREEN + str("%.2f" % App),'% de aparicion y un',Fore.GREEN + str("%.2f" % Con),'% de conversion global.\n')
+
+                cur.execute('SELECT count(MatchID) as Partidos_e35 from (select distinct MatchID from alineacion_all where Pos > 110)')
+                Partidos_e35 = cur.fetchone()[0]
+                cur.execute('SELECT sum(maxMin) from (select MatchID, max(Minutos) as maxMin from (select * from alineacion_all where Pos > 110) group by MatchID)')
+                Minutos_e35 = cur.fetchone()[0]
+                Partidos35_PondMin = Minutos_e35 / 90
+                cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 135')
+                Gols35 = cur.fetchone()[0]
+                cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 235')
+                Fallos35 = cur.fetchone()[0]
+
+                if Partidos35_PondMin == 0:
+                    App = 0.0
+                else:
+                    App = ((Gols35+Fallos35) / Partidos35_PondMin) * 100
+                if Gols35+Fallos35 == 0:
+                    Con = 0.0
+                else:
+                    Con = ((Gols35) / (Gols35+Fallos35)) * 100
+
+                print(Fore.YELLOW + Style.BRIGHT + '\nEv. Equipo ID=35: Delantero Experimentado - Delanteros')
+                print(Minutos_e35, 'minutos en',Partidos_e35, 'partidos, es decir, en', Fore.GREEN + str("%.2f" % Partidos35_PondMin), 'partidos reales:')
+                print('Un total de',Fore.GREEN + str(Gols35+Fallos35),'eventos. Con', Fore.GREEN + str(Gols35),'goles.')
+                print('Es decir un',Fore.GREEN + str("%.2f" % App),'% de aparicion y un',Fore.GREEN + str("%.2f" % Con),'% de conversion global.\n')
+
+                cur.execute('SELECT count(MatchID) as Partidos_e36 from (select distinct MatchID from alineacion_all where Pos > 100 and Pos < 106)')
+                Partidos_e36 = cur.fetchone()[0]
+                cur.execute('SELECT sum(maxMin) from (select MatchID, max(Minutos) as maxMin from (select * from alineacion_all where Pos > 100 and Pos < 106) group by MatchID)')
+                Minutos_e36 = cur.fetchone()[0]
+                Partidos36_PondMin = Minutos_e36 / 90
+                cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 136')
+                Gols36 = cur.fetchone()[0]
+                cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 236')
+                Fallos36 = cur.fetchone()[0]
+
+                if Partidos36_PondMin == 0:
+                    App = 0.0
+                else:
+                    App = ((Gols36+Fallos36) / Partidos36_PondMin) * 100
+                if Gols36+Fallos36 == 0:
+                    Con = 0.0
+                else:
+                    Con = ((Gols36) / (Gols36+Fallos36)) * 100
+
+                print(Fore.YELLOW + Style.BRIGHT + '\nEv. Equipo ID=36: Defensa No-Experimentado - Defensas')
+                print(Minutos_e36, 'minutos en',Partidos_e36, 'partidos, es decir, en', Fore.GREEN + str("%.2f" % Partidos36_PondMin), 'partidos reales:')
+                print('Un total de',Fore.GREEN + str(Gols36+Fallos36),'eventos. Con', Fore.GREEN + str(Gols36),'goles.')
                 print('Es decir un',Fore.GREEN + str("%.2f" % App),'% de aparicion y un',Fore.GREEN + str("%.2f" % Con),'% de conversion global.\n')
 
                 cur.close()
