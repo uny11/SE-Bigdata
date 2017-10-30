@@ -138,6 +138,7 @@ while True:
         size = size/1024
         conn = sqlite3.connect(basedatos)
         cur = conn.cursor()
+
         cur.execute('SELECT count(MatchID) FROM partidos')
         numpartidos = cur.fetchone()[0]
         cur.execute('SELECT count(SubPorteria) FROM eventos')
@@ -154,6 +155,9 @@ while True:
         fechamax = cur.fetchone()[0]
         cur.close()
 
+        if numpartidos == 0:
+            fechamax = 'Ningun partido en la base'
+
         print('\n')
         print('Vamos a enviar el archivo '+Back.BLACK+Fore.GREEN+'"bigdata.sqlite"'+Style.RESET_ALL+' al servidor.')
         print('Este archivo es la base de datos generada por SE-Bigdata con toda la información recogida de Hattrick.\n')
@@ -164,19 +168,22 @@ while True:
         print(Back.BLACK+Fore.GREEN+str(numlesiones),'  lesiones')
         print(Back.BLACK+Fore.GREEN+str(numsus),'  sustituciones')
         print(Back.BLACK+Fore.GREEN+str(numtarjetas),'  tarjetas\n')
-        print('Recuerda que si tienes conocimientos de "SQLite" puedes abrir dicho archivo para "jugar" con tus datos xDDD')
-        print('Por ejemplo, con la aplicacion gratuita "DB Browser", la puedes encontrar aqui: http://sqlitebrowser.org/ \n')
-        print('Por otro lado, solo comentar que '+Fore.RED+Back.WHITE+Style.BRIGHT+'NO'+Style.RESET_ALL+' se envian tu claves personales CHPP.')
-        print('Estas claves se encuentran a salvo en otro archivo (auth.sqlite) y no se enviaran\n')
-
-        print('Enviamos pues '+Fore.GREEN+'"bigdata.sqlite"'+Style.RESET_ALL+' al servidor (s/n)?')
-        seguir = input('(por defecto n) >> ')
-        if seguir == 's' or seguir == 'S':
-            send.enviar_datos(basedatos, user)
-            print(Back.GREEN + Fore.BLACK + 'Envio completado con éxito!!' + Style.RESET_ALL)
-            print(Fore.GREEN+'Muchas Gracias por participar!')
+        if numpartidos == 0:
+            print(Fore.RED + Style.BRIGHT + 'Pero antes de nada, deberiamos recuperar algun partido de www.hattrick.org... (opción 1)')
         else:
-            print('\nOk, pues mejor en otro momento..')
+            print('Recuerda que si tienes conocimientos de "SQLite" puedes abrir dicho archivo para "jugar" con tus datos xDDD')
+            print('Por ejemplo, con la aplicacion gratuita "DB Browser", la puedes encontrar aqui: http://sqlitebrowser.org/ \n')
+            print('Por otro lado, solo comentar que '+Fore.RED+Back.WHITE+Style.BRIGHT+'NO'+Style.RESET_ALL+' se envian tu claves personales CHPP.')
+            print('Estas claves se encuentran a salvo en otro archivo (auth.sqlite) y no se enviaran\n')
+
+            print('Enviamos pues '+Fore.GREEN+'"bigdata.sqlite"'+Style.RESET_ALL+' al servidor (s/n)?')
+            seguir = input('(por defecto n) >> ')
+            if seguir == 's' or seguir == 'S':
+                send.enviar_datos(basedatos, user)
+                print(Back.GREEN + Fore.BLACK + 'Envio completado con éxito!!' + Style.RESET_ALL)
+                print(Fore.GREEN+'Muchas Gracias por participar!')
+            else:
+                print('\nOk, pues mejor en otro momento..')
 
     elif opcion == '3':
 
@@ -200,6 +207,9 @@ while True:
         fechamax = cur.fetchone()[0]
         cur.close()
 
+        if numpartidos == 0:
+            fechamax = 'Ningun partido en la base'
+
         print('\nLa base de partidos tiene un tamaño de',Back.BLACK+Fore.GREEN+str(size),'KB y contiene:')
         print(Back.BLACK+Fore.GREEN+str(numpartidos),'  partidos, el mas reciente de: '+Back.BLACK+Fore.GREEN+fechamax)
         print(Back.BLACK+Fore.GREEN+str(numeventos),'  eventos especiales (con las habilidades de tus jugadores implicados, no las rivales)')
@@ -215,6 +225,10 @@ while True:
 
         # Menu del estudio
         while True:
+
+            if numpartidos == 0:
+                print(Fore.RED + Style.BRIGHT + 'Pero antes de nada, deberiamos recuperar algun partido de www.hattrick.org... (opción 1)')
+                break
 
             print('Que tipo de especialistas quieres ver?')
             print('     1.- Imprevisibles')
