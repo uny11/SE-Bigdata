@@ -1,0 +1,58 @@
+Ev ID=15: Rápido + Anotación - Extremos y Delanteros
+66 partidos, con una media de 1.291 jugadores ponderados por possesión y 90min de juego.
+Un total de 8 eventos. Con 3 goles.
+Es decir un 9.388 % de aparicion por jugador con 90min y un 37.500 % de conversion global.
+
+
+Ev ID=16: Rápido + Pase - Extremos y Delanteros
+66 partidos, con una media de 1.291 jugadores ponderados por possesión y 90min de juego.
+Un total de 8 eventos. Con 3 goles.
+Es decir un 9.388 % de aparicion por jugador con 90min y un 37.500 % de conversion global.
+
+
+Ev. ID=05: Imprevisible PaseLargo - Todos
+56 partidos, con una media de 1.312 jugadores ponderados por possesión y 90min de juego.
+Un total de 0 eventos. Con 0 goles.
+Es decir un 0.000 % de aparicion por jugador con 90min y un 0.000 % de conversion global.
+
+
+Ev. ID=06: Imprevisible Anotacion - Extremos y delanteros
+43 partidos, con una media de 1.149 jugadores ponderados por possesión y 90min de juego.
+Un total de 0 eventos. Con 0 goles.
+Es decir un 0.000 % de aparicion por jugador con 90min y un 0.000 % de conversion global.
+
+
+Ev. ID=08: Imprevisible - Todos menos el portero
+54 partidos, con una media de 1.329 jugadores ponderados por possesión y 90min de juego.
+Un total de 4 eventos. Con 1 goles.
+Es decir un 5.575 % de aparicion por jugador con 90min y un 25.000 % de conversion global.
+
+
+Ev. ID=39: Tecnicos - Extremos y delanteros
+36 partidos, con una media de 1.531 jugadores ponderados por possesión y 90min de juego.
+Un total de 3 eventos. Con 1 goles.
+Es decir un 5.444 % de aparicion por jugador con 90min y un 33.333 % de conversion global.
+
+
+Ev. ID=37: Lateral + Anotacion - Extremos
+75 partidos, con una media de 1.960 jugadores ponderados por possesión y 90min de juego.
+Un total de 2 eventos. Con 1 goles.
+Es decir un 1.360 % de aparicion por jugador con 90min y un 50.000 % de conversion global.
+
+
+Ev. ID=38: Lateral + Cabezon - Extremos
+75 partidos, con una media de 1.960 jugadores ponderados por possesión y 90min de juego.
+Un total de 4 eventos. Con 4 goles.
+Es decir un 2.720 % de aparicion por jugador con 90min y un 100.000 % de conversion global.
+
+
+Ev. ID=18: Corner + Anotacion
+75 partidos
+Un total de 11 eventos. Con 7 goles.
+Es decir un 14.667 % de aparicion por jugador con 90min y un 63.636 % de conversion global.
+
+
+Ev. ID=19: Corner + Cabezon (se cuenta bepero :S)
+75 partidos, con una media de 2.630 jugadores ponderados por possesión y 90min de juego.
+Un total de 23 eventos. Con 23 goles.
+Es decir un 11.662 % de aparicion por jugador con 90min y un 100.000 % de conversion global.
