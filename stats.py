@@ -290,7 +290,7 @@ if Gols19+Fallos19 == 0:
 else:
     Con = ((Gols19) / (Gols19+Fallos19)) * 100
 
-print(Fore.YELLOW + Style.BRIGHT + '\nEv. ID=19: Corner + Cabezon (se cuenta bepero :S)')
+print(Fore.YELLOW + Style.BRIGHT + '\nEv. ID=19: Corner + Cabezon')
 print(Fore.YELLOW +str(Partidos_e19), 'partidos, con una media de',Fore.YELLOW + str("%.3f" % Jug_partido_e19),'jugadores ponderados por possesión y 90min de juego.')
 print('Un total de',Fore.YELLOW + str(Gols19+Fallos19),'eventos. Con', Fore.YELLOW + str(Gols19),'goles.')
 print('Es decir un',Fore.YELLOW + str("%.3f" % App),'% de aparicion por jugador con 90min y un',Fore.YELLOW + str("%.3f" % Con),'% de conversion global.\n')

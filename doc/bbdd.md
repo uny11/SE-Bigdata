@@ -23,6 +23,13 @@ Se lista la lista de tablas y la lista de los campos de cada una de ellas.
 - AwayTeamID
 - AwayGoals
 - TacticTypeHome
+      - 4 ataque por las bandas
+      - 3 ataque por el centro
+      - 2 Contraataque
+      - 8 Tiros lejanos
+      - 1 Presión
+      - 0 Normal
+      - 7 Jugar creativo      
 - TacticSkillHome
 - TacticTypeAway
 - TacticSkillAway
