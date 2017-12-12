@@ -18,8 +18,11 @@ def enviar_datos(fichero, user):
     mailServer.ehlo()
     mailServer.starttls()
     mailServer.ehlo()
-    mailServer.login('bigdata.sqlite@gmail.com','sebduny11')
-
+    try:
+        mailServer.login('bigdata.sqlite@gmail.com','sebduny11')
+    except:
+        print(Fore.RED + Style.BRIGHT+'ERROR!' +'De momento, no tienes autorización para enviar la base al servidor. \n'+Fore.YELLOW+'uny11 '+ Style.RESET_ALL + 'acaba de recibir una notificación para autorizar tu usuario '+Fore.YELLOW+Style.BRIGHT+str(user)+Style.RESET_ALL+'\nGracias por esperar su respuesta (en el foro de la federación) para volver a intentar de nuevo\n')
+                    
     # Construimos un mensaje Multipart
     mensaje = multipart.MIMEMultipart()
     mensaje['From']=mailorigen
