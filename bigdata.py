@@ -92,7 +92,8 @@ while True:
         # Paso0 - Miramos si hay partidos en la base y si hay miramos fecha del ultimo
         conn = sqlite3.connect(basedatos)
         cur = conn.cursor()
-        if fechamax == None: fechamax = datetime.today() - timedelta(days=90)
+        if fechamax == 'Ningun partido en la base': fechamax = datetime(2017,12,11,0,0,0)
+            # fechamax = datetime.today() - timedelta(days=90)
         cur.close()
 
         # Paso1 - Recuperamos lista de partidos nuevos

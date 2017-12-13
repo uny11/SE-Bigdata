@@ -249,7 +249,7 @@ def new_partidos(helper, base, user_key, user_secret, fecha, team):
     root = ET.fromstring(xmldoc2)
     for match in root.findall('Team/MatchList/Match'):
         statusmatch = match.find('Status').text
-        if statusmatch != 'FINISHED': continue  
+        if statusmatch != 'FINISHED': continue
         idmatch = match.find('MatchID').text
         typematch = match.find('MatchType').text
         datematch = match.find('MatchDate').text
@@ -259,10 +259,14 @@ def new_partidos(helper, base, user_key, user_secret, fecha, team):
         teamidAway = match.find('AwayTeam/AwayTeamID').text
         systemsource = match.find('SourceSystem').text
         try:
-            cur.execute('INSERT INTO partidos (MatchID, SourceSystem, MatchType, MatchDate, HomeTeamID, HomeGoals, AwayTeamID, AwayGoals) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
-            (idmatch, systemsource, typematch, datematch, teamidHome, goalshome, teamidAway, goalsaway))
-            countMatchNuevos = countMatchNuevos + 1
-            listaPartidosNuevos.append(idmatch)
+            datematch_string = datetime.strptime(datematch, '%Y-%m-%d %H:%M:%S')
+            if systemsource == 'HTOIntegrated' and datematch_string > datetime(2017,12,11,0,0,0):
+                cur.execute('INSERT INTO partidos (MatchID, SourceSystem, MatchType, MatchDate, HomeTeamID, HomeGoals, AwayTeamID, AwayGoals) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+                (idmatch, systemsource, typematch, datematch, teamidHome, goalshome, teamidAway, goalsaway))
+                countMatchNuevos = countMatchNuevos + 1
+                listaPartidosNuevos.append(idmatch)
+            else:
+                None
         except:
             None
         # Recuperamos jugadores actuales de los equipos home team
