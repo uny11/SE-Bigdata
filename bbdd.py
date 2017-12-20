@@ -260,7 +260,7 @@ def new_partidos(helper, base, user_key, user_secret, fecha, team):
         systemsource = match.find('SourceSystem').text
         try:
             datematch_string = datetime.strptime(datematch, '%Y-%m-%d %H:%M:%S')
-            if systemsource == 'HTOIntegrated' and datematch_string > datetime(2017,12,11,0,0,0):
+            if systemsource == 'HTOIntegrated' and datematch_string > datetime(2017,12,20,0,0,0):
                 cur.execute('INSERT INTO partidos (MatchID, SourceSystem, MatchType, MatchDate, HomeTeamID, HomeGoals, AwayTeamID, AwayGoals) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
                 (idmatch, systemsource, typematch, datematch, teamidHome, goalshome, teamidAway, goalsaway))
                 countMatchNuevos = countMatchNuevos + 1

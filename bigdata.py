@@ -92,7 +92,7 @@ while True:
         # Paso0 - Miramos si hay partidos en la base y si hay miramos fecha del ultimo
         conn = sqlite3.connect(basedatos)
         cur = conn.cursor()
-        if fechamax == 'Ningun partido en la base': fechamax = datetime(2017,12,11,0,0,0)
+        if fechamax == 'Ningun partido en la base': fechamax = datetime(2017,12,20,0,0,0)
             # fechamax = datetime.today() - timedelta(days=90)
         cur.close()
 
@@ -218,11 +218,11 @@ while True:
         print(Back.BLACK+Fore.GREEN+str(numlesiones),'  lesiones')
         print(Back.BLACK+Fore.GREEN+str(numsus),'  sustituciones')
         print(Back.BLACK+Fore.GREEN+str(numtarjetas),'  tarjetas\n')
-        print(Style.BRIGHT+Fore.RED+'IMPORTANTE, recuerda que:')
+        print(Style.BRIGHT+Fore.GREEN+'IMPORTANTE, recuerda que:')
         print('Las estadisticas mostradas a continuación son simplemente orientativas.')
-        print('Se necesita una base de partidos más grande para llegar a buenas conclusiones.')
+        print('Se necesita una base de partidos muy grande para llegar a buenas conclusiones.')
         print('Además, cada evento tiene sus matices que no son considerados aqui.')
-        print('Te recomiendo que pases por la ',Fore.GREEN + 'federación "XXX"',' para ver/comentar/participar en los resultados del estudio en detalle\n')
+        print('Te recomiendo que pases por la ',Style.BRIGHT+Fore.GREEN + 'federación "BigData"',' para ver/comentar/participar en los resultados del estudio en detalle\n')
 
         # Menu del estudio
         while True:
@@ -375,7 +375,10 @@ while True:
                 Partidos_e16 = cur.fetchone()[0]
                 cur.execute('SELECT sum(maxMin) from (select MatchID, max(Minutos) as maxMin from (select * from alineacion_all where Specialty = 2 and Pos > 105) group by MatchID)')
                 Minutos_e16 = cur.fetchone()[0]
-                Partidos16_PondMin = Minutos_e16 / 90
+                if Minutos_e16 == None:
+                    Partidos16_PondMin = 0
+                else:
+                    Partidos16_PondMin = Minutos_e16 / 90
                 cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 116')
                 Gols16 = cur.fetchone()[0]
                 cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 216')
@@ -405,7 +408,10 @@ while True:
                 Partidos_e39 = cur.fetchone()[0]
                 cur.execute('SELECT sum (MaxMinutos) as Minutos_e39 from(select MatchID, max (Minutos) as MaxMinutos from (select MatchID, Pos, Specialty, "Specialty:1" as SpeContraria, Minutos from alineacion_all_contrarios where Pos > 105 and Specialty = 1 and "Specialty:1" = 5) group by MatchID)')
                 Minutos_e39 = cur.fetchone()[0]
-                Partidos39_PondMin = Minutos_e39 / 90
+                if Minutos_e39 == None:
+                    Partidos39_PondMin = 0
+                else:
+                    Partidos39_PondMin = Minutos_e39 / 90
                 cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 139')
                 Gols39 = cur.fetchone()[0]
                 cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 239')
@@ -428,7 +434,39 @@ while True:
                 cur.close()
 
             elif selecion == '4':
-                print(Fore.RED + '\nperdón, esta parte sigue en construccion\n')
+                # print(Fore.RED + '\nperdón, esta parte sigue en construccion\n')
+                conn = sqlite3.connect(basedatos)
+                cur = conn.cursor()
+
+                cur.execute('SELECT count(MatchID) as Partidos_e90 from (select distinct MatchID from alineacion_all where Specialty = 3 and Pos > 110)')
+                Partidos_e90 = cur.fetchone()[0]
+                cur.execute('SELECT sum(maxMin) from (select MatchID, max(Minutos) as maxMin from (select * from alineacion_all where Specialty = 3 and Pos > 110) group by MatchID)')
+                Minutos_e90 = cur.fetchone()[0]
+                if Minutos_e90 == None:
+                    Partidos90_PondMin = 0
+                else:
+                    Partidos90_PondMin = Minutos_e90 / 90
+                print (Minutos_e90)
+                cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 190')
+                Gols90 = cur.fetchone()[0]
+                cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 290')
+                Fallos90 = cur.fetchone()[0]
+
+                if Partidos90_PondMin == 0:
+                    App = 0.0
+                else:
+                    App = ((Gols90+Fallos90) / Partidos90_PondMin) * 100
+                if Gols90+Fallos90 == 0:
+                    Con = 0.0
+                else:
+                    Con = ((Gols90) / (Gols90+Fallos90)) * 100
+
+                print(Fore.YELLOW + Style.BRIGHT + '\nEv. Individual ID=90: Delantero Potente')
+                print(Minutos_e90, 'minutos en',Partidos_e90, 'partidos, es decir, en', Fore.GREEN + str("%.2f" % Partidos90_PondMin), 'partidos reales:')
+                print('Un total de',Fore.GREEN + str(Gols90+Fallos90),'eventos. Con', Fore.GREEN + str(Gols90),'goles.')
+                print('Es decir un',Fore.GREEN + str("%.2f" % App),'% de aparicion y un',Fore.GREEN + str("%.2f" % Con),'% de conversion global.\n')
+
+                cur.close()
 
             elif selecion == '5':
                 conn = sqlite3.connect(basedatos)
