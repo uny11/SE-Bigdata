@@ -341,6 +341,30 @@ while True:
                 print('Un total de',Fore.GREEN + str(Gols09+Fallos09),'eventos. Con', Fore.GREEN + str(Gols09),'goles.')
                 print('Es decir un',Fore.GREEN + str("%.2f" % App),'% de aparicion y un',Fore.GREEN + str("%.2f" % Con),'% de conversion global.\n')
 
+                cur.execute('SELECT count(MatchID) as Partidos_e25 from (select distinct MatchID from alineacion_all where Specialty = 4 and (Pos = 106 or Pos > 109))')
+                Partidos_e25 = cur.fetchone()[0]
+                cur.execute('SELECT sum(maxMin) from (select MatchID, max(Minutos) as maxMin from (select * from alineacion_all where Specialty = 4 and (Pos = 106 or Pos > 109)) group by MatchID)')
+                Minutos_e25 = cur.fetchone()[0]
+                Partidos25_PondMin = Minutos_e25 / 90
+                cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 125')
+                Gols25 = cur.fetchone()[0]
+                cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 225')
+                Fallos25 = cur.fetchone()[0]
+
+                if Partidos25_PondMin == 0:
+                    App = 0.0
+                else:
+                    App = ((Gols25+Fallos25) / Partidos25_PondMin) * 100
+                if Gols25+Fallos25 == 0:
+                    Con = 0.0
+                else:
+                    Con = ((Gols25) / (Gols25+Fallos25)) * 100
+
+                print(Fore.YELLOW + Style.BRIGHT + '\nEv. Individual ID=25: Imprevisible en propia puerta - Extremos y Delanteros')
+                print(Minutos_e25, 'minutos en',Partidos_e25, 'partidos, es decir, en', Fore.GREEN + str("%.2f" % Partidos25_PondMin), 'partidos reales:')
+                print('Un total de',Fore.GREEN + str(Gols25+Fallos25),'eventos. Con', Fore.GREEN + str(Gols25),'goles.')
+                print('Es decir un',Fore.GREEN + str("%.2f" % App),'% de aparicion y un',Fore.GREEN + str("%.2f" % Con),'% de conversion global.\n')
+
                 cur.close()
 
             elif selecion == '2':
