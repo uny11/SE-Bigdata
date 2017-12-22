@@ -219,10 +219,11 @@ while True:
         print(Back.BLACK+Fore.GREEN+str(numsus),'  sustituciones')
         print(Back.BLACK+Fore.GREEN+str(numtarjetas),'  tarjetas\n')
         print(Style.BRIGHT+Fore.GREEN+'IMPORTANTE, recuerda que:')
-        print('Las estadisticas mostradas a continuación son simplemente orientativas.')
-        print('Se necesita una base de partidos muy grande para llegar a buenas conclusiones.')
-        print('Además, cada evento tiene sus matices que no son considerados aqui.')
-        print('Te recomiendo que pases por la ',Style.BRIGHT+Fore.GREEN + 'federación "BigData"',' para ver/comentar/participar en los resultados del estudio en detalle\n')
+        print('Las estadisticas mostradas a continuación son meramente orientativas.')
+        print('En esta primera versión del programa, no se pondera por el numero de slots ocupados!!')
+        print('Es decir, el % de aparicion mostrado no es fiable para ser extrapolado a nivel global.')
+        print('Además, se necesita una base de partidos más grande para llegar a buenas conclusiones.')
+        print('Pasa por la ',Style.BRIGHT+Fore.GREEN + 'federación "BigData"',' para ver/comentar/participar en los resultados del estudio en detalle\n')
 
         # Menu del estudio
         while True:
