@@ -428,9 +428,36 @@ while True:
                 conn = sqlite3.connect(basedatos)
                 cur = conn.cursor()
 
-                cur.execute('SELECT count(MatchID) as Partidos_e39 from (select distinct MatchID from alineacion_all_contrarios where Pos > 105 and Specialty = 1 and "Specialty:1" = 5)')
+                # cur.execute('SELECT count(MatchID) as Partidos_e39 from (select distinct MatchID from alineacion_all_contrarios where Pos > 105 and Specialty = 1 and "Specialty:1" = 5)')
+                # Partidos_e39 = cur.fetchone()[0]
+                # cur.execute('SELECT sum (MaxMinutos) as Minutos_e39 from(select MatchID, max (Minutos) as MaxMinutos from (select MatchID, Pos, Specialty, "Specialty:1" as SpeContraria, Minutos from alineacion_all_contrarios where Pos > 105 and Specialty = 1 and "Specialty:1" = 5) group by MatchID)')
+                # Minutos_e39 = cur.fetchone()[0]
+                # if Minutos_e39 == None:
+                #     Partidos39_PondMin = 0
+                # else:
+                #     Partidos39_PondMin = Minutos_e39 / 90
+                # cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 139')
+                # Gols39 = cur.fetchone()[0]
+                # cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 239')
+                # Fallos39 = cur.fetchone()[0]
+                #
+                # if Partidos39_PondMin == 0:
+                #     App = 0.0
+                # else:
+                #     App = ((Gols39+Fallos39) / Partidos39_PondMin) * 100
+                # if Gols39+Fallos39 == 0:
+                #     Con = 0.0
+                # else:
+                #     Con = ((Gols39) / (Gols39+Fallos39)) * 100
+                #
+                # print(Fore.YELLOW + Style.BRIGHT + '\nEv. Individual ID=39: Técnico vs Cabezón - Extremos, Inners y Delanteros vs posición contraria')
+                # print(Minutos_e39, 'minutos en',Partidos_e39, 'partidos, es decir, en', Fore.GREEN + str("%.2f" % Partidos39_PondMin), 'partidos reales:')
+                # print('Un total de',Fore.GREEN + str(Gols39+Fallos39),'eventos. Con', Fore.GREEN + str(Gols39),'goles.')
+                # print('Es decir un',Fore.GREEN + str("%.2f" % App),'% de aparicion y un',Fore.GREEN + str("%.2f" % Con),'% de conversion global.\n')
+
+                cur.execute('SELECT count(MatchID) as Partidos_e39 from (select distinct MatchID from alineacion_all_contrarios_tec_cab where Pos > 105 and Specialty = 1 and "Specialty:1" = 5)')
                 Partidos_e39 = cur.fetchone()[0]
-                cur.execute('SELECT sum (MaxMinutos) as Minutos_e39 from(select MatchID, max (Minutos) as MaxMinutos from (select MatchID, Pos, Specialty, "Specialty:1" as SpeContraria, Minutos from alineacion_all_contrarios where Pos > 105 and Specialty = 1 and "Specialty:1" = 5) group by MatchID)')
+                cur.execute('SELECT sum (MaxMinutos) as Minutos_e39 from(select MatchID, max (Minutos) as MaxMinutos from (select MatchID, Pos, Specialty, "Specialty:1" as SpeContraria, Minutos from alineacion_all_contrarios_tec_cab where Pos > 105 and Specialty = 1 and "Specialty:1" = 5) group by MatchID)')
                 Minutos_e39 = cur.fetchone()[0]
                 if Minutos_e39 == None:
                     Partidos39_PondMin = 0
