@@ -470,7 +470,6 @@ while True:
                     Partidos90_PondMin = 0
                 else:
                     Partidos90_PondMin = Minutos_e90 / 90
-                print (Minutos_e90)
                 cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 190')
                 Gols90 = cur.fetchone()[0]
                 cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 290')
@@ -489,6 +488,34 @@ while True:
                 print(Minutos_e90, 'minutos en',Partidos_e90, 'partidos, es decir, en', Fore.GREEN + str("%.2f" % Partidos90_PondMin), 'partidos reales:')
                 print('Un total de',Fore.GREEN + str(Gols90+Fallos90),'eventos. Con', Fore.GREEN + str(Gols90),'goles.')
                 print('Es decir un',Fore.GREEN + str("%.2f" % App),'% de aparicion y un',Fore.GREEN + str("%.2f" % Con),'% de conversion global.\n')
+
+
+                cur.execute('SELECT count(MatchID) as Partidos_e310 from (select distinct MatchID from alineacion_all where Specialty = 3 and Pos > 106 and Pos < 110 )')
+                Partidos_e310 = cur.fetchone()[0]
+                cur.execute('SELECT sum(maxMin) from (select MatchID, max(Minutos) as maxMin from (select * from alineacion_all where Specialty = 3 and Pos > 106 and Pos < 110) group by MatchID)')
+                Minutos_e310 = cur.fetchone()[0]
+                if Minutos_e310 == None:
+                    Partidos310_PondMin = 0
+                else:
+                    Partidos310_PondMin = Minutos_e310 / 90
+
+                cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 310')
+                Gols310 = cur.fetchone()[0]
+
+                if Partidos310_PondMin == 0:
+                    App = 0.0
+                else:
+                    App = ((Gols310) / Partidos310_PondMin) * 100
+                if Gols310 == 0:
+                    Con = 0.0
+                else:
+                    Con = ((Gols310) / (Gols310)) * 100
+
+                print(Fore.YELLOW + Style.BRIGHT + '\nEv. Individual ID=310: Inner Potente Corta ocasión')
+                print(Minutos_e310, 'minutos en',Partidos_e310, 'partidos, es decir, en', Fore.GREEN + str("%.2f" % Partidos310_PondMin), 'partidos reales:')
+                print('Un total de',Fore.GREEN + str(Gols310),'eventos.')
+                print('Es decir un',Fore.GREEN + str("%.2f" % App),'% de aparicion.\n')
+
 
                 cur.close()
 
