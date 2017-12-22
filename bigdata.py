@@ -51,7 +51,7 @@ try:
 except:
     # El test es NO OK -> lanzamos proceso de autorizacion
     print('\n')
-    print('Antes de nada, es necesario tu autorizacion-CHPP para recoger datos Hattrick!')
+    print('Antes de nada, es necesario tu autorizacion-CHPP para recoger datos de www.hattrick.org')
     print('Sigue las instruciones: \n')
     helper.get_auth(bbddauth)
 

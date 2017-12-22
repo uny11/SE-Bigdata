@@ -174,7 +174,7 @@ class CHPPhelp(object):
         cur.close()
 
         print('\n')
-        print(Fore.GREEN + Style.BRIGHT + 'SE-Bigdata ha sido autorizado con éxito!' + Style.RESET_ALL)
+        print(Fore.GREEN + Style.BRIGHT + 'SE-Bigdata ha sido autorizada con éxito!' + Style.RESET_ALL)
         print('Disfruta de tus estadisticas! xD')
         print('\n')
 
