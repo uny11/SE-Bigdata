@@ -59,25 +59,25 @@ O directamente desde la ventana de archivos con doble-click en el archivo bigdat
 Para ello abra que seguir las instruciones que se van mostrando, este proceso es identico a cualquier aplicación CHPP.
 ![Autorización_CHPP](/images/chpp.png)
 
-4.- Una vez la aplicación este autorizada se podrá usar con normalidad.
+4.- Una vez la aplicación hay sido autorizada se podrá usar con normalidad.
 ![menu](/images/menu.png)
 
-5.- La opción "1" servirá para buscar nuevos partidos en hattrick. Serán rescatados todos los partidos des de el 20/12/17,
+5.- La opción "1" servirá para buscar nuevos partidos en hattrick. Serán rescatados todos los partidos con fecha 20/12/17 incluido,
 que son aquellos con el nuevo sistema de eventos. Se incluyen partidos de torneo, escaladas etc...
 ![partidos](/images/partidos.png)
 
-En este momento, el archivo /SE-bigdata/windows/v011/bigdata.sqlite contiene la base de partidos con todos los datos descargados de hattrick.
-Si tienes conocimientos de SQL, puedes verificar su contenido por ejemplo con la aplicación gratuita DB Browser.
+En este momento, el archivo "/SE-Bigdata-master/windows/v011/bigdata.sqlite" contiene la base de partidos con todos los datos descargados de hattrick.
+Si tienes conocimientos de SQL, puedes verificar su contenido por ejemplo con la aplicación gratuita "DB Browser".
 
-6.- La opción "2" servirà para enviar el archivo /SE-bigdata/windows/v011/bigdata.sqlite al servidor.
+6.- La opción "2" servirà para enviar el archivo ""/SE-Bigdata-master/windows/v011/bigdata.sqlite" al servidor.
 La primera vez que enviees datos al servidor saldrá el siguiente mensaje.
-Es necesario que uny11 te de acceso para completar dicha tarea con exito.
-uny11 te confirmara por el foro de la federación XXX que dicha autorización ha sido concedida.
+Es necesario que uny11 te de acceso para completar dicha tarea.
+uny11 te confirmara por el foro de la federación BigData que dicha autorización ha sido concedida.
 
 ![Opcion2](/images/envio.png)
 
-7.- La opción "3" mostrara por cada tipo de especialista tus estadisticas. Recordad que estos datos son orientativos y no sirven de mucho.
-En la federacion se irán colgando los resultados y estudios realizados con los datos de todos los usuarios.
+7.- La opción "3" mostrara por cada tipo de especialista tus estadisticas personales. Recordad que estos datos son orientativos y no sirven de mucho.
+En la federacion se irán colgando los resultados y estudios realizados con los datos de TODOS los usuarios.
 Este apartado es simplemente para que los usuarios sin conocimientos de SQL o estadistica puedan ver sus partidos de forma orientativa.
 
 ![Estadisticas](/images/esta.png)
@@ -90,4 +90,4 @@ Este apartado es simplemente para que los usuarios sin conocimientos de SQL o es
 
 ## Bug o problemas
 
-Reportar cualquier duda, comentario, problema o similar en la federación XXX.
+Reportar cualquier duda, comentario, problema o similar en la federación BigData.
