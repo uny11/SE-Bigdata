@@ -20,10 +20,6 @@ Los resultados del estudio se publicarán en la federación "BigData" de Hattric
 > 08/01/2018: Listo para ser usada! Seguir las instruciones explicadas más abajo.
 
 
-### Screenshoot:
-![ejemplo](/images/ejemplo.png)
-
-
 ## Instalación y Uso de la aplicación
 
 ### Intalación para usuarios que tengan GIT instalado.
@@ -83,6 +79,9 @@ Este apartado es simplemente para que los usuarios sin conocimientos de SQL o es
 
 8.- La opción "4" es para salir de la aplicación.
 
+
+### Screenshoot:
+![ejemplo](/images/ejemplo.png)
 
 ## Bug o problemas
 
