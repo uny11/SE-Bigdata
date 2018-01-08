@@ -9,49 +9,41 @@
 > (language: spanish)
 
 Este programa permite para participar en el estudio del nuevo sistema de eventos especiales del juego online Hattrick (www.hattrick.org).
-Básicamente el programa permite recoger todos los datos importantes de los partidos de los usuarios i almacenar dichos datos en una base de datos (tipo SQLite para ser exactos).
-Esta base de datos puede ser revisada por el usuario si lo desea (se require conocimientos de SQL)
+Básicamente el programa permite recoger todos los datos importantes de los partidos de los usuarios y almacenar dichos datos en una base de datos (tipo SQLite para ser exactos).
+Esta base de datos puede ser revisada por el usuario si lo desea (se require conocimientos de SQL).
 Al mismo tiempo el programa permite enviar los datos al servidor para enriquecer el estudio global.
 
 Los resultados del estudio se publicarán en la federación "BigData" de Hattrick.
 
 
 ### Estado de desarrollo : « Terminado! »
-> 21/12/17: el script esta listo como tal. Pero falta crear los archivos ejecutables para usar la herramienta en entornos windows y linux.
-> Tengo previsto dedicar tiempo los proximos 15 dias, que estoy de vacaciones, fecha lanzamiento 06/01/2018!
+> 08/01/2018: Listo para ser usada! Seguir las instruciones explicadas más abajo.
 
-
-Caracteristicas implantadas por el momento:
-- La aplicación recoge los datos de hattrick correctamente (con autorización CHPP).
-- Esta información es grabada en la base de datos principal correctamente.
-- Por el momento, la interface es de consola (funciona ok en linux y windows en los primeros test realizados).
-- También es posible enviar la base de datos de partidos al servidor para enriquecer el estudio global correctamente.
-- Revisar las estadisticas de tus partidos de forma general.
 
 ### Screenshoot:
 ![ejemplo](/images/ejemplo.png)
 
 
-## Instalación y Uso de la aplicació
+## Instalación y Uso de la aplicación
 
 ### Intalación para usuarios que tengan GIT instalado.
 
 Para los usuarios con GIT instalado solamente hay que ir a la carpeta donde se quiera guardar la aplicación y clonar el repositorio:
 
-> cd c:/juegos (es una carpeta de ejemplo solamente)
 > git clone git://https://github.com/uny11/SE-Bigdata
 
 ### Instalación para usuarios que NO usan GIT habitualmente
 
-1.- Bajar los archivos de la aplicación del repositorio. Para ello ir a www.git.sebigdata y apretar a "Download"
+1.- Bajar los archivos de la aplicación del repositorio. Para ello ir a https://github.com/uny11/SE-Bigdata y dar en "DownloadZIP"
 ![Bajar los arichivos](/images/download.png)
-2.- Descomprimir el archivo bigdata-master.zip en la carpeta donde se quiera guardar la aplicación
+2.- Descomprimir el archivo "SE-Bigdata-master.zip" en la carpeta donde se quiera guardar la aplicación
+3.- La carpeta "SE-Bigdata-master" contiene los archivos de la aplicación. Puede ser renombrada a cualqueir otro nombre si el usuario lo desea.
 
 
 ### Uso de la aplicación
 
-1.- Para lanzar la aplicación hay que ir a la subcarpeta /SE-bigdata/windows/v011 (actualmente la ultima versión)
-2.- Y ejecutar el archivo bigdata.exe.
+1.- Para lanzar la aplicación hay que ir a la subcarpeta /SE-Bigdata-master/windows/v011 (actualmente la ultima versión)
+2.- Y ejecutar el archivo "bigdata.exe"
 
 Se puede hacer a través del powershell (windows10) o el CMD (windows7) con:
 > cd SE-BigData
