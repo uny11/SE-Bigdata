@@ -70,8 +70,7 @@ En este momento, el archivo "/SE-Bigdata-master/windows/v011/bigdata.sqlite" con
 Si tienes conocimientos de SQL, puedes verificar su contenido por ejemplo con la aplicación gratuita "DB Browser".
 
 6.- La opción "2" servirà para enviar el archivo ""/SE-Bigdata-master/windows/v011/bigdata.sqlite" al servidor.
-La primera vez que enviees datos al servidor saldrá el siguiente mensaje.
-Es necesario que uny11 te de acceso para completar dicha tarea.
+*Es necesario que uny11 te de acceso para completar dicha tarea la primera vez*
 uny11 te confirmara por el foro de la federación BigData que dicha autorización ha sido concedida.
 
 ![Opcion2](/images/envio.png)
