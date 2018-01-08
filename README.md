@@ -33,12 +33,14 @@ Para los usuarios con GIT instalado solamente hay que ir a la carpeta donde se q
 1.- Bajar los archivos de la aplicación del repositorio. Para ello ir a https://github.com/uny11/SE-Bigdata y dar en "DownloadZIP".
 ![Bajar los arichivos](/images/download.png)
 2.- Descomprimir el archivo "SE-Bigdata-master.zip" en la carpeta donde se quiera guardar la aplicación.
+
 3.- La carpeta "SE-Bigdata-master" contiene los archivos de la aplicación. Puede ser renombrada a cualqueir otro nombre si el usuario lo desea.
 
 
 ### Uso de la aplicación
 
 1.- Para lanzar la aplicación hay que ir a la subcarpeta /SE-Bigdata-master/windows/v011 (actualmente la ultima versión).
+
 2.- Y ejecutar el archivo "bigdata.exe".
 
 Se puede hacer a través del powershell (windows10) o el CMD (windows7) con:
