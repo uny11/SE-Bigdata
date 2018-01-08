@@ -16,8 +16,8 @@ Al mismo tiempo el programa permite enviar los datos al servidor para enriquecer
 Los resultados del estudio se publicarán en la federación "BigData" de Hattrick.
 
 
-### Estado de desarrollo : « Terminado! »
-> 08/01/2018: Listo para ser usada! Seguir las instruciones explicadas más abajo.
+### Estado de desarrollo : « Terminado!, a falta que www.hattrick.org de el visto bueno final"
+> 08/01/2018: Listo para ser usada! Pero falta que www.hattrick.org de el visto final para ser usada por cualquiera.
 
 
 ## Instalación y Uso de la aplicación
