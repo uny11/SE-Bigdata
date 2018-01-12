@@ -16,11 +16,15 @@ Al mismo tiempo el programa permite enviar los datos al servidor para enriquecer
 Los resultados del estudio se publicarán en la federación "BigData" de Hattrick.
 
 
-### Estado de desarrollo : « Terminado!, a falta que www.hattrick.org de el visto bueno final"
-> 08/01/2018: Listo para ser usada! Pero falta que www.hattrick.org de el visto final para ser usada por cualquiera.
+### Estado de desarrollo : Terminado!
+> 12/01/2018: La aplicación esta lista para ser usada.
 
 
 ## Instalación y Uso de la aplicación
+
+NOTA:
+Esta aplicación funciona bajo PC con windows y linux instalado, puede que tambien bajo Mac (este último NO ha sido probado aún)
+No funciona en moviles android/apple.
 
 ### Intalación para usuarios que tengan GIT instalado.
 
