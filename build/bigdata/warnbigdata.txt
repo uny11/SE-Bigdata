@@ -16,9 +16,8 @@ missing module named urllib.unquote - imported by urllib, oauth2._compat
 missing module named urllib.quote - imported by urllib, oauth2._compat
 missing module named grp - imported by shutil, tarfile, D:\Personal\SE-Bigdata\bigdata.py
 missing module named pwd - imported by posixpath, shutil, tarfile, http.server, webbrowser, netrc, getpass, D:\Personal\SE-Bigdata\bigdata.py
-missing module named 'org.python' - imported by copy, D:\Personal\SE-Bigdata\bigdata.py, xml.sax
 missing module named _dummy_threading - imported by dummy_threading, D:\Personal\SE-Bigdata\bigdata.py
-invalid module named send - imported by D:\Personal\SE-Bigdata\bigdata.py
+missing module named 'org.python' - imported by copy, D:\Personal\SE-Bigdata\bigdata.py, xml.sax
 missing module named pyutil - imported by oauth2._version
 missing module named urlparse - imported by oauth2._compat
 missing module named socks - imported by httplib2
