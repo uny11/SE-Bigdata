@@ -2,6 +2,7 @@
 import smtplib
 from datetime import datetime
 from email.mime import text, multipart, application
+from colorama import init, Fore, Back, Style
 
 def enviar_datos(fichero, user):
     # Variables de envio de mail
@@ -17,7 +18,7 @@ def enviar_datos(fichero, user):
     try:
         mailServer = smtplib.SMTP('smtp.gmx.es',587)
     except:
-        print(Fore.RED + Style.BRIGHT+'ERROR INESPERADO! '+'De momento, la base no ha podido ser enviada. Por favor, avisa a uny11 en el hattrick del problema.\nGracias de antemano y perdona las molestias'+Fore.YELLOW+)
+        print(Fore.RED + Style.BRIGHT+'ERROR INESPERADO! '+'De momento, la base no ha podido ser enviada.\nAsegurate de estar conectado a internet y/o de no usar un proxy (habitual si te conectas en el trabajo).\nSi lo anterior es ok, por favor, avisa a uny11 en el hattrick del problema.\nSGracias de antemano y perdona las molestias')
     mailServer.ehlo()
     mailServer.starttls()
     mailServer.ehlo()
