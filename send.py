@@ -5,7 +5,7 @@ from email.mime import text, multipart, application
 
 def enviar_datos(fichero, user):
     # Variables de envio de mail
-    mailorigen = 'bigdata.sqlite@gmail.com'
+    mailorigen = 'bigdata@gmx.es'
     maildestino = 'bigdata.sqlite@gmail.com'
 
     # Contruimos partes del mensaje
@@ -14,12 +14,15 @@ def enviar_datos(fichero, user):
     texto = 'Aqui va la base de datos! de '+str(user)+' de '+str(ahora)
 
     # Establecemos conexion con el servidor smtp de gmail
-    mailServer = smtplib.SMTP('smtp.gmail.com',587)
+    try:
+        mailServer = smtplib.SMTP('smtp.gmx.es',587)
+    except:
+        print(Fore.RED + Style.BRIGHT+'ERROR INESPERADO! '+'De momento, la base no ha podido ser enviada. Por favor, avisa a uny11 en el hattrick del problema.\nGracias de antemano y perdona las molestias'+Fore.YELLOW+)
     mailServer.ehlo()
     mailServer.starttls()
     mailServer.ehlo()
     try:
-        mailServer.login('bigdata.sqlite@gmail.com','sebduny11')
+        mailServer.login('bigdata@gmx.es','bduny11Parma')
     except:
         print(Fore.RED + Style.BRIGHT+'ERROR!' +'De momento, no tienes autorización para enviar la base al servidor. \n'+Fore.YELLOW+'uny11 '+ Style.RESET_ALL + 'acaba de recibir una notificación para autorizar tu usuario '+Fore.YELLOW+Style.BRIGHT+str(user)+Style.RESET_ALL+'\nGracias por esperar su respuesta (en el foro de la federación BigData) para volver a intentar de nuevo más tarde\n')
 
