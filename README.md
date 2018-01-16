@@ -18,6 +18,7 @@ Los resultados del estudio se publicarán en la federación "BigData" de Hattric
 
 ### Estado de desarrollo : Terminado!
 > 12/01/2018: La aplicación esta lista para ser usada.
+> 16/01/2018: v0.1.2 lanzada, corregido el fallo de envio al servidor y algun error menor.
 
 
 ## Instalación y Uso de la aplicación
@@ -43,7 +44,7 @@ Para los usuarios con GIT instalado solamente hay que ir a la carpeta donde se q
 
 ### Uso de la aplicación
 
-1.- Para lanzar la aplicación hay que ir a la subcarpeta /SE-Bigdata-master/windows/v011 (actualmente la ultima versión).
+1.- Para lanzar la aplicación hay que ir a la subcarpeta /SE-Bigdata-master/windows/v012 (actualmente la ultima versión).
 
 2.- Y ejecutar el archivo "bigdata.exe".
 
@@ -52,7 +53,7 @@ Se puede hacer a través del powershell (windows10) o el CMD (windows7) con:
 
 > cd windows
 
-> cd v011
+> cd v012
 
 > .\bigdata.exe
 
@@ -70,10 +71,10 @@ Para ello abra que seguir las instruciones que se van mostrando, este proceso es
 que son aquellos con el nuevo sistema de eventos. Se incluyen partidos de torneo, escaladas etc...
 ![partidos](/images/partidos.png)
 
-En este momento, el archivo "/SE-Bigdata-master/windows/v011/bigdata.sqlite" contiene la base de partidos con todos los datos descargados de hattrick.
+En este momento, el archivo "/SE-Bigdata-master/windows/v012/bigdata.sqlite" contiene la base de partidos con todos los datos descargados de hattrick.
 Si tienes conocimientos de SQL, puedes verificar su contenido por ejemplo con la aplicación gratuita "DB Browser".
 
-6.- La opción "2" servirà para enviar el archivo ""/SE-Bigdata-master/windows/v011/bigdata.sqlite" al servidor.
+6.- La opción "2" servirà para enviar el archivo ""/SE-Bigdata-master/windows/v012/bigdata.sqlite" al servidor.
 *Es necesario que uny11 te de acceso para completar dicha tarea la primera vez*
 uny11 te confirmara por el foro de la federación BigData que dicha autorización ha sido concedida.
 
