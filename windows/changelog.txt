@@ -1,0 +1,9 @@
+Version 0.1.1
+08/01/2018
+1.- El script recoge los datos de Hattrick correctamente
+2.- La opción de enviar al servidor no funciona correctamente
+3.- Revisión de estadisticas generales
+
+Versión 0.1.2
+15/01/2018
+-Fix envio al servidor, nuevo servidor activo.

@@ -42,7 +42,7 @@ Para los usuarios con GIT instalado solamente hay que ir a la carpeta donde se q
 3.- La carpeta "SE-Bigdata-master" contiene los archivos de la aplicación. Puede ser renombrada a cualquier otro nombre si el usuario lo desea.
 
 
-### Uso de la aplicación
+### Ejecutar la aplicacion en WINDOWS
 
 1.- Para lanzar la aplicación hay que ir a la subcarpeta /SE-Bigdata-master/windows/v012 (actualmente la ultima versión).
 
@@ -60,33 +60,49 @@ Se puede hacer a través del powershell (windows10) o el CMD (windows7) con:
 O directamente desde la ventana de archivos con doble-click en el archivo bigdata.exe
 ![doble-click](/images/dobleclick.png)
 
-3.- La primera vez que se use el programa, se deberá autorizar el acesso CHPP como cualquier aplicación de hattrick.
+### Ejecutar la aplicacion en LINUX
+
+1.- Para lanzar la aplicación hay que ir a la subcarpeta /SE-Bigdata-master/linux/v012 (actualmente la ultima versión).
+
+2.- Y ejecutar el archivo "bigdata". Desde la consola de tu distribucion:
+> cd SE-Bigdata-master
+
+> cd linux
+
+> cd v012
+
+> ./bigdata
+
+
+### Uso de la aplicacion
+
+1.- La primera vez que se use el programa, se deberá autorizar el acesso CHPP como cualquier aplicación de hattrick.
 Para ello abra que seguir las instruciones que se van mostrando, este proceso es identico a cualquier aplicación CHPP.
 ![Autorización_CHPP](/images/chpp.png)
 
-4.- Una vez la aplicación hay sido autorizada se podrá usar con normalidad.
+2.- Una vez la aplicación hay sido autorizada se podrá usar con normalidad.
 ![menu](/images/menu.png)
 
-5.- La opción "1" servirá para buscar nuevos partidos en hattrick. Serán rescatados todos los partidos con fecha 20/12/17 incluido,
+3.- La opción "1" servirá para buscar nuevos partidos en hattrick. Serán rescatados todos los partidos con fecha 20/12/17 incluido,
 que son aquellos con el nuevo sistema de eventos. Se incluyen partidos de torneo, escaladas etc...
 ![partidos](/images/partidos.png)
 
 En este momento, el archivo "/SE-Bigdata-master/windows/v012/bigdata.sqlite" contiene la base de partidos con todos los datos descargados de hattrick.
 Si tienes conocimientos de SQL, puedes verificar su contenido por ejemplo con la aplicación gratuita "DB Browser".
 
-6.- La opción "2" servirà para enviar el archivo ""/SE-Bigdata-master/windows/v012/bigdata.sqlite" al servidor.
+4.- La opción "2" servirà para enviar el archivo ""/SE-Bigdata-master/windows/v012/bigdata.sqlite" al servidor.
 *Es necesario que uny11 te de acceso para completar dicha tarea la primera vez*
 uny11 te confirmara por el foro de la federación BigData que dicha autorización ha sido concedida.
 
 ![Opcion2](/images/envio.png)
 
-7.- La opción "3" mostrara por cada tipo de especialista tus estadisticas personales. Recordad que estos datos son orientativos y no sirven de mucho.
+5.- La opción "3" mostrara por cada tipo de especialista tus estadisticas personales. Recordad que estos datos son orientativos y no sirven de mucho.
 En la federacion se irán colgando los resultados y estudios realizados con los datos de TODOS los usuarios.
 Este apartado es simplemente para que los usuarios sin conocimientos de SQL o estadistica puedan ver sus partidos de forma orientativa.
 
 ![Estadisticas](/images/esta.png)
 
-8.- La opción "4" es para salir de la aplicación.
+6.- La opción "4" es para salir de la aplicación.
 
 
 ### Screenshoot:

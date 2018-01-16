@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['bigdata.py'],
-             pathex=['D:\\Personal\\SE-Bigdata'],
+             pathex=['/home/uny11/PyProjects/SE-Bigdata'],
              binaries=[],
              datas=[],
              hiddenimports=[],
