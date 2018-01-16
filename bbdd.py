@@ -149,13 +149,14 @@ def init_base(baseprincipal, baseauth):
     cur.execute('''
                 CREATE VIEW IF NOT EXISTS alineacion_all_contrarios_tec_cab as
                 select * from ( select *, case	when RoleTeam = 1 then 2 when RoleTeam = 2 then 1 end as RoleContrario,
-                case when Pos > 105 then "E_I_F" else "no" end as PosLetras,
-                case when Pos > 100 and Pos < 110 and Pos <> 106 then "D_I" else "no" end as PosConLetras
+                case when Pos > 105 then "TEC" else "no" end as PosLetras, case when Pos > 100 and Pos < 110 and Pos <> 106 then "TEC" 
+				else "no" end as PosConLetras
                 from alineacion_all) as a
                 left join ( select *, case	when RoleTeam = 1 then 2 when RoleTeam = 2 then 1 end as RoleContrario,
-                case when Pos > 105 then "E_I_F" else "no" end as PosLetras,
-                case when Pos > 100 and Pos < 110 and Pos <> 106 then "D_I" else "no" end as PosConLetras
-                from alineacion_all) as b ON a.MatchID = b.MatchID and a.RoleContrario = b.RoleTeam and a.PosConLetras = b.PosLetras
+                case when Pos > 105 then "TEC" else "no" end as PosLetras,
+                case when Pos > 100 and Pos < 110 and Pos <> 106 then "TEC" else "no" end as PosConLetras
+                from alineacion_all) as b ON a.MatchID = b.MatchID and a.RoleTeam = b.RoleContrario and a.PosLetras = b.PosConLetras
+				where a.Specialty='1'
                 ''')
 
     conn.commit()
