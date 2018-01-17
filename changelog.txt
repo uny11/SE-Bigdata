@@ -7,3 +7,4 @@ Version 0.1.1
 Versión 0.1.2
 15/01/2018
 -Fix envio al servidor, nuevo servidor activo.
+-Fix minor error recogida de datos Tec Vs Cab.
