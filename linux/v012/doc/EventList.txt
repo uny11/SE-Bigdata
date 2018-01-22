@@ -113,37 +113,37 @@
 186;Counter attack goal: indirect free kick;Counter attack goal
 187;Goal long shot;NotDefined
 190;SE: Goal: Powerful normal forward generates extra chance;SE
-200;No reducing goal home team free kick;NotDefined
-201;No reducing goal home team middle;NotDefined
-202;No reducing goal home team left wing;NotDefined
-203;No reducing goal home team right wing;NotDefined
-204;No reducing goal home team penalty kick normal;NotDefined
+200;No reducing goal home team free kick;OcaH
+201;No reducing goal home team middle;OcaH
+202;No reducing goal home team left wing;OcaH
+203;No reducing goal home team right wing;OcaH
+204;No reducing goal home team penalty kick normal;OcaH
 205;SE: No Goal Unpredictable long pass;SE
 206;SE: No Goal Unpredictable almost scores;SE
 207;SE: No Goal longshot;SE
 208;SE: No Goal Unpredictable special action;SE
 209;SE: No Goal Unpredictable mistake;SE
-210;No equalizer goal home team free kick;NotDefined
-211;No equalizer goal home team middle;NotDefined
-212;No equalizer goal home team left wing;NotDefined
-213;No equalizer goal home team right wing;NotDefined
-214;No equalizer goal home team penalty kick normal;NotDefined
+210;No equalizer goal home team free kick;OcaH
+211;No equalizer goal home team middle;OcaH
+212;No equalizer goal home team left wing;OcaH
+213;No equalizer goal home team right wing;OcaH
+214;No equalizer goal home team penalty kick normal;OcaH
 215;SE: Speedy misses after rush;SE
 216;SE: Quick rushes, passes but receiver fails;SE
 217;SE: Tired defender mistake but no goal;SE
 218;SE: No goal: Corner to anyone;SE
 219;SE: No Goal Corner: Head specialist;SE
-220;No goal to take lead home team free kick;NotDefined
-221;No goal to take lead home team middle;NotDefined
-222;No goal to take lead home team left wing;NotDefined
-223;No goal to take lead home team right wing;NotDefined
-224;No goal to take lead home team penalty kick normal;NotDefined
+220;No goal to take lead home team free kick;OcaH
+221;No goal to take lead home team middle;OcaH
+222;No goal to take lead home team left wing;OcaH
+223;No goal to take lead home team right wing;OcaH
+224;No goal to take lead home team penalty kick normal;OcaH
 225;SE: No goal: Unpredictable, own goal almost;SE
-230;No increase goal home team free kick;NotDefined
-231;No increase goal home team middle;NotDefined
-232;No increase goal home team left wing;NotDefined
-233;No increase goal home team right wing;NotDefined
-234;No increase goal home team penalty kick normal;NotDefined
+230;No increase goal home team free kick;OcaH
+231;No increase goal home team middle;OcaH
+232;No increase goal home team left wing;OcaH
+233;No increase goal home team right wing;OcaH
+234;No increase goal home team penalty kick normal;OcaH
 235;SE: Experienced forward fails to score;SE
 236;SE: Inexperienced defender almost causes goal;SE
 237;SE: Winger to someone: No goal;SE
@@ -152,27 +152,27 @@
 241;Counter attack: no goal: middle;Counter attack
 242;Counter attack: no goal: left;Counter attack
 243;Counter attack: no goal: right;Counter attack
-250;No reducing goal away team free kick;NotDefined
-251;No reducing goal away team middle;NotDefined
-252;No reducing goal away team left wing;NotDefined
-253;No reducing goal away team right wing;NotDefined
-254;No reducing goal away team penalty kick normal;NotDefined
-260;No equalizer goal away team free kick;NotDefined
-261;No equalizer goal away team middle;NotDefined
-262;No equalizer goal away team left wing;NotDefined
-263;No equalizer goal away team right wing;NotDefined
-264;No equalizer goal away team penalty kick normal;NotDefined
-270;No goal to take lead away team free kick;NotDefined
-271;No goal to take lead away team middle;NotDefined
-272;No goal to take lead away team left wing;NotDefined
-273;No goal to take lead away team right wing;NotDefined
-274;No goal to take lead away team penalty kick normal;NotDefined
-280;No increase goal away team free kick;NotDefined
-281;No increase goal away team middle;NotDefined
-282;No increase goal away team left wing;NotDefined
-283;No increase goal away team right wing;NotDefined
-284;No increase goal away team penalty kick normal;NotDefined
-285;No goal indirect free kick;NotDefined
+250;No reducing goal away team free kick;OcaA
+251;No reducing goal away team middle;OcaA
+252;No reducing goal away team left wing;OcaA
+253;No reducing goal away team right wing;OcaA
+254;No reducing goal away team penalty kick normal;OcaA
+260;No equalizer goal away team free kick;OcaA
+261;No equalizer goal away team middle;OcaA
+262;No equalizer goal away team left wing;OcaA
+263;No equalizer goal away team right wing;OcaA
+264;No equalizer goal away team penalty kick normal;OcaA
+270;No goal to take lead away team free kick;OcaA
+271;No goal to take lead away team middle;OcaA
+272;No goal to take lead away team left wing;OcaA
+273;No goal to take lead away team right wing;OcaA
+274;No goal to take lead away team penalty kick normal;OcaA
+280;No increase goal away team free kick;OcaA
+281;No increase goal away team middle;OcaA
+282;No increase goal away team left wing;OcaA
+283;No increase goal away team right wing;OcaA
+284;No increase goal away team penalty kick normal;OcaA
+285;No goal indirect free kick;Oca
 286;Counter attack: no goal: indirect free kick;Counter attack
 287;No goal long shot;NotDefined
 288;No goal long shot: defended;No goal long shot
