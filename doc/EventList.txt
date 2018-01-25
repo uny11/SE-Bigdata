@@ -56,7 +56,7 @@
 104;Reducing goal home team penalty kick normal;NotDefined
 105;SE: Goal Unpredictable long pass;SE
 106;SE: Goal Unpredictable scores on his own;SE
-107;SE: Goal longshot;SE
+107;SE: Goal longshot;Oca
 108;SE: Goal Unpredictable special action;SE
 109;SE: Goal Unpredictable mistake;SE
 110;Equalizer goal home team free kick;NotDefined
@@ -120,7 +120,7 @@
 204;No reducing goal home team penalty kick normal;OcaH
 205;SE: No Goal Unpredictable long pass;SE
 206;SE: No Goal Unpredictable almost scores;SE
-207;SE: No Goal longshot;SE
+207;SE: No Goal longshot;Oca
 208;SE: No Goal Unpredictable special action;SE
 209;SE: No Goal Unpredictable mistake;SE
 210;No equalizer goal home team free kick;OcaH
