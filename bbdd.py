@@ -107,6 +107,16 @@ def init_base(baseprincipal, baseauth):
                 (PlayerID INTEGER PRIMARY KEY, Agreeability INTEGER, Aggressiveness INTEGER, Honesty INTEGER, Leadership INTEGER, Specialty INTEGER)
                 ''')
 
+    # tabla Porteros
+    cur.execute('''
+                CREATE TABLE IF NOT EXISTS porteros
+                (MatchID INTEGER, PlayerID INTEGER, Porteria INTEGER,
+                Defensa INTEGER, Jugadas INTEGER, Lateral INTEGER, Pases INTEGER, Anotacion INTEGER, BP INTEGER, XP INTEGER,
+                Forma INTEGER, Resistencia INTEGER, Specialty INTEGER, Loyalty INTEGER, MotherClubBonus TEXT,
+                UNIQUE(MatchID, PlayerID))
+                ''')
+
+
     # tabla SE
     cur.execute('''
                 CREATE TABLE IF NOT EXISTS SE
@@ -641,6 +651,66 @@ def get_habilidades(helper, base, user_key, user_secret, idpartido):
                         ObjPorteria=?, ObjDefensa=?, ObjJugadas=?, ObjLateral=?, ObjPases=?, ObjAnotacion=?, ObjBP=?, ObjXP=?, ObjForma=?, ObjResistencia=?, ObjSpecialty=?, ObjLoyalty=?, ObjMotherClubBonus=?
                         WHERE MatchID = ? AND IndexEv = ?''',(porsub, defsub, jugsub, latsub, passub, anosub, bpsub, xpsub, formsub, ressub, specialtysub, loyalsub, mothersub,
                         porobj, defobj, jugobj, latobj, pasobj, anoobj, bpobj, xpobj, formobj, resobj, specialtyobj, loyalobj, motherobj, idpartido, row[1]))
+
+    conn.commit()
+    cur.close()
+    cur2.close()
+
+
+def get_porteros(helper, base, user_key, user_secret, idpartido):
+
+    conn = sqlite3.connect(base)
+    cur = conn.cursor()
+    cur2 = conn.cursor()
+
+    ListaPorteros = []
+    cur.execute('''SELECT DISTINCT MatchID, RoleID, PlayerID FROM alineacion WHERE RoleID = 100 and MatchID=?''',(idpartido,))
+
+    for row in cur:
+        ListaPorteros.append(row[2])
+
+    for portero in ListaPorteros:
+        xmlSub = helper.request_resource_with_key(     user_key,
+                                                       user_secret,
+                                                       'playerdetails',
+                                                       {
+                                                        'version' : 2.7,
+                                                        'playerID' : portero
+                                                       }
+                                                      )
+        Subplayer = ET.fromstring(xmlSub)
+        try:
+            specialtysub = Subplayer.find('Player/Specialty').text
+            formsub = Subplayer.find('Player/PlayerForm').text
+            loyalsub = Subplayer.find('Player/Loyalty').text
+            mothersub = Subplayer.find('Player/MotherClubBonus').text
+            xpsub = Subplayer.find('Player/Experience').text
+            ressub = Subplayer.find('Player/PlayerSkills/StaminaSkill').text
+            porsub = Subplayer.find('Player/PlayerSkills/KeeperSkill').text
+            defsub = Subplayer.find('Player/PlayerSkills/DefenderSkill').text
+            jugsub = Subplayer.find('Player/PlayerSkills/PlaymakerSkill').text
+            latsub = Subplayer.find('Player/PlayerSkills/WingerSkill').text
+            passub = Subplayer.find('Player/PlayerSkills/PassingSkill').text
+            anosub = Subplayer.find('Player/PlayerSkills/ScorerSkill').text
+            bpsub = Subplayer.find('Player/PlayerSkills/SetPiecesSkill').text
+        except:
+            specialtysub = -99
+            formsub = -99
+            loyalsub = -99
+            mothersub = 'false'
+            xpsub = -99
+            ressub = -99
+            porsub = -99
+            defsub = -99
+            jugsub = -99
+            latsub = -99
+            passub = -99
+            anosub = -99
+            bpsub = -99
+
+        cur2.execute('''INSERT INTO porteros (MatchID, PlayerID, Porteria, Defensa, Jugadas, Lateral, Pases, Anotacion, BP, XP, Forma, Resistencia, Specialty, Loyalty, MotherClubBonus)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''', (idpartido, portero, porsub, defsub, jugsub, latsub, passub, anosub, bpsub, xpsub, formsub, ressub, specialtysub, loyalsub, mothersub))
+
 
     conn.commit()
     cur.close()

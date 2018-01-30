@@ -125,6 +125,31 @@ while True:
 
             num = num + 1
 
+        # Paso2: Recuperamos Porteros
+        conn = sqlite3.connect(basedatos)
+        cur = conn.cursor()
+        cur.execute('SELECT DISTINCT count(a.MatchID) FROM partidos as a LEFT JOIN porteros as b ON a.MatchID=b.MatchID WHERE b.MatchID is null')
+        try:
+            PartidosSinPorteros = cur.fetchone()[0]
+            print(PartidosSinPorteros + ' partidos sin las habilidades de los porteros recuperadas\n')
+        except:
+            None
+        cur.close()
+        cur = conn.cursor()
+        ListaPartidosPorterosFaltantes = []
+        cur.execute('SELECT DISTINCT a.MatchID FROM partidos as a LEFT JOIN porteros as b ON a.MatchID=b.MatchID WHERE b.MatchID is null')
+        for row in cur:
+            ListaPartidosPorterosFaltantes.append(row[0])
+
+        cur.close()
+
+        porterosfaltantes = int(PartidosSinPorteros)*2
+        print('Recuperando las habilidades de los '+Back.WHITE + Fore.BLACK + Style.BRIGHT + str(porterosfaltantes), Style.RESET_ALL+' porteros que faltan en la base de datos.\n')
+
+        for partido in ListaPartidosPorterosFaltantes:
+            bbdd.get_porteros(helper, basedatos, user_key, user_secret, partido)
+
+
         print(Fore.GREEN + 'SE-Bigdata está ahora actualizada!!')
 
         conn = sqlite3.connect(basedatos)
