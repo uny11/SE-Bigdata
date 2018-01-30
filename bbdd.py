@@ -70,6 +70,10 @@ def init_base(baseprincipal, baseauth):
                 (MatchID INTEGER, RoleTeam INTEGER, RoleID INTEGER, PlayerID INTEGER,
                 UNIQUE(MatchID, RoleTeam, RoleID))
                 ''')
+    try:
+        cur.execute('''ALTER TABLE alineacion ADD COLUMN Behaviour INTEGER''')
+    except:
+        None
 
     # tabla tarjetas
     cur.execute('''
@@ -91,6 +95,11 @@ def init_base(baseprincipal, baseauth):
                 (MatchID INTEGER, TeamID INTEGER, SubjectPlayerID INTEGER, ObjectPlayerID INTEGER, NewPositionId INTEGER, MatchMinute INTEGER,
                 UNIQUE(MatchID, TeamID, SubjectPlayerID))
                 ''')
+    try:
+        cur.execute('''ALTER TABLE sustituciones ADD COLUMN NewPositionBehaviour INTEGER''')
+    except:
+        None
+
 
     # tabla jugadores
     cur.execute('''
@@ -149,7 +158,7 @@ def init_base(baseprincipal, baseauth):
     cur.execute('''
                 CREATE VIEW IF NOT EXISTS alineacion_all_contrarios_tec_cab as
                 select * from ( select *, case	when RoleTeam = 1 then 2 when RoleTeam = 2 then 1 end as RoleContrario,
-                case when Pos > 105 then "TEC" else "no" end as PosLetras, case when Pos > 100 and Pos < 110 and Pos <> 106 then "TEC" 
+                case when Pos > 105 then "TEC" else "no" end as PosLetras, case when Pos > 100 and Pos < 110 and Pos <> 106 then "TEC"
 				else "no" end as PosConLetras
                 from alineacion_all) as a
                 left join ( select *, case	when RoleTeam = 1 then 2 when RoleTeam = 2 then 1 end as RoleContrario,
@@ -169,7 +178,7 @@ def new_partidos(helper, base, user_key, user_secret, fecha, team):
     conn = sqlite3.connect(base)
     cur = conn.cursor()
 
-    # Haremos 2 pasadas en lista de aprtidos. En matchesarchives solo hay partidos con Source=Hattrick (no torneos)
+    # Haremos 2 pasadas en lista de partidos. En matchesarchives solo hay partidos con Source=Hattrick (no torneos)
     xmldoc = helper.request_resource_with_key(  user_key,
                                                 user_secret,
                                                 'matchesarchive',
@@ -451,8 +460,12 @@ def get_partido(helper, base, user_key, user_secret, idpartido):
         idplayer = player.find('PlayerID').text
         idrole = player.find('RoleID').text
         try:
-            cur.execute('''INSERT INTO alineacion (MatchID, RoleTeam, RoleID, PlayerID)
-                        VALUES (?, ?, ?, ?)''', (idpartido, teamrole, idrole, idplayer))
+            behaviourplayer = player.find('Behaviour').text
+        except:
+            behaviourplayer = -99
+        try:
+            cur.execute('''INSERT INTO alineacion (MatchID, RoleTeam, RoleID, PlayerID, Behaviour)
+                        VALUES (?, ?, ?, ?, ?)''', (idpartido, teamrole, idrole, idplayer, behaviourplayer))
         except:
             continue
 
@@ -463,8 +476,12 @@ def get_partido(helper, base, user_key, user_secret, idpartido):
         minutematch = sus.find('MatchMinute').text
         posid = sus.find('NewPositionId').text
         try:
-            cur.execute('''INSERT INTO sustituciones (MatchID, TeamID, SubjectPlayerID, ObjectPlayerID, MatchMinute, NewPositionId)
-                        VALUES (?, ?, ?, ?, ?, ?)''', (idpartido, idteam, subplaid, objplaid, minutematch, posid))
+            behaviourplayernew = sus.find('NewPositionBehaviour').text
+        except:
+            behaviourplayernew = -99
+        try:
+            cur.execute('''INSERT INTO sustituciones (MatchID, TeamID, SubjectPlayerID, ObjectPlayerID, MatchMinute, NewPositionId, NewPositionBehaviour)
+                        VALUES (?, ?, ?, ?, ?, ?, ?)''', (idpartido, idteam, subplaid, objplaid, minutematch, posid, behaviourplayernew))
         except:
             continue
 
@@ -487,8 +504,12 @@ def get_partido(helper, base, user_key, user_secret, idpartido):
         idplayer = player.find('PlayerID').text
         idrole = player.find('RoleID').text
         try:
-            cur.execute('''INSERT INTO alineacion (MatchID, RoleTeam, RoleID, PlayerID)
-                        VALUES (?, ?, ?, ?)''', (idpartido, teamrole, idrole, idplayer))
+            behaviourplayer = player.find('Behaviour').text
+        except:
+            behaviourplayer = -99
+        try:
+            cur.execute('''INSERT INTO alineacion (MatchID, RoleTeam, RoleID, PlayerID, Behaviour)
+                        VALUES (?, ?, ?, ?, ?)''', (idpartido, teamrole, idrole, idplayer, behaviourplayer))
         except:
             continue
 
@@ -499,8 +520,12 @@ def get_partido(helper, base, user_key, user_secret, idpartido):
         minutematch = sus.find('MatchMinute').text
         posid = sus.find('NewPositionId').text
         try:
-            cur.execute('''INSERT INTO sustituciones (MatchID, TeamID, SubjectPlayerID, ObjectPlayerID, MatchMinute, NewPositionId)
-                        VALUES (?, ?, ?, ?, ?, ?)''', (idpartido, idteam, subplaid, objplaid, minutematch, posid))
+            behaviourplayernew = sus.find('NewPositionBehaviour').text
+        except:
+            behaviourplayernew = -99
+        try:
+            cur.execute('''INSERT INTO sustituciones (MatchID, TeamID, SubjectPlayerID, ObjectPlayerID, MatchMinute, NewPositionId, NewPositionBehaviour)
+                        VALUES (?, ?, ?, ?, ?, ?, ?)''', (idpartido, idteam, subplaid, objplaid, minutematch, posid, behaviourplayernew))
         except:
             continue
 

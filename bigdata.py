@@ -27,7 +27,7 @@ from colorama import init, Fore, Back, Style
 # print Bienvenida
 init(autoreset=True)
 print('\n')
-print(Fore.GREEN + Back.BLACK + '''SE-BIGDATA v0.0''')
+print(Fore.GREEN + Back.BLACK + '''SE-BIGDATA v1.0.1''')
 print('Copyright (C) 2017, "uny11"\nEste sencillo programa es software libre bajo la licencia GPL-v3')
 print('\n')
 print(Fore.GREEN + 'Bienvenido y Gracias por participar en este estudio!')
@@ -131,6 +131,12 @@ while True:
         cur = conn.cursor()
         cur.execute( 'SELECT max(MatchDate) FROM partidos')
         fechamax = cur.fetchone()[0]
+        cur.close()
+
+        conn = sqlite3.connect(basedatos)
+        cur = conn.cursor()
+        cur.execute('UPDATE eventos SET SubSpecialty=(SELECT Specialty FROM jugadores WHERE PlayerID=eventos.SubjectPlayerID) WHERE SubSpecialty=-99')
+        conn.commit()
         cur.close()
 
     elif opcion == '2':
@@ -551,38 +557,14 @@ while True:
                 conn = sqlite3.connect(basedatos)
                 cur = conn.cursor()
 
-                cur.execute('SELECT count(MatchID) as Partidos_e37 from (select distinct MatchID from alineacion_all where Pos = 106 or Pos = 110)')
-                Partidos_e37 = cur.fetchone()[0]
-                cur.execute('SELECT sum(maxMin) from (select MatchID, max(Minutos) as maxMin from (select * from alineacion_all where Pos = 106 or Pos = 110) group by MatchID)')
-                Minutos_e37 = cur.fetchone()[0]
-                Partidos37_PondMin = Minutos_e37 / 90
-                cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 137')
-                Gols37 = cur.fetchone()[0]
-                cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 237')
-                Fallos37 = cur.fetchone()[0]
-
-                if Partidos37_PondMin == 0:
-                    App = 0.0
-                else:
-                    App = ((Gols37+Fallos37) / Partidos37_PondMin) * 100
-                if Gols37+Fallos37 == 0:
-                    Con = 0.0
-                else:
-                    Con = ((Gols37) / (Gols37+Fallos37)) * 100
-
-                print(Fore.YELLOW + Style.BRIGHT + '\nEv. Individual ID=37: Extremos + Anotación - Extremos')
-                print(Minutos_e37, 'minutos en',Partidos_e37, 'partidos, es decir, en', Fore.GREEN + str("%.2f" % Partidos37_PondMin), 'partidos reales:')
-                print('Un total de',Fore.GREEN + str(Gols37+Fallos37),'eventos. Con', Fore.GREEN + str(Gols37),'goles.')
-                print('Es decir un',Fore.GREEN + str("%.2f" % App),'% de aparicion y un',Fore.GREEN + str("%.2f" % Con),'% de conversion global.\n')
-
-                cur.execute('SELECT count(MatchID) as Partidos_e38 from (select distinct MatchID from alineacion_all where Pos = 106 or Pos = 110)')
+                cur.execute('SELECT count(MatchID) as Partidos_e38 from (select distinct MatchID from alineacion_all where Pos = 106 or Pos = 110 and (Pos > 105 and Specialty=5))')
                 Partidos_e38 = cur.fetchone()[0]
-                cur.execute('SELECT sum(maxMin) from (select MatchID, max(Minutos) as maxMin from (select * from alineacion_all where Pos = 106 or Pos = 110) group by MatchID)')
+                cur.execute('SELECT sum(maxMin) from (select MatchID, max(Minutos) as maxMin from (select * from alineacion_all where Pos = 106 or Pos = 110 and (Pos > 105 and Specialty=5)) group by MatchID)')
                 Minutos_e38 = cur.fetchone()[0]
                 Partidos38_PondMin = Minutos_e38 / 90
-                cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 138')
+                cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 137')
                 Gols38 = cur.fetchone()[0]
-                cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 238')
+                cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 237 and SubSpecialty = 5')
                 Fallos38 = cur.fetchone()[0]
 
                 if Partidos38_PondMin == 0:
@@ -594,10 +576,35 @@ while True:
                 else:
                     Con = ((Gols38) / (Gols38+Fallos38)) * 100
 
-                print(Fore.YELLOW + Style.BRIGHT + '\nEv. Individual ID=38: Extremos + Cabezon - Extremos')
+                print(Fore.YELLOW + Style.BRIGHT + '\nEv. Individual ID=37: Extremos + Cabezon - Extremos')
                 print(Minutos_e38, 'minutos en',Partidos_e38, 'partidos, es decir, en', Fore.GREEN + str("%.2f" % Partidos38_PondMin), 'partidos reales:')
                 print('Un total de',Fore.GREEN + str(Gols38+Fallos38),'eventos. Con', Fore.GREEN + str(Gols38),'goles.')
                 print('Es decir un',Fore.GREEN + str("%.2f" % App),'% de aparicion y un',Fore.GREEN + str("%.2f" % Con),'% de conversion global.\n')
+
+                cur.execute('SELECT count(MatchID) as Partidos_e37 from (select distinct MatchID from alineacion_all where Pos = 106 or Pos = 110)')
+                Partidos_e37 = cur.fetchone()[0]
+                cur.execute('SELECT sum(maxMin) from (select MatchID, max(Minutos) as maxMin from (select * from alineacion_all where Pos = 106 or Pos = 110) group by MatchID)')
+                Minutos_e37 = cur.fetchone()[0]
+                Partidos37_PondMin = Minutos_e37 / 90
+                cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 138')
+                Gols37 = cur.fetchone()[0]
+                cur.execute('SELECT count(EventTypeID) from eventos where EventTypeID = 237 and SubSpecialty <> 5')
+                Fallos37 = cur.fetchone()[0]
+
+                if Partidos37_PondMin == 0:
+                    App = 0.0
+                else:
+                    App = ((Gols37+Fallos37) / Partidos37_PondMin) * 100
+                if Gols37+Fallos37 == 0:
+                    Con = 0.0
+                else:
+                    Con = ((Gols37) / (Gols37+Fallos37)) * 100
+
+                print(Fore.YELLOW + Style.BRIGHT + '\nEv. Individual ID=38: Extremos + Anotación - Extremos')
+                print(Minutos_e37, 'minutos en',Partidos_e37, 'partidos, es decir, en', Fore.GREEN + str("%.2f" % Partidos37_PondMin), 'partidos reales:')
+                print('Un total de',Fore.GREEN + str(Gols37+Fallos37),'eventos. Con', Fore.GREEN + str(Gols37),'goles.')
+                print('Es decir un',Fore.GREEN + str("%.2f" % App),'% de aparicion y un',Fore.GREEN + str("%.2f" % Con),'% de conversion global.\n')
+
 
                 cur.close()
 
