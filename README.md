@@ -27,7 +27,7 @@ Los resultados del estudio se publicarán en la federación "BigData" de Hattric
 Hay que volver a instalar de cero la aplicacion en una nueva carpeta de trabajo *independiente* a la anterior.
 
 Una vez hayas instalado la nueva version, *para evitar descargar todos los partidos otra vez*:
-> copiar el fichero "bigdata.sqlite" de la carpeta anterior ()"../SE-Bigdata-master/windows/v***") a la nueva carpeta de trabajo, que en la version actual es "../SE-Bigdata-master/windows/v101"
+> copiar el fichero "bigdata.sqlite" de la carpeta anterior ("../SE-Bigdata-master/windows/v***") a la nueva carpeta de trabajo, que en la version actual es "../SE-Bigdata-master/windows/v101"
 
 Opcional: Para no tener que volver a dar la auterización CHPP (con el PIN etc..) se puede hacer lo mismo con el fichero "auth.sqlite".
 
