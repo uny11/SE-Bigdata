@@ -6,5 +6,12 @@ Version 0.1.1
 
 Versión 0.1.2
 15/01/2018
--Fix envio al servidor, nuevo servidor activo.
--Fix minor error recogida de datos Tec Vs Cab.
+1.- Fix envio al servidor, nuevo servidor activo.
+2.- Fix minor error recogida de datos Tec Vs Cab.
+
+Versión 1.0.1
+31/01/2018
+1.- Fix reposicionamientos de los jugadores en el campo.
+2.- Añadido a la recogida de datos de www.hattrick.org las habilidades de los porteros en todos los partidos.
+3.- Fix errores de visualización de la opción-3 de los eventos de lateral (37 y 38).
+4.- Pequeñas mejoras en las tablas de la base de datos para mejor integración con el servidor.

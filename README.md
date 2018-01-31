@@ -19,6 +19,13 @@ Los resultados del estudio se publicarán en la federación "BigData" de Hattric
 ### Estado de desarrollo : Terminado!
 > 12/01/2018: La aplicación esta lista para ser usada.
 > 16/01/2018: v0.1.2 lanzada, corregido el fallo de envio al servidor y algun error menor.
+> 31/01/2018: v1.0.1 lanzada, corrigiendo los errores encontrados hasta el momento.
+
+## NOTA IMPORTANTE PARA ACTUALIZAR desde una version anterior
+Hay que volver a instalar de cero la aplicacion en una nueva carpeta de trabajo *independiente* a la anterior.
+Una vez hayas instalado la nueva version, *para evitar descargar todos los partidos otra vez*, copiar el fichero "bigdata.sqlite" de la carpeta anterior ()"../SE-Bigdata-master/windows/v***") a la nueva carpeta de trabajo, que en la version actual es "../SE-Bigdata-master/windows/v101"
+Opcional: Para no tener que volver a dar la auterización CHPP (con el PIN etc..) se puede hacer lo mismo con el fichero "auth.sqlite".
+
 
 
 ## Instalación y Uso de la aplicación
@@ -44,7 +51,7 @@ Para los usuarios con GIT instalado solamente hay que ir a la carpeta donde se q
 
 ### Ejecutar la aplicacion en WINDOWS
 
-1.- Para lanzar la aplicación hay que ir a la subcarpeta /SE-Bigdata-master/windows/v012 (actualmente la ultima versión).
+1.- Para lanzar la aplicación hay que ir a la subcarpeta /SE-Bigdata-master/windows/v101 (actualmente la ultima versión).
 
 2.- Y ejecutar el archivo "bigdata.exe".
 
@@ -53,7 +60,7 @@ Se puede hacer a través del powershell (windows10) o el CMD (windows7) con:
 
 > cd windows
 
-> cd v012
+> cd v101
 
 > .\bigdata.exe
 
@@ -62,14 +69,14 @@ O directamente desde la ventana de archivos con doble-click en el archivo bigdat
 
 ### Ejecutar la aplicacion en LINUX
 
-1.- Para lanzar la aplicación hay que ir a la subcarpeta /SE-Bigdata-master/linux/v012 (actualmente la ultima versión).
+1.- Para lanzar la aplicación hay que ir a la subcarpeta /SE-Bigdata-master/linux/v101 (actualmente la ultima versión).
 
 2.- Y ejecutar el archivo "bigdata". Desde la consola de tu distribucion:
 > cd SE-Bigdata-master
 
 > cd linux
 
-> cd v012
+> cd v101
 
 > ./bigdata
 
@@ -90,13 +97,12 @@ que son aquellos con el nuevo sistema de eventos. Se incluyen partidos de torneo
 En este momento, el archivo "/SE-Bigdata-master/windows/v012/bigdata.sqlite" contiene la base de partidos con todos los datos descargados de hattrick.
 Si tienes conocimientos de SQL, puedes verificar su contenido por ejemplo con la aplicación gratuita "DB Browser".
 
-4.- La opción "2" servirà para enviar el archivo ""/SE-Bigdata-master/windows/v012/bigdata.sqlite" al servidor.
-*Es necesario que uny11 te de acceso para completar dicha tarea la primera vez*
-uny11 te confirmara por el foro de la federación BigData que dicha autorización ha sido concedida.
+4.- La opción "2" servirà para enviar el archivo ""../SE-Bigdata-master/windows/v101/bigdata.sqlite" al servidor.
 
 ![Opcion2](/images/envio.png)
 
-5.- La opción "3" mostrara por cada tipo de especialista tus estadisticas personales. Recordad que estos datos son orientativos y no sirven de mucho.
+5.- La opción "3" mostrara por cada tipo de especialista tus estadisticas personales. Recordad que estos datos son orientativos.
+No se pondera por la cantidad de slots correctos, es decir que no sirven de mucho en los eventos individuales.
 En la federacion se irán colgando los resultados y estudios realizados con los datos de TODOS los usuarios.
 Este apartado es simplemente para que los usuarios sin conocimientos de SQL o estadistica puedan ver sus partidos de forma orientativa.
 
