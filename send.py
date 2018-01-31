@@ -12,13 +12,14 @@ def enviar_datos(fichero, user):
     # Contruimos partes del mensaje
     ahora = datetime.now()
     asunto = str(ahora)+'%'+str(user)
+    nombrebase = 'attachment; filename = "bigdata_'+str(user)+'.sqlite3"'
     texto = 'Aqui va la base de datos! de '+str(user)+' de '+str(ahora)
 
     # Establecemos conexion con el servidor smtp de gmail
     try:
         mailServer = smtplib.SMTP('smtp.gmx.es',587)
     except:
-        print(Fore.RED + Style.BRIGHT+'ERROR INESPERADO! '+'De momento, la base no ha podido ser enviada.\nAsegurate de estar conectado a internet y/o de no usar un proxy (habitual si te conectas en el trabajo).\nSi lo anterior es ok, por favor, avisa a uny11 en el hattrick del problema.\nSGracias de antemano y perdona las molestias')
+        print(Fore.RED + Style.BRIGHT+'ERROR INESPERADO! '+'De momento, la base no ha podido ser enviada.\nAsegurate de estar conectado a internet y/o de no usar un proxy (habitual si te conectas en el trabajo).\nSi lo anterior es ok, por favor, avisa a uny11 en hattrick del problema.\nGracias de antemano y perdona las molestias')
     mailServer.ehlo()
     mailServer.starttls()
     mailServer.ehlo()
@@ -36,7 +37,7 @@ def enviar_datos(fichero, user):
     # adjuntamos fichero
     file = open(fichero,'rb')
     contenido = application.MIMEApplication(file.read())
-    contenido.add_header('Content-Disposition', 'attachment; filename = "bigdata.sqlite"')
+    contenido.add_header('Content-Disposition', nombrebase)
     mensaje.attach(contenido)
 
     # Enviamos el correo, con los campos from y to.
