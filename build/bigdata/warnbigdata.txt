@@ -1,23 +1,20 @@
-missing module named resource - imported by posix, D:\Personal\SE-Bigdata\bigdata.py
-missing module named posix - imported by os, D:\Personal\SE-Bigdata\bigdata.py
-missing module named _posixsubprocess - imported by subprocess, D:\Personal\SE-Bigdata\bigdata.py
-missing module named 'org.python' - imported by pickle, D:\Personal\SE-Bigdata\bigdata.py, xml.sax
-missing module named readline - imported by cmd, code, pdb, D:\Personal\SE-Bigdata\bigdata.py
-excluded module named _frozen_importlib - imported by importlib, importlib.abc, D:\Personal\SE-Bigdata\bigdata.py
-missing module named _frozen_importlib_external - imported by importlib._bootstrap, importlib, importlib.abc, D:\Personal\SE-Bigdata\bigdata.py
-missing module named _winreg - imported by platform, D:\Personal\SE-Bigdata\bigdata.py
+excluded module named _frozen_importlib - imported by importlib, importlib.abc, /home/uny11/PyProjects/SE-Bigdata/bigdata.py
+missing module named _frozen_importlib_external - imported by importlib._bootstrap, importlib, importlib.abc, /home/uny11/PyProjects/SE-Bigdata/bigdata.py
+missing module named _winreg - imported by platform, /home/uny11/PyProjects/SE-Bigdata/bigdata.py
 missing module named _scproxy - imported by urllib.request
-missing module named java - imported by platform, D:\Personal\SE-Bigdata\bigdata.py
-missing module named 'java.lang' - imported by platform, D:\Personal\SE-Bigdata\bigdata.py, xml.sax._exceptions
-missing module named vms_lib - imported by platform, D:\Personal\SE-Bigdata\bigdata.py
-missing module named termios - imported by tty, getpass, D:\Personal\SE-Bigdata\bigdata.py
+missing module named java - imported by platform, /home/uny11/PyProjects/SE-Bigdata/bigdata.py
+missing module named 'java.lang' - imported by platform, /home/uny11/PyProjects/SE-Bigdata/bigdata.py, xml.sax._exceptions
+missing module named vms_lib - imported by platform, /home/uny11/PyProjects/SE-Bigdata/bigdata.py
+missing module named msvcrt - imported by subprocess, getpass, /home/uny11/PyProjects/SE-Bigdata/bigdata.py
+missing module named _winapi - imported by subprocess, /home/uny11/PyProjects/SE-Bigdata/bigdata.py
+missing module named winreg - imported by platform, mimetypes, urllib.request, /home/uny11/PyProjects/SE-Bigdata/bigdata.py
 missing module named urllib.urlencode - imported by urllib, oauth2._compat
 missing module named urllib.unquote - imported by urllib, oauth2._compat
 missing module named urllib.quote - imported by urllib, oauth2._compat
-missing module named grp - imported by shutil, tarfile, D:\Personal\SE-Bigdata\bigdata.py
-missing module named org - imported by copy, D:\Personal\SE-Bigdata\bigdata.py
-missing module named pwd - imported by posixpath, shutil, tarfile, http.server, webbrowser, netrc, getpass, D:\Personal\SE-Bigdata\bigdata.py
-missing module named _dummy_threading - imported by dummy_threading, D:\Personal\SE-Bigdata\bigdata.py
+missing module named _dummy_threading - imported by dummy_threading, /home/uny11/PyProjects/SE-Bigdata/bigdata.py
+missing module named nt - imported by os, shutil, ntpath, /home/uny11/PyProjects/SE-Bigdata/bigdata.py
+missing module named 'org.python' - imported by copy, /home/uny11/PyProjects/SE-Bigdata/bigdata.py, xml.sax
+missing module named org - imported by pickle, /home/uny11/PyProjects/SE-Bigdata/bigdata.py
 missing module named pyutil - imported by oauth2._version
 missing module named urlparse - imported by oauth2._compat
 missing module named socks - imported by httplib2
