@@ -18,7 +18,9 @@ Los resultados del estudio se publicarán en la federación "BigData" de Hattric
 
 ### Estado de desarrollo : Terminado!
 > 12/01/2018: La aplicación esta lista para ser usada.
+
 > 16/01/2018: v0.1.2 lanzada, corregido el fallo de envio al servidor y algun error menor.
+
 > 31/01/2018: v1.0.1 lanzada, corrigiendo los errores encontrados hasta el momento.
 
 ## NOTA IMPORTANTE PARA ACTUALIZAR desde una version anterior
