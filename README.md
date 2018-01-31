@@ -21,11 +21,14 @@ Los resultados del estudio se publicarán en la federación "BigData" de Hattric
 
 > 16/01/2018: v0.1.2 lanzada, corregido el fallo de envio al servidor y algun error menor.
 
-> 31/01/2018: v1.0.1 lanzada, corrigiendo los errores encontrados hasta el momento.
+> 31/01/2018: v1.0.1 lanzada, añadiendo reposicionamientos, habilidades de los porteros y fix errores menores.
 
 ## NOTA IMPORTANTE PARA ACTUALIZAR desde una version anterior
 Hay que volver a instalar de cero la aplicacion en una nueva carpeta de trabajo *independiente* a la anterior.
-Una vez hayas instalado la nueva version, *para evitar descargar todos los partidos otra vez*, copiar el fichero "bigdata.sqlite" de la carpeta anterior ()"../SE-Bigdata-master/windows/v***") a la nueva carpeta de trabajo, que en la version actual es "../SE-Bigdata-master/windows/v101"
+
+Una vez hayas instalado la nueva version, *para evitar descargar todos los partidos otra vez*:
+> copiar el fichero "bigdata.sqlite" de la carpeta anterior ()"../SE-Bigdata-master/windows/v***") a la nueva carpeta de trabajo, que en la version actual es "../SE-Bigdata-master/windows/v101"
+
 Opcional: Para no tener que volver a dar la auterización CHPP (con el PIN etc..) se puede hacer lo mismo con el fichero "auth.sqlite".
 
 
