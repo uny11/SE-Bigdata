@@ -16,12 +16,15 @@ Al mismo tiempo el programa permite enviar los datos al servidor para enriquecer
 Los resultados del estudio se publicarán en la federación "BigData" de Hattrick.
 
 
-### Estado de desarrollo : Terminado!
+### Estado de desarrollo v1: Terminado!
 > 12/01/2018: La aplicación esta lista para ser usada.
 
 > 16/01/2018: v0.1.2 lanzada, corregido el fallo de envio al servidor y algun error menor.
 
 > 31/01/2018: v1.0.1 lanzada, añadiendo reposicionamientos, habilidades de los porteros y fix errores menores.
+
+### Estado de desarrollo v2: En curso!
+> 17/02/2023: Empezamos a trabajar en la v2, enfocada a recolectar datos de tu equipo en los EE y analisis de tus rivales.
 
 ## NOTA IMPORTANTE PARA ACTUALIZAR desde una version anterior
 Hay que volver a instalar de cero la aplicacion en una nueva carpeta de trabajo *independiente* a la anterior.
